@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Modules;
 
 use App\Http\Controllers\Controller;
+use App\Mail\QuoteFinalized;
 use App\Mail\QuoteReceived;
 use App\Mail\QuoteReceivedAdmin;
 use App\Models\Car;
@@ -117,7 +118,6 @@ class RequestController extends Controller
 
     // ----- Details --------------------------------
     public function showQuote($id){
-        
         $q = Consignment::with(['user','cars'])->where('id', $id)->first();
         return view("modules.requests.quote_details",[
             "q"=> $q
@@ -131,10 +131,31 @@ class RequestController extends Controller
         ]);
     }
     public function showContact($id){
-        
         $c = ContactInquiry::where('id', $id)->first();
         return view("modules.requests.inquiry_details",[
             "c"=> $c
         ]);
+    }
+
+    public function replySend(Request $request){
+    
+        try {
+            $total = 0;
+            foreach ($request->toArray()['car_id'] as $key => $car) {
+                $total += (float)$request->toArray()['car_cost'][$key];
+                Car::where('id', $car)->update(['cost'=> $request->toArray()['car_cost'][$key]]);
+            }
+            Consignment::where('id', $request->toArray()['consignment_id'])->update(['price'=> $total]);
+
+            $quote = Consignment::with(['user','cars'])->where('id', $request->toArray()['consignment_id'])->first();
+            // Email User
+            Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
+            $adminEmail = 'nyeleti.bremah@gmail.com'; // Replace with the admin's email
+            Mail::to($adminEmail)->send(new QuoteFinalized($quote));
+            return response()->json(['message' => 'Quote submission is complete and successful']);
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+
     }
 }

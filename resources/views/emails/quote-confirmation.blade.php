@@ -58,8 +58,8 @@
 <body>
   <div class="container">
     <div class="header">
-      <img class="logo" src="company_logo.png" alt="Company Logo">
-      <h1>Hello {{ $quote->user->name }},</h1>
+      <img class="logo" src="https://luytech.greenwebbtech.com/public/web/assets/images/logo/logo-dark.png" alt="Company Logo">
+      <h1>Hello {{ $quote->user->fname.' '.$quote->user->lname  }},</h1>
       <p>We have received your quote. Thank you for your submission!</p>
 
       <p>Details of your quote:</p>
@@ -73,7 +73,7 @@
         </tr>
         <tr>
           <th>User</th>
-          <td>{{ $quote->user->name }}</td>
+          <td>{{ $quote->user->fname.' '.$quote->user->lname }}</td>
         </tr>
         <tr>
           <th>User Email</th>
@@ -85,7 +85,7 @@
         </tr>
         <tr>
           <th>Consignment Type</th>
-          <td>{{ $quote->type }}</td>
+          <td>{{ $quote->consignment_type }}</td>
         </tr>
       </table>
 

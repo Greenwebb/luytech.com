@@ -67,8 +67,9 @@ Route::get('/package-track', function () {
     
 Route::get('/quote-details/{id}', [RequestController::class, 'showQuote'])->name('quote.show');
 Route::get('/quote-reply/{id}', [RequestController::class, 'replyQuote'])->name('quote.reply');
+Route::post('/quote-send-reply', [RequestController::class, 'replySend'])->name('reply.send');
 Route::get('/contact-details/{id}', [RequestController::class, 'showContact'])->name('contact.show');
-    
+
 // });
 
 

@@ -44,13 +44,14 @@
       text-transform: capitalize;
     }
     th {
-      background-color: #f7f7f7;
+      background-color: #F9810A;
+      color: #fff;
       font-weight: 700;
     }
     .thank-you {
       text-align: center;
       margin-top: 20px;
-      color: #888;
+      color: #344e97;
     }
   </style>
 </head>
@@ -58,8 +59,10 @@
   <div class="container">
     <div class="header">
       <img class="logo" src="https://luytech.greenwebbtech.com/public/web/assets/images/logo/logo-dark.png" alt="Company Logo">
-      <h1>Hello Admin,</h1>
-      <p>A new quote has been received.</p>
+      <h1>Hello {{ $quote->user->fname.' '.$quote->user->lname  }},</h1>
+      <p>Your quote for the requested service is ready and awaiting your review, valued customer</p>
+
+      <p>Details of your quote:</p>
     </div>
 
     <div class="content">
@@ -76,9 +79,10 @@
           <th>User Email</th>
           <td>{{ $quote->user->email }}</td>
         </tr>
+        
         <tr>
-          <th>Quote Details</th>
-          <td>{{ $quote->message }}</td>
+          <th>Consignment Type</th>
+          <td>{{ $quote->consignment_type }}</td>
         </tr>
       </table>
 
@@ -89,6 +93,7 @@
           <th>Fuel</th>
           <th>Transmission</th>
           <th>Car Year</th>
+          <th>Total</th>
         </tr>
         @forelse ($quote->cars as $car)
         <tr>
@@ -97,9 +102,19 @@
           <td>{{ $car->fuel }}</td>
           <td>{{ $car->transmission }}</td>
           <td>{{ $car->car_year }}</td>
+          <td>{{ $car->cost }}</td>
         </tr>
         @empty
         @endforelse
+        
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          <td>{{ $quote->cars->sum('cost') }}</td>
+        </tr>
       </table>
     </div>
 
@@ -109,3 +124,4 @@
   </div>
 </body>
 </html>
+

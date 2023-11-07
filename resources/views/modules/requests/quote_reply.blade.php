@@ -41,122 +41,40 @@
                                                 <div class="tab-pane fade show active" id="v-border-pills-general" role="tabpanel" aria-labelledby="v-border-pills-general-tab">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-lg-12 col-md-12 mt-md-0 mt-4">
-                                                            <div class="form">
+                                                            <div id="preloader" style="display: none;">
+                                                                Preloader or Loading Animation...
+                                                            </div>
+                                                            <form method="POST" action="{{route('reply.send')}}" class="form"  id="replyForm">
+                                                                @csrf
+                                                                
+                                                                <h6>{{__('CUSTOMER INFORMATION')}}</h6>
                                                                 <div class="row ">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label for="fullName">{{__('Full Name')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{__('Full Name')}}" value="{{__('Sara Williamson')}}">
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$q->user->fname.' '.$q->user->lname}}" value="{{$q->user->fname.' '.$q->user->lname}}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
-                                                                        <label class="dob-input spl-left">{{__('Date of Birth')}}</label>
-                                                                        <div class="d-sm-flex d-block">
-                                                                            <div class="form-group mr-1">
-                                                                                <select class="form-control" >
-                                                                                    <option>{{__('Day')}}</option>
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                    <option>4</option>
-                                                                                    <option>5</option>
-                                                                                    <option>6</option>
-                                                                                    <option>7</option>
-                                                                                    <option>8</option>
-                                                                                    <option>9</option>
-                                                                                    <option>10</option>
-                                                                                    <option selected>11</option>
-                                                                                    <option>12</option>
-                                                                                    <option>13</option>
-                                                                                    <option>14</option>
-                                                                                    <option>15</option>
-                                                                                    <option>16</option>
-                                                                                    <option>17</option>
-                                                                                    <option>18</option>
-                                                                                    <option>19</option>
-                                                                                    <option>20</option>
-                                                                                    <option>21</option>
-                                                                                    <option>22</option>
-                                                                                    <option>23</option>
-                                                                                    <option>24</option>
-                                                                                    <option>25</option>
-                                                                                    <option>26</option>
-                                                                                    <option>27</option>
-                                                                                    <option>28</option>
-                                                                                    <option>29</option>
-                                                                                    <option>30</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group mr-1">
-                                                                                <select class="form-control">
-                                                                                    <option>{{__('Month')}}</option>
-                                                                                    <option>{{__('Jan')}}</option>
-                                                                                    <option>{{__('Feb')}}</option>
-                                                                                    <option>{{__('Mar')}}</option>
-                                                                                    <option>{{__('Apr')}}</option>
-                                                                                    <option>{{__('May')}}</option>
-                                                                                    <option>{{__('Jun')}}</option>
-                                                                                    <option>{{__('Jul')}}</option>
-                                                                                    <option>{{__('Aug')}}</option>
-                                                                                    <option selected>{{__('Sep')}}</option>
-                                                                                    <option>{{__('Oct')}}</option>
-                                                                                    <option>{{__('Nov')}}</option>
-                                                                                    <option>{{__('Dec')}}</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="form-group mr-1">
-                                                                                <select class="form-control">
-                                                                                    <option>{{__('Year')}}</option>
-                                                                                    <option>2018</option>
-                                                                                    <option>2017</option>
-                                                                                    <option>2016</option>
-                                                                                    <option>2015</option>
-                                                                                    <option>2014</option>
-                                                                                    <option>2013</option>
-                                                                                    <option>2012</option>
-                                                                                    <option>2011</option>
-                                                                                    <option>2010</option>
-                                                                                    <option>2009</option>
-                                                                                    <option>2008</option>
-                                                                                    <option>2007</option>
-                                                                                    <option>2006</option>
-                                                                                    <option>2005</option>
-                                                                                    <option>2004</option>
-                                                                                    <option>2003</option>
-                                                                                    <option>2002</option>
-                                                                                    <option>2001</option>
-                                                                                    <option>2000</option>
-                                                                                    <option>1999</option>
-                                                                                    <option>1998</option>
-                                                                                    <option>1997</option>
-                                                                                    <option>1996</option>
-                                                                                    <option>1995</option>
-                                                                                    <option>1994</option>
-                                                                                    <option>1993</option>
-                                                                                    <option selected>1992</option>
-                                                                                    <option>1991</option>
-                                                                                    <option>1990</option>
-                                                                                    <option>1989</option>
-                                                                                    <option>1988</option>
-                                                                                    <option>1987</option>
-                                                                                    <option>1986</option>
-                                                                                    <option>1985</option>
-                                                                                    <option>1984</option>
-                                                                                    <option>1983</option>
-                                                                                    <option>1982</option>
-                                                                                    <option>1981</option>
-                                                                                    <option>1980</option>
-                                                                                </select>
-                                                                            </div>
+                                                                        <div class="form-group">
+                                                                            <label for="fullName">{{__('Phone')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$q->user->phone}}" value="{{$q->user->phone}}">
                                                                         </div>
                                                                     </div>
+                                                                    
                                                                 </div>
-
+                                                                <br>
+                                                                <h6>{{__('VEHICLE INFORMATION')}}</h6>
+                                                                <hr>
+                                                                
+                                                                <input type="hidden" name="consignment_id" value="{{$q->id}}">
                                                                 @forelse ($q->cars as $c)
                                                                     
-                                                                <div class="row">
+                                                                <div style="padding: 2%; gap:2px" class="row">
+                                                                    <input type="hidden" name="car_id[]" value="{{$c->id}}">
                                                                     <div class="form-group">
                                                                         <label for="profession">{{__('Car Make')}}</label>
+
                                                                         <input type="text" class="form-control mb-4" placeholder="{{$c->car_make}}" value="{{$c->car_make}}">
                                                                     </div>
                                                                     <div class="form-group">
@@ -173,13 +91,15 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="profession">{{__('Total')}}</label>
-                                                                        <input type="text" class="form-control mb-4" placeholder="{{$c->transmission}}" value="{{$c->transmission}}">
+                                                                        <input type="text" class="form-control mb-4" name="car_cost[]" placeholder="" value="">
                                                                     </div>
                                                                 </div>
                                                                 @empty
                                                                     
                                                                 @endforelse
-                                                            </div>
+                                                                
+                                                                <button class="btn btn-primary">{{__('Send Quote')}}</button>
+                                                            </form>
                                                             {{-- <div class="col-xl-3 col-lg-12 col-md-12">
                                                                 <div class="upload text-center img-thumbnail">
                                                                     <input type="file" id="input-file-max-fs" class="dropify" data-default-file="{{ url('assets/img/profile-1.jpg') }}" data-max-file-size="2M" />
@@ -620,7 +540,46 @@
     </div>
     <!-- Main Body Ends -->
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('replyForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
 
+            // Show the preloader while processing
+            document.getElementById('preloader').style.display = 'block';
+            
+            // Get the form data
+            const formData = new FormData(this);
+
+            // Send an Ajax request to the server
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Process the response or handle success
+                    // For instance, you can redirect or display a success message
+
+                    // Hide the preloader after successful processing
+                    document.getElementById('preloader').style.display = 'none';
+                } else {
+                    // Handle errors or failed submission
+                    // You can display an error message or handle it accordingly
+
+                    // Hide the preloader on error as well
+                    document.getElementById('preloader').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+
+                // Hide the preloader on error
+                document.getElementById('preloader').style.display = 'none';
+            });
+        });
+    });
+</script>
 @push('plugin-scripts')
     {!! Html::script('public/assets/js/loader.js') !!}
     {!! Html::script('public/plugins/dropify/dropify.min.js') !!}

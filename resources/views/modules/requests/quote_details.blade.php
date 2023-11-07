@@ -109,7 +109,7 @@
                                                 <td>{{$car->fuel}}</td>
                                                 <td>{{$car->transmission}}</td>
                                                 <td>{{$car->car_year}}</td>
-                                                <td>{{0}}</td>
+                                                <td>{{$car->cost ?? 0}}</td>
                                             </tr>
                                             @empty
                                             @endforelse
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="card-box order-details-box">
                                     <h5 class="header-title mb-3">{{__('Shipping Information')}}</h5>
                                     <h6 class="font-family-primary font-weight-semibold">{{__('Nick Johnson')}}</h6>
@@ -154,7 +154,7 @@
                                         <p class="mb-0 font-13"><span class="font-weight-semibold">{{__('Payment Mode :')}}</span> {{__('Card')}}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
