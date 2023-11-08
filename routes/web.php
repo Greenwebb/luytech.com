@@ -13,6 +13,7 @@
 |
 */
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Modules\RequestController;
 
 
@@ -61,9 +62,7 @@ Route::get('/package-track', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard.dashboard1');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     Route::get('/quote-details/{id}', [RequestController::class, 'showQuote'])->name('quote.show');
     Route::get('/quote-reply/{id}', [RequestController::class, 'replyQuote'])->name('quote.reply');

@@ -39,7 +39,7 @@ Servicesi">
                                     <p class="slide__desc">Import your desired vehicle today at unbeatable prices. Your
                                         dream ride is just a click away.</p>
                                     <a href="{{ route('services') }}" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                                    <a href={{ route('about') }} class="btn btn__white">About Us</a>
+                                    <a href="{{ route('about') }}" class="btn btn__white">About Us</a>
                                 </div><!-- /.slide-content -->
                             </div><!-- /.col-lg-8 -->
                         </div><!-- /.row -->
@@ -54,7 +54,7 @@ Servicesi">
                                     <h2 class="slide__title">Drive Now, Pay Comfortably!</h2>
                                     <p class="slide__desc">Start your journey with just a 35% deposit of the total
                                         landing cost. Embrace the road ahead.</p>
-                                    <a href={{ route('about') }} class="btn btn__white mr-30">About Us</a>
+                                    <a href="{{ route('about') }}" class="btn btn__white mr-30">About Us</a>
                                     <a href="{{ route('services') }}" class="btn btn__primary btn__hover2">Our Services</a>
                                 </div><!-- /.slide-content -->
                             </div><!-- /.col-lg-8 -->
@@ -71,7 +71,7 @@ Servicesi">
                                     <p class="slide__desc">Diverse and flexible payment plans ranging from 6 to 24
                                         months, tailored to fit your budget.</p>
                                     <a href="{{ route('services') }}" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                                    <a href={{ route('about') }} class="btn btn__white">About Us</a>
+                                    <a href="{{ route('about') }}" class="btn btn__white">About Us</a>
                                 </div><!-- /.slide-content -->
                             </div><!-- /.col-lg-8 -->
                         </div><!-- /.row -->
@@ -103,13 +103,13 @@ Servicesi">
                                     <p class="slide__desc">We ensure the safe transportation of your vehicles,
                                         prioritizing punctuality and precision.</p>
                                     <a href="{{ route('services') }}" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                                    <a href={{ route('about') }} class="btn btn__white">About Us</a>
+                                    <a href="{{ route('about') }}" class="btn btn__white">About Us</a>
                                 </div><!-- /.slide-content -->
                             </div><!-- /.col-lg-8 -->
                         </div><!-- /.row -->
                     </div><!-- /.container -->
                 </div><!-- /.slide-item -->
-                <div class="slide-item align-v-h bg-overlay">
+                <!-- <div class="slide-item align-v-h bg-overlay">
                     <div class="bg-img"><img src="assets/images/sliders/3.jpg" alt="slide img"></div>
                     <div class="container">
                         <div class="row">
@@ -121,11 +121,11 @@ Servicesi">
                                         advantages to some of the largest companies allover the world.</p>
                                     <a href="#requestQuoteTabs" class="btn btn__white mr-30">Get Started</a>
                                     <a href="{{ route('services') }}" class="btn btn__primary btn__hover2">Our Services</a>
-                                </div><!-- /.slide-content -->
-                            </div><!-- /.col-lg-8 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.container -->
-                </div><!-- /.slide-item -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
             </div><!-- /.carousel -->
             <!-- /.container -->
         </section><!-- /.slider -->

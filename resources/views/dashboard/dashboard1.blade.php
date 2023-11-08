@@ -25,10 +25,10 @@
                             <div class="col-md-12">
                                 <div class="text-white">
                                     <h5 class="text-white"> {{ __('Pending Requests') }}</h5>
-                                    <p class="blink_me text-white mt-1"> 10 Clients are wating for your prompt response</p>
+                                    <p class="blink_me text-white mt-1"> {{ $awaiting }} Clients are wating for your prompt response</p>
                                     <ul class="pl-3 mb-0">
-                                        <li class="py-1"> {{ __('2 Personal') }}</li>
-                                        <li class="py-1"> {{ __('8 Companies') }}</li>
+                                        <li class="py-1"> {{ $p.' Personal' }}</li>
+                                        <li class="py-1"> {{ $b.' Companies' }}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -48,16 +48,16 @@
                                                 <i class="las la-shopping-cart"></i>
                                             </span>
                                 </div>
-                                <h5 class="font-size-14 mb-0"> {{ __('Orders') }}</h5>
+                                <h5 class="font-size-14 mb-0"> {{ __('Quotes') }}</h5>
                             </div>
                             <div class="text-muted mt-3">
-                                <h5 class="mb-2"> {{ __('14') }}
-                                    <i class="las la-angle-up text-success-teal"></i>
+                                <h5 class="mb-2"> {{ $quotes }}
+                                    {{-- <i class="las la-angle-up text-success-teal"></i> --}}
                                 </h5>
-                                <div class="d-flex">
+                                {{-- <div class="d-flex">
                                     <span class="badge badge-success-teal font-size-12"> {{ __('+ 0.2%') }} </span>
                                     <span class="ml-2 text-truncate"> {{ __('From last month') }}</span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -72,12 +72,12 @@
                                 <h5 class="font-size-14 mb-0"> {{ __('Deliveries') }}</h5>
                             </div>
                             <div class="text-muted mt-3">
-                                <h5 class="mb-2"> {{ __('60') }} <p>                                  
+                                <h5 class="mb-2"> {{ 0 }} <p>                                  
                                 </h5>
-                                <div class="d-flex">
+                                {{-- <div class="d-flex">
                                     <span class="badge badge-danger font-size-12"> {{ __('- 5.4%') }} </span>
                                     <span class="ml-2 text-truncate"> {{ __('From last month') }}</span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -92,13 +92,13 @@
                                 <h5 class="font-size-14 mb-0"> {{ __('Customers') }}</h5>
                             </div>
                             <div class="text-muted mt-3">
-                                <h5 class="mb-2"> {{ __('97') }}
-                                    <i class="las la-angle-up text-success-teal"></i>
+                                <h5 class="mb-2"> {{ $users }}
+                                    {{-- <i class="las la-angle-up text-success-teal"></i> --}}
                                 </h5>
-                                <div class="d-flex">
+                                {{-- <div class="d-flex">
                                     <span class="badge badge-success-teal font-size-12"> {{ __('+ 25%') }} </span>
                                     <span class="ml-2 text-truncate"> {{ __('From last month') }}</span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -110,13 +110,13 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="media">
-                                    <div class="mr-3">
+                                    {{-- <div class="mr-3">
                                         <img src="{{asset('assets/img/profile-1.jpg')}}" alt="" class="avatar-md rounded-circle img-thumbnail">
-                                    </div>
+                                    </div> --}}
                                     <div class="align-self-center media-body">
                                         <div class="text-muted">
                                             <p class="mb-2 text-primary"> {{ __('Welcome to your dashboard') }}</p>
-                                            <h5 class="mb-1"> {{ __('Hello, Paul') }}</h5>
+                                            <h5 class="mb-1"> {{ __('Hello, Admin') }}</h5>
                                             <p class="mb-0"> {{ __('System Admin') }}, <p class="current-date">
                                                 <span id="currentDate"></span>
                                             </p></p>
@@ -130,26 +130,26 @@
                                     <div class="row">
                                         <div class="col-3">
                                             <div>
-                                                <p class="text-muted text-truncate mb-2"> {{ __('Projects') }}</p>
-                                                <h5 class="mb-0"> {{ __('48') }}</h5>
+                                                <p class="text-muted text-truncate mb-2"> {{ __('Pending') }}</p>
+                                                <h5 class="mb-0"> {{ $awaiting }}</h5>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div>
-                                                <p class="text-muted text-truncate mb-2"> {{ __('Team') }}</p>
-                                                <h5 class="mb-0"> {{ __('40') }}</h5>
+                                                <p class="text-muted text-truncate mb-2"> {{ __('Replied') }}</p>
+                                                <h5 class="mb-0"> {{$replied }}</h5>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div>
-                                                <p class="text-muted text-truncate mb-2"> {{ __('Clients') }}</p>
-                                                <h5 class="mb-0"> {{ __('18') }}</h5>
+                                                <p class="text-muted text-truncate mb-2"> {{ __('Shipping') }}</p>
+                                                <h5 class="mb-0"> {{ $shipping }}</h5>
                                             </div>
                                         </div>
                                         <div class="col-3">
                                             <div>
-                                                <p class="text-muted text-truncate mb-2"> {{ __('Agents') }}</p>
-                                                <h5 class="mb-0"> {{ __('98') }}</h5>
+                                                <p class="text-muted text-truncate mb-2"> {{ __('Contacts') }}</p>
+                                                <h5 class="mb-0"> {{ $contacts }}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -167,7 +167,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+            {{-- <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
                 <div class="widget dashboard-table">
                     <div class="widget-heading">
                         <h5 class=""> {{__('Payout History')}}</h5>
@@ -244,8 +244,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+            </div> --}}
+            {{-- <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
                 <div class="widget dashboard-table">
                     <div class="widget-heading">
                         <h5 class=""> {{__('Seller Targets')}}</h5>
@@ -333,9 +333,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- 4 COLUMNS END-->
-            <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 layout-spacing">
+            {{-- <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 layout-spacing">
                 <div class="widget quick-category bg-blue p-3">
                     <div class="quick-category-head">
                                 <span class="quick-category-icon text-blue bg-white">
@@ -372,9 +372,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             
-            <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 layout-spacing">
+            {{-- <div class="col-xl-5 col-lg-12 col-md-12 col-sm-12 layout-spacing">
                 <div class="widget widget-chart-one">
                     <div class="widget-heading">
                         <h5>{{__('Network Information')}}</h5>
@@ -392,8 +392,8 @@
                         <a href="javascript:void(0)" class="text-blue strong pt-3">{{__('View Full History')}}</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 layout-spacing">
+            </div> --}}
+            {{-- <div class="col-xl-2 col-lg-12 col-md-12 col-sm-12 layout-spacing">
                 <div class="widget quick-category bg-orange p-3">
                     <div class="quick-category-head">
                                 <span class="quick-category-icon text-orange bg-white">
@@ -430,8 +430,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 layout-spacing">
+            </div> --}}
+            {{-- <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 layout-spacing">
                 <div class="widget pb-1">
                     <div class="quick-category-head">
                                 <span class="quick-category-icon text-white bg-info">
@@ -450,8 +450,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 layout-spacing">
+            </div> --}}
+            {{-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 layout-spacing">
                 <div class="widget widget-chart-one">
                     <div class="widget-heading">
                         <h5>{{__('Current Projects')}}</h5>
@@ -543,7 +543,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             
         </div>
     </div>
