@@ -105,7 +105,7 @@ class RequestController extends Controller
             // Email User
             Mail::to($user->email)->send(new QuoteReceived($quote));
             // Email Administrator
-            $adminEmail = 'nyeleti.bremah@gmail.com'; // Replace with the admin's email
+            $adminEmail = 'georgemunganga@gmail.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteReceivedAdmin($quote));
 
             return response()->json(['message' => 'Quote submission is complete and successful, We will get back to you shortly!']);
@@ -160,7 +160,7 @@ class RequestController extends Controller
             // Send Email to Users
             $quote = Consignment::with(['user','cars'])->where('id', $request->toArray()['consignment_id'])->first();
             Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
-            $adminEmail = 'nyeleti.bremah@gmail.com'; // Replace with the admin's email
+            $adminEmail = 'georgemunganga@gmail.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteFinalized($quote));
             return response()->json(['message' => 'Quote submission is complete and successful']);
         } catch (\Throwable $th) {
