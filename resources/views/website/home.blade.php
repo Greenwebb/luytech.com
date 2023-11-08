@@ -109,23 +109,7 @@ Servicesi">
                         </div><!-- /.row -->
                     </div><!-- /.container -->
                 </div><!-- /.slide-item -->
-                <div class="slide-item align-v-h bg-overlay">
-                    <div class="bg-img"><img src="assets/images/sliders/3.jpg" alt="slide img"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 col-lg-8">
-                                <div class="slide__content">
-                                    <h2 class="slide__title">Solutions that meet your needs </h2>
-                                    <p class="slide__desc">Through integrated supply chain solutions, our drives
-                                        sustainable competitive
-                                        advantages to some of the largest companies allover the world.</p>
-                                    <a href="#requestQuoteTabs" class="btn btn__white mr-30">Get Started</a>
-                                    <a href="{{ route('services') }}" class="btn btn__primary btn__hover2">Our Services</a>
-                                </div><!-- /.slide-content -->
-                            </div><!-- /.col-lg-8 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.container -->
-                </div><!-- /.slide-item -->
+                
             </div><!-- /.carousel -->
             <!-- /.container -->
         </section><!-- /.slider -->
