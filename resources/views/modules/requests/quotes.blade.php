@@ -22,14 +22,14 @@
                 </li>
                 <li style="display: none;"><span id="currentDate"></span></li>
             </ul>
-            <ul class="navbar-nav d-flex align-center ml-auto right-side-filter">
+            {{-- <ul class="navbar-nav d-flex align-center ml-auto right-side-filter">
                 <li class="nav-item more-dropdown">
                     <button class="premium-btn">
                         <i class="las la-star"></i>
                         <span>{{__('Premium')}}</span>
                     </button>
                 </li>
-            </ul>
+            </ul> --}}
         </header>
     </div>
     <!--  Navbar Ends / Breadcrumb Area  -->
@@ -66,9 +66,30 @@
                                             @foreach ($quotes as $q)
                                             <tr>
                                                 <td>{{ $q->user->fname.' '.$q->user->lname }}</td>
-                                                <td>{{ $q->consignment_type }}</td>
+                                                <td class="capitalize">{{ ucwords($q->consignment_type) }}</td>
                                                 <td>{{ $q->user->phone }}</td>
-                                                <td>{{ $q->num_of_vehicles.' Cars' }}</td>
+                                                <td>
+                                                    {{ $q->num_of_vehicles.' Cars' }}
+                                                    @if ($q->status !== 2)
+                                                        @switch($q->current_state)
+                                                            @case(1)
+                                                                <span class="badge badge-warning">Pending</span>
+                                                            @break
+                                                            @case(2)
+                                                                <span class="badge badge-success">Quoted</span>
+                                                            @break
+                                                            @case(3)
+                                                                <span class="badge badge-secondary">Shipping</span>
+                                                            @break
+                                                            @case(4)
+                                                                <span class="badge badge-info">Delivered</span>
+                                                            @break
+                                                            @default
+                                                        @endswitch
+                                                    @else
+                                                        <span class="badge badge-default">Cancelled</span>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $q->created_at->toFormattedDateString() }}</td>
                                                 <td>ZMW {{ $q->price + $q->service_price + $q->other_price  }}</td>
                                                 <td class="text-center">
@@ -79,8 +100,8 @@
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style="will-change: transform;">
                                                             <a class="dropdown-item" href="{{ route('quote.reply', $q->id) }}">{{__('Reply')}}</a>
                                                             <a class="dropdown-item" href="{{ route('quote.show', $q->id) }}">{{__('View')}}</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">{{__('Edit')}}</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">{{__('Delete')}}</a>
+                                                            {{-- <a class="dropdown-item" href="javascript:void(0);">{{__('Edit')}}</a>
+                                                            <a class="dropdown-item" href="javascript:void(0);">{{__('Delete')}}</a> --}}
                                                         </div>
                                                     </div>
                                                 </td>

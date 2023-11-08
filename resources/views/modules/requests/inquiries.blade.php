@@ -22,14 +22,14 @@
                 </li>
                 <li style="display: none;"><span id="currentDate"></span></li>
             </ul>
-            <ul class="navbar-nav d-flex align-center ml-auto right-side-filter">
+            {{-- <ul class="navbar-nav d-flex align-center ml-auto right-side-filter">
                 <li class="nav-item more-dropdown">
                     <button class="premium-btn">
                         <i class="las la-star"></i>
                         <span>{{__('Premium')}}</span>
                     </button>
                 </li>
-            </ul>
+            </ul> --}}
         </header>
     </div>
     <!--  Navbar Ends / Breadcrumb Area  -->
@@ -78,7 +78,7 @@
                                                         </a>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style="will-change: transform;">
                                                             <a class="dropdown-item" href="{{ route('contact.show', $contact->id) }}">{{__('View')}}</a>
-                                                            <a class="dropdown-item" href="javascript:void(0);">{{__('Delete')}}</a>
+                                                            {{-- <a class="dropdown-item" href="javascript:void(0);">{{__('Delete')}}</a> --}}
                                                         </div>
                                                     </div>
                                                 </td>

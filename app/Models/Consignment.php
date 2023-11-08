@@ -19,7 +19,10 @@ class Consignment extends Model
         'current_state',
         'price',
         'service_price',
-        'other_price'
+        'other_price',
+        'order_number',
+        'tracking_id',
+        'current_state'
     ];
 
     protected static function boot()

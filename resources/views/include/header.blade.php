@@ -39,7 +39,7 @@
             </a>
         </li>
       
-        <li class="nav-item dropdown message-dropdown">
+        {{-- <li class="nav-item dropdown message-dropdown">
             <a href="javascript:void(0);" class="nav-link dropdown-toggle" id="messageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="las la-envelope"></i>
             </a>
@@ -100,8 +100,8 @@
                     </div>
                 </div>
             </div>
-        </li>
-        <li class="nav-item dropdown notification-dropdown">
+        </li> --}}
+        {{-- <li class="nav-item dropdown notification-dropdown">
             <a href="javascript:void(0);" class="nav-link dropdown-toggle position-relative" id="notificationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="las la-bell"></i>
                 <div class="blink">
@@ -170,13 +170,13 @@
                     </div>
                 </div>
             </div>
-        </li>
+        </li> --}}
     </ul>
     <ul class="navbar-item flex-row">
-        <li class="nav-item dropdown header-setting">
+        {{-- <li class="nav-item dropdown header-setting">
             <a href="javascript:void(0);" class="nav-link dropdown-toggle rightbarCollapse" data-placement="bottom">
                 <i class="las la-sliders-h"></i>
             </a>
-        </li>
+        </li> --}}
     </ul>
 </header>

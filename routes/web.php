@@ -60,17 +60,21 @@ Route::get('/package-track', function () {
 // ----------------------
 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard.dashboard1');
-    });
+    })->name('dashboard');
     
-Route::get('/quote-details/{id}', [RequestController::class, 'showQuote'])->name('quote.show');
-Route::get('/quote-reply/{id}', [RequestController::class, 'replyQuote'])->name('quote.reply');
-Route::post('/quote-send-reply', [RequestController::class, 'replySend'])->name('reply.send');
-Route::get('/contact-details/{id}', [RequestController::class, 'showContact'])->name('contact.show');
+    Route::get('/quote-details/{id}', [RequestController::class, 'showQuote'])->name('quote.show');
+    Route::get('/quote-reply/{id}', [RequestController::class, 'replyQuote'])->name('quote.reply');
+    Route::get('/quote-activate/{id}', [RequestController::class, 'quoteActivate'])->name('quote.activate');
+    Route::get('/quote-cancel/{id}', [RequestController::class, 'quoteCancel'])->name('quote.cancel');
+    Route::get('/quote-shipped/{id}', [RequestController::class, 'quoteShipped'])->name('quote.shipped');
+    Route::get('/quote-delivered/{id}', [RequestController::class, 'quoteDelivered'])->name('quote.delivered');
+    Route::post('/quote-send-reply', [RequestController::class, 'replySend'])->name('reply.send');
+    Route::get('/contact-details/{id}', [RequestController::class, 'showContact'])->name('contact.show');
 
-// });
+});
 
 
 

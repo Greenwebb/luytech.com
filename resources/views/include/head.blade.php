@@ -5,7 +5,7 @@
 <!-- CSRF Token -->
 <meta name="_token" content="{{ csrf_token() }}">
 
-<link rel="icon" type="image/x-icon" href="{{ asset('public/assets/img/favicon.ico') }}" />
+<link rel="icon" type="image/x-icon" href="https://luytech.greenwebbtech.com/public/web/assets/images/logo/logo-dark.png" />
 
 <!-- fonts library -->
 <link rel="dns-prefetch" href="//fonts.gstatic.com">

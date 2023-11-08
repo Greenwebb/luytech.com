@@ -41,9 +41,13 @@
                                                 <div class="tab-pane fade show active" id="v-border-pills-general" role="tabpanel" aria-labelledby="v-border-pills-general-tab">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-lg-12 col-md-12 mt-md-0 mt-4">
-                                                            <div id="preloader" style="display: none;">
-                                                                Preloader or Loading Animation...
+                                                            <div id="preloader" style="display: none; content-justify:center; margin:auto; margin-left:45%">
+                                                                <img src="{{ asset('public/image/isloader.gif') }}">
                                                             </div>
+                                                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; background-color:rgb(140, 255, 117); display:none; color:rgb(103, 170, 2)4, 31); font-weight:bold">
+                                                                <p>Quote updated successfully</p>
+                                                            </div>
+                                                            <br>
                                                             <form method="POST" action="{{route('reply.send')}}" class="form"  id="replyForm">
                                                                 @csrf
                                                                 
@@ -543,38 +547,27 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('replyForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Show the preloader while processing
+            event.preventDefault();
             document.getElementById('preloader').style.display = 'block';
+            document.getElementById('replyForm').style.display = 'none';
             
-            // Get the form data
             const formData = new FormData(this);
-
-            // Send an Ajax request to the server
+            
             fetch(this.action, {
                 method: 'POST',
                 body: formData
             })
             .then(response => {
                 if (response.ok) {
-                    // Process the response or handle success
-                    // For instance, you can redirect or display a success message
-
-                    // Hide the preloader after successful processing
                     document.getElementById('preloader').style.display = 'none';
+                    document.getElementById('replyForm').style.display = 'block';
+                    document.getElementById('quote-update-message').style.display = 'block';
                 } else {
-                    // Handle errors or failed submission
-                    // You can display an error message or handle it accordingly
-
-                    // Hide the preloader on error as well
                     document.getElementById('preloader').style.display = 'none';
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-
-                // Hide the preloader on error
                 document.getElementById('preloader').style.display = 'none';
             });
         });
@@ -587,5 +580,4 @@
 @endpush
 
 @push('custom-scripts')
-
 @endpush

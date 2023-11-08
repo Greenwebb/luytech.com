@@ -141,14 +141,24 @@ class RequestController extends Controller
     
         try {
             $total = 0;
+            // Set the cost for each car
             foreach ($request->toArray()['car_id'] as $key => $car) {
                 $total += (float)$request->toArray()['car_cost'][$key];
                 Car::where('id', $car)->update(['cost'=> $request->toArray()['car_cost'][$key]]);
             }
-            Consignment::where('id', $request->toArray()['consignment_id'])->update(['price'=> $total]);
 
+            // Set the total price for consignment
+            Consignment::where('id', $request->toArray()['consignment_id'])->update([
+                'price' => $total,
+                'order_number' => $request->toArray()['consignment_id'].$this->generateUniqueNumber(), // for 5 to 7 digit numbers
+                'tracking_id' => $this->generateUniqueNumber(), 
+                'current_state' => 2,
+                'status' => 1
+            ]);
+            
+            
+            // Send Email to Users
             $quote = Consignment::with(['user','cars'])->where('id', $request->toArray()['consignment_id'])->first();
-            // Email User
             Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
             $adminEmail = 'nyeleti.bremah@gmail.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteFinalized($quote));
@@ -157,5 +167,40 @@ class RequestController extends Controller
             dd($th);
         }
 
+    }
+
+    function generateUniqueNumber() {
+        $a = rand(100000, 9999999);
+        $b = rand(10000, 9999999);
+        return rand($a, $b);
+    }
+
+
+    public function quoteShipped($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 3
+        ]);
+        return redirect()->back()->with('success','Updated Successfully');
+    }
+    public function quoteDelivery($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 4
+        ]);
+        return redirect()->back()->with('success','Updated Successfully');
+    }
+    public function quoteCancel($id) {
+        Consignment::where('id', $id)->update([
+            'status' => 2
+        ]);
+        return redirect()->back()->with('success','Updated Successfully');
+    }
+    public function quoteActivate($id) {
+        $q = Consignment::where('id', $id)->first();
+        if ($q->current_state == 2) {
+            $q->status = 1;
+        }else{
+            $q->status = 0;
+        }
+        return redirect()->back()->with('success','Updated Successfully');
     }
 }

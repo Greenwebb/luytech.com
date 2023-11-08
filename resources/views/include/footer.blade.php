@@ -5,7 +5,7 @@
 
     </div>
     <div class="footer-section f-section-2">
-        <p class=""> {{ __('Crafted with extra')}}  <i class="las la-heart text-danger"></i></p>
+        <p class=""> {{ __('Powered by Greenwebbtech')}}  <i class="las la-heart text-danger"></i></p>
     </div>
 </div>
 <!-- Copyright Footer Ends -->

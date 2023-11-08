@@ -1,7 +1,7 @@
 <nav id="sidebar">
     @include('include.logo')
     <div class="multiple-options">
-       <a href="{{ url('/') }}"><button type="button" class="dropdown-toggle" >
+       <a href="{{ route('dashboard') }}"><button type="button" class="dropdown-toggle" >
             <i class="las la-tachometer-alt font-25"></i><span class="text">{{__('Dashboard')}}</span> <div><i class="las la-angle-up"></i><i class="las la-angle-down"></i></div>
         </button></a> 
       
@@ -15,10 +15,10 @@
                     <span>{{__('Requests')}}</span>
                 </div>
                 <div>
-                    <i class="las la-angle-right sidemenu-right-icon"></i>
+                    <i class="las la-angle-down sidemenu-down-icon"></i>
                 </div>
             </a>
-            <ul class="collapse submenu list-unstyled {{ show_class(['apps/*']) }}" id="app" data-parent="#accordionExample">
+            <ul class="collapse submenu list-unstyled show" id="app" data-parent="#accordionExample">
                 {{-- <li class=" {{ active_class(['order-inquiries']) }}">
                     <a data-active="{{ is_active_route(['order-inquiries']) }}" href="{{ route('request.orders') }}">Order Requests </a>
                 </li> --}}
@@ -70,7 +70,7 @@
                             <span class="text-primary font-13">{{__('Welcome Admin !')}}</span>
                         </div>
                         <div class="nav-drop-body account-items pb-0">
-                            <a id="profile-link" class="account-item" href="{{ url('/pages/profile') }}">
+                            {{-- <a id="profile-link" class="account-item" href="{{ url('/pages/profile') }}">
                                 <div class="media align-center">
                                     <div class="media-left">
                                         <div class="image">
@@ -108,14 +108,19 @@
                                         <h6 class="font-13 mb-0 strong">{{__('Lock Screen')}}</h6>
                                     </div>
                                 </div>
-                            </a>
-                            <a class="account-item" href="{{ url('authentications/style3/login') }}">
+                            </a> --}}
+                            <a class="account-item"  href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                                 <div class="media align-center">
                                     <i class="las la-sign-out-alt font-20"></i>
                                     <div class="media-content ml-3">
                                         <h6 class="font-13 mb-0 strong ">{{__('Logout')}}</h6>
                                     </div>
                                 </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </a>
                         </div>
                     </div>

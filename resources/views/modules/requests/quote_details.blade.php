@@ -50,45 +50,94 @@
                                         <div class="col-lg-6">
                                             <div class="mb-4">
                                                 <h6 class="mt-0">{{__('Order ID:')}}</h6>
-                                                <p>{{__('#SK898789')}}</p>
+                                                <p>{{'#'.$q->order_number ?? 'None'}}</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="mb-4">
                                                 <h6 class="mt-0">{{__('Tracking ID:')}}</h6>
-                                                <p>{{__('78451245')}}</p>
+                                                <p>{{$q->tracking_id ?? 'None'}}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="track-order-list">
                                         <ul class="list-unstyled">
-                                            <li class="completed">
-                                                <h6 class="mt-0 mb-1 font-13">{{__('Order Placed')}}</h6>
-                                                <p class="text-muted font-12">{{__('June 05 2020')}} <small class="text-muted">{{__('09:22 AM')}}</small> </p>
-                                            </li>
-                                            <li class="completed">
-                                                <h6 class="mt-0 mb-1 font-13">{{__('Packed')}}</h6>
-                                                <p class="text-muted font-12">{{__('June 06 2020')}} <small class="text-muted">{{__('07:10 AM')}}</small></p>
-                                            </li>
-                                            <li>
+                                            <li class="{{ $q->current_state == 2 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 1)
                                                 <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Order Placed')}}</h6>
+                                                <p class="text-muted font-12">{{$q->created_at->toFormattedDateString()}}  </p>
+                                            </li>
+                                            <li class="{{ $q->current_state == 3 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 2)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Quoted')}}</h6>
+                                                <p class="text-muted font-12">{{$q->cars[0]->updated_at->toFormattedDateString()}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state == 4 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 3)
+                                                <span class="active-dot dot"></span>
+                                                @endif
                                                 <h6 class="mt-0 mb-1 font-13">{{__('Shipped')}}</h6>
-                                                <p class="text-muted font-12">{{__('June 07 2020')}} <small class="text-muted">{{__('10:10 AM')}}</small></p>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
                                             </li>
                                             <li>
+                                                @if( $q->current_state == 4)
+                                                <span class="active-dot dot"></span>
+                                                @endif
                                                 <h6 class="mt-0 mb-1 font-13"> {{__('Delivered')}}</h6>
-                                                <p class="text-muted font-12">{{__('Estimated delivery within 1 days')}}</p>
+                                                <p class="text-muted font-12">{{__('Not yet')}}</p>
                                             </li>
                                         </ul>
-                                        <div class="text-center mt-4">
-                                            <a href="#" class="btn btn-sm btn-primary">{{__('View Details')}}</a>
+                                        <div style="display: flex; gap:2%">
+                                            @switch($q->current_state)
+                                                @case(1)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.reply', $q->id) }}" class="btn btn-sm btn-primary">{{__('Reply to Quote')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(2)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.shipped', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Shipped')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(3)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.delivered', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Delivered')}}</a>
+                                                    </div>
+                                                    @break
+                                                @default
+                                                    
+                                            @endswitch
+
+                                            @switch($q->status)
+                                                @case(0)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.cancel', $q->id) }}" class="btn btn-sm btn-default">{{__('Cancel Quote')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(1)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.cancel', $q->id) }}" class="btn btn-sm btn-default">{{__('Cancel Quote')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(2)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.activate', $q->id) }}" class="btn btn-sm btn-warning">{{__('Activate Quote')}}</a>
+                                                    </div>
+                                                    @break
+                                                @default
+                                                    
+                                            @endswitch
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-7">
                                 <div class="card-box order-detail-table">
-                                    <h5 class="header-title mb-3">{{__('Items from Order #SK898789')}}</h5>
+                                    <h5 class="header-title mb-3">{{__('Items from Order #'.$q->order_number)}}</h5>
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-centered mb-0">
                                             <thead class="thead-light">
@@ -114,8 +163,12 @@
                                             @empty
                                             @endforelse
                                             <tr>
+                                                <th></th>
+                                                <th></th>
                                                 <th scope="row" colspan="3" class="text-right">{{__('Grand Total :')}}</th>
-                                                <td><div class="strong text-success-teal">{{__('$400')}}</div></td>
+                                                <td>
+                                                    <div class="strong text-success-teal">{{$q->cars->sum('cost')}}</div>
+                                                </td>
                                             </tr>
                                             </tbody>
                                         </table>
