@@ -73,6 +73,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/quote-send-reply', [RequestController::class, 'replySend'])->name('reply.send');
     Route::get('/contact-details/{id}', [RequestController::class, 'showContact'])->name('contact.show');
 
+
+    Route::get('quote-inquiries', [RequestController::class,'quotes'])->name('request.quote');
+    Route::get('order-inquiries', [RequestController::class,'orders'])->name('request.orders');
+    Route::get('contact-inquiries', [RequestController::class,'inquiries'])->name('request.inquiries');
 });
 
 
@@ -91,9 +95,7 @@ Route::group(['prefix' => 'dashboard'], function(){
     Route::get('dashboard4', function () { return view('dashboard.dashboard4'); });
     Route::get('dashboard5', function () { return view('dashboard.dashboard5'); });
     //Route::get('dashboard-social', function () { return view('dashboard.dashboard-social'); });
-    Route::get('quote-inquiries', [RequestController::class,'quotes'])->name('request.quote');
-    Route::get('order-inquiries', [RequestController::class,'orders'])->name('request.orders');
-    Route::get('contact-inquiries', [RequestController::class,'inquiries'])->name('request.inquiries');
+   
 });
 
 Route::group(['prefix' => 'apps'], function(){
