@@ -68,39 +68,73 @@
                                                                     
                                                                 </div>
                                                                 <br>
-                                                                <h6>{{__('VEHICLE INFORMATION')}}</h6>
-                                                                <hr>
-                                                                
-                                                                <input type="hidden" name="consignment_id" value="{{$q->id}}">
-                                                                @forelse ($q->cars as $c)
+                                                                @if ($q->product_type == 'vehicle')
+                                                                    <h6>{{__('VEHICLE INFORMATION')}}</h6>
+                                                                    <hr>
                                                                     
-                                                                <div style="padding: 2%; gap:2px" class="row">
-                                                                    <input type="hidden" name="car_id[]" value="{{$c->id}}">
-                                                                    <div class="form-group">
-                                                                        <label for="profession">{{__('Car Make')}}</label>
+                                                                    <input type="hidden" name="consignment_id" value="{{$q->id}}">
+                                                                    @forelse ($q->cars as $c)
+                                                                        
+                                                                    <div style="padding: 2%; gap:2px" class="row">
+                                                                        <input type="hidden" name="car_id[]" value="{{$c->id}}">
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Car Make')}}</label>
 
-                                                                        <input type="text" class="form-control mb-4" placeholder="{{$c->car_make}}" value="{{$c->car_make}}">
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->car_make}}" value="{{$c->car_make}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Car Model')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->car_model}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Fuel')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->fuel}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Transmission')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->transmission}}" value="{{$c->transmission}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Total')}}</label>
+                                                                            <input type="text" class="form-control mb-4" name="car_cost[]" placeholder="" value="">
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="form-group">
-                                                                        <label for="profession">{{__('Car Model')}}</label>
-                                                                        <input type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->car_model}}">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="profession">{{__('Fuel')}}</label>
-                                                                        <input type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->fuel}}">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="profession">{{__('Transmission')}}</label>
-                                                                        <input type="text" class="form-control mb-4" placeholder="{{$c->transmission}}" value="{{$c->transmission}}">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <label for="profession">{{__('Total')}}</label>
-                                                                        <input type="text" class="form-control mb-4" name="car_cost[]" placeholder="" value="">
-                                                                    </div>
-                                                                </div>
-                                                                @empty
+                                                                    @empty
+                                                                    @endforelse
+                                                                @else
+                                                                    <h6>{{__('GOODS INFORMATION')}}</h6>
+                                                                    <hr>
                                                                     
-                                                                @endforelse
+                                                                    <input type="hidden" name="consignment_id" value="{{$q->id}}">
+                                                                    @forelse ($q->goods as $c)
+                                                                        
+                                                                    <div style="padding: 2%; gap:2px" class="row">
+                                                                        <input type="hidden" name="goods_id[]" value="{{$c->id}}">
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Item')}}</label>
+
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->name}}" value="{{$c->name}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Size')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->size}}" value="{{$c->size}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Qty')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->qty}}" value="{{$c->qty}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Packaging')}}</label>
+                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->packaging}}" value="{{$c->packaging}}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="profession">{{__('Total')}}</label>
+                                                                            <input type="text" class="form-control mb-4" name="goods_cost[]" placeholder="" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                    @empty
+                                                                    @endforelse
+                                                                @endif
                                                                 
                                                                 <button class="btn btn-primary">{{__('Send Quote')}}</button>
                                                             </form>

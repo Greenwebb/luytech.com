@@ -22,7 +22,15 @@ class Consignment extends Model
         'other_price',
         'order_number',
         'tracking_id',
-        'current_state'
+        'current_state',
+        'num_installments',
+        'payment_method',
+        'product_type',
+        'service_type',
+        'installment_duration',
+        'clearing_from',
+        'delivery_town',
+        'num_goods'
     ];
 
     protected static function boot()
@@ -45,5 +53,8 @@ class Consignment extends Model
     }
     public function cars(){
         return $this->hasMany(Car::class);
+    }
+    public function goods(){
+        return $this->hasMany(Good::class);
     }
 }

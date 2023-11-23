@@ -27,10 +27,10 @@
             </ul>
             <ul class="navbar-nav d-flex align-center ml-auto right-side-filter">
                 <li class="nav-item more-dropdown">
-                    <button class="premium-btn">
-                        <i class="las la-star"></i>
-                        <span>{{__('Premium')}}</span>
-                    </button>
+                    <a href="{{route('quote.delete', $q->id)}}" class="premium-btn btn-danger p-2">
+                        <i class="las la-trash"></i>
+                        <span>{{__('Delete')}}</span>
+                    </a>
                 </li>
             </ul>
         </header>
@@ -62,32 +62,81 @@
                                     </div>
                                     <div class="track-order-list">
                                         <ul class="list-unstyled">
-                                            <li class="{{ $q->current_state == 2 ? 'completed' : '' }}">
+                                            <li class="{{ $q->current_state >= 2 ? 'completed' : '' }}">
                                                 @if( $q->current_state == 1)
                                                 <span class="active-dot dot"></span>
                                                 @endif
-                                                <h6 class="mt-0 mb-1 font-13">{{__('Order Placed')}}</h6>
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Quote Requested')}}</h6>
                                                 <p class="text-muted font-12">{{$q->created_at->toFormattedDateString()}}  </p>
                                             </li>
-                                            <li class="{{ $q->current_state == 3 ? 'completed' : '' }}">
+                                            <li class="{{ $q->current_state >= 3 ? 'completed' : '' }}">
                                                 @if( $q->current_state == 2)
                                                 <span class="active-dot dot"></span>
                                                 @endif
                                                 <h6 class="mt-0 mb-1 font-13">{{__('Quoted')}}</h6>
-                                                <p class="text-muted font-12">{{$q->cars[0]->updated_at->toFormattedDateString()}} </p>
+                                                {{-- <p class="text-muted font-12">{{$q->cars[0]->updated_at->toFormattedDateString()}} </p> --}}
                                             </li>
-                                            <li class="{{ $q->current_state == 4 ? 'completed' : '' }}">
+                                            <li class="{{ $q->current_state >= 4 ? 'completed' : '' }}">
                                                 @if( $q->current_state == 3)
                                                 <span class="active-dot dot"></span>
                                                 @endif
-                                                <h6 class="mt-0 mb-1 font-13">{{__('Shipped')}}</h6>
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Paid & Unordered')}}</h6>
                                                 <p class="text-muted font-12">{{__('Not yet')}} </p>
                                             </li>
-                                            <li>
+                                            <li class="{{ $q->current_state >= 5 ? 'completed' : '' }}">
                                                 @if( $q->current_state == 4)
                                                 <span class="active-dot dot"></span>
                                                 @endif
-                                                <h6 class="mt-0 mb-1 font-13"> {{__('Delivered')}}</h6>
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Ordered')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state >= 6 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 5)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Left Origin')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state >= 7 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 6)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Arrived at Port')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state >= 8 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 7)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Port Cleared')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state >= 9 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 8)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Arrived at Border')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state >= 10 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 9)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('Border Cleared')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li class="{{ $q->current_state >= 11 ? 'completed' : '' }}">
+                                                @if( $q->current_state == 10)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13">{{__('In Transit to be Delivered')}}</h6>
+                                                <p class="text-muted font-12">{{__('Not yet')}} </p>
+                                            </li>
+                                            <li>
+                                                @if( $q->current_state >= 11)
+                                                <span class="active-dot dot"></span>
+                                                @endif
+                                                <h6 class="mt-0 mb-1 font-13"> {{__('Delivered & Completed')}}</h6>
                                                 <p class="text-muted font-12">{{__('Not yet')}}</p>
                                             </li>
                                         </ul>
@@ -100,12 +149,47 @@
                                                     @break
                                                 @case(2)
                                                     <div class="text-center mt-4">
-                                                        <a href="{{ route('quote.shipped', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Shipped')}}</a>
+                                                        <a href="{{ route('quote.shipped', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Paid')}}</a>
                                                     </div>
                                                     @break
                                                 @case(3)
                                                     <div class="text-center mt-4">
-                                                        <a href="{{ route('quote.delivered', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Delivered')}}</a>
+                                                        <a href="{{ route('quote.ordered', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Ordered')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(4)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.left.origin', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Left Origin')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(5)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.arrived.port', $q->id) }}" class="btn btn-sm btn-primary">{{__('Mark as Arrived at Port')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(6)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.port.cleared', $q->id) }}" class="btn btn-sm btn-warning">{{__('Mark as Port Cleared')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(7)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.arrived.border', $q->id) }}" class="btn btn-sm btn-warning">{{__('Mark as Arrived at Border')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(8)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.border.cleared', $q->id) }}" class="btn btn-sm btn-warning">{{__('Mark as Border Cleared')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(9)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.intransit', $q->id) }}" class="btn btn-sm btn-warning">{{__('Mark as In Transit for Delivery')}}</a>
+                                                    </div>
+                                                    @break
+                                                @case(10)
+                                                    <div class="text-center mt-4">
+                                                        <a href="{{ route('quote.delivered', $q->id) }}" class="btn btn-sm btn-success">{{__('Mark as Delivered & Completed')}}</a>
                                                     </div>
                                                     @break
                                                 @default
@@ -128,6 +212,11 @@
                                                         <a href="{{ route('quote.activate', $q->id) }}" class="btn btn-sm btn-warning">{{__('Activate Quote')}}</a>
                                                     </div>
                                                     @break
+                                                @case(3)
+                                                    {{-- Un operable --}}
+                                                    <div class="text-center mt-4">
+                                                        <a href="#hooray" class="btn btn-sm btn-info">{{__('Complete Successfully')}}</a>
+                                                    </div>
                                                 @default
                                                     
                                             @endswitch
@@ -139,6 +228,7 @@
                                 <div class="card-box order-detail-table">
                                     <h5 class="header-title mb-3">{{__('Items from Order #'.$q->order_number)}}</h5>
                                     <div class="table-responsive">
+                                        @if ($q->product_type == 'vehicle')
                                         <table class="table table-bordered table-centered mb-0">
                                             <thead class="thead-light">
                                             <tr>
@@ -172,6 +262,39 @@
                                             </tr>
                                             </tbody>
                                         </table>
+                                        @else
+                                        <table class="table table-bordered table-centered mb-0">
+                                            <thead class="thead-light">
+                                            <tr>
+                                                <th>{{__('Item Name')}}</th>
+                                                <th>{{__('Size')}}</th>
+                                                <th>{{__('Quantity')}}</th>
+                                                <th>{{__('Packaging')}}</th>
+                                                <th>{{__('Total')}}</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @forelse ($q->goods as $g)
+                                            <tr>
+                                                <td scope="row"><b>{{$g->name}}</b></td>
+                                                <td>{{$g->size}}</td>
+                                                <td>{{$g->qty}}</td>
+                                                <td>{{$g->packaging}}</td>
+                                                <td>{{$g->cost ?? 0}}</td>
+                                            </tr>
+                                            @empty
+                                            @endforelse
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th scope="row" colspan="3" class="text-right">{{__('Grand Total :')}}</th>
+                                                <td>
+                                                    <div class="strong text-success-teal">{{$q->goods->sum('cost')}}</div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

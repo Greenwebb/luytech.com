@@ -15,17 +15,12 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Modules\RequestController;
-
-
-
-
-
-
-
-
-
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TrackerController;
 
 Auth::routes();
+Route::post('/tracker', [TrackerController::class, 'index'])->name('tracker.index');
+
 
 Route::get('/', function () {
     return view('website.index');
@@ -33,6 +28,9 @@ Route::get('/', function () {
 Route::get('/services', function () {
     return view('website.services');
 })->name('services');
+
+Route::get('/service-details/{id}', [ServicesController::class, 'serviceDetails'])->name('service.detail');
+
 Route::get('/about', function () {
     return view('website.about');
 })->name('about');
@@ -44,6 +42,7 @@ Route::get('/contact', function () {
 })->name('contact');
 
 // ----------------------
+
 Route::get('/request-quote', function () {
     return view('website.request-quote');
 })->name('request-quote');
@@ -67,13 +66,21 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/quote-details/{id}', [RequestController::class, 'showQuote'])->name('quote.show');
     Route::get('/quote-reply/{id}', [RequestController::class, 'replyQuote'])->name('quote.reply');
     Route::get('/quote-activate/{id}', [RequestController::class, 'quoteActivate'])->name('quote.activate');
+    Route::get('/quote-delete/{id}', [RequestController::class, 'quoteDelete'])->name('quote.delete');
     Route::get('/quote-cancel/{id}', [RequestController::class, 'quoteCancel'])->name('quote.cancel');
     Route::get('/quote-shipped/{id}', [RequestController::class, 'quoteShipped'])->name('quote.shipped');
+    Route::get('/quote-ordered/{id}', [RequestController::class, 'quoteOrdered'])->name('quote.ordered');
+    Route::get('/quote-left-origin/{id}', [RequestController::class, 'quoteLeftOrigin'])->name('quote.left.origin');
+    Route::get('/quote-arrived-port/{id}', [RequestController::class, 'quoteArrivedAtPort'])->name('quote.arrived.port');
+    Route::get('/quote-port-cleared/{id}', [RequestController::class, 'quotePortCleared'])->name('quote.port.cleared');
+    Route::get('/quote-arrived-border/{id}', [RequestController::class, 'quoteArrivedAtBorder'])->name('quote.arrived.border');
+    Route::get('/quote-border-cleared/{id}', [RequestController::class, 'quoteBorderCleared'])->name('quote.border.cleared');
+    Route::get('/quote-in-transit/{id}', [RequestController::class, 'quoteInTransitDelivery'])->name('quote.intransit');
     Route::get('/quote-delivered/{id}', [RequestController::class, 'quoteDelivered'])->name('quote.delivered');
     Route::post('/quote-send-reply', [RequestController::class, 'replySend'])->name('reply.send');
     Route::get('/contact-details/{id}', [RequestController::class, 'showContact'])->name('contact.show');
 
-
+    
     Route::get('quote-inquiries', [RequestController::class,'quotes'])->name('request.quote');
     Route::get('order-inquiries', [RequestController::class,'orders'])->name('request.orders');
     Route::get('contact-inquiries', [RequestController::class,'inquiries'])->name('request.inquiries');

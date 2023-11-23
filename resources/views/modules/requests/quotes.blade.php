@@ -43,7 +43,11 @@
                             <!-- BASIC -->
                             
                             <!-- Datatable with a dropdown -->
-                            
+                            @if(Session::has('success'))
+                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; background-color:rgb(140, 255, 117); display:none; color:rgb(103, 170, 2)4, 31); font-weight:bold">
+                                <p>Quote updated successfully</p>
+                            </div>
+                            @endif
                             <!-- Datatable go to last page -->
                             <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                                 <div class="widget-content widget-content-area br-6">
@@ -52,10 +56,11 @@
                                         <table id="last-page-dt" class="table table-hover" style="width:100%">
                                             <thead>
                                             <tr>
-                                                <th>{{__('Name')}}</th>
+                                                <th>{{__('Tracker ID')}}</th>
+                                                <th>{{__('Customer')}}</th>
                                                 <th>{{__('Consigment')}}</th>
                                                 <th>{{__('Phone#')}}</th>
-                                                <th>{{__('Total Vehicles')}}</th>
+                                                <th>{{__('Total Items')}}</th>
                                                 <th>{{__('Order date')}}</th>
                                                 <th>{{__('Total Cost')}}</th>
                                                 <th class="no-content"></th>
@@ -65,30 +70,58 @@
                                             
                                             @foreach ($quotes as $q)
                                             <tr>
+                                                <td>{{ $q->tracking_id ?? 'Untracked'}}</td>
                                                 <td>{{ $q->user->fname.' '.$q->user->lname }}</td>
                                                 <td class="capitalize">{{ ucwords($q->consignment_type) }}</td>
                                                 <td>{{ $q->user->phone }}</td>
                                                 <td>
-                                                    {{ $q->num_of_vehicles.' Cars' }}
+                                                    @if ($q->product_type == 'vehicle')
+                                                        {{ $q->num_of_vehicles.' Vehicles' }}                 
+                                                    @else
+                                                        {{ $q->num_goods.' Products' }}
+                                                    @endif
                                                     @if ($q->status !== 2)
                                                         @switch($q->current_state)
                                                             @case(1)
                                                                 <span class="badge badge-warning">Pending</span>
                                                             @break
                                                             @case(2)
-                                                                <span class="badge badge-success">Quoted</span>
+                                                                <span class="badge badge-info">Quoted</span>
                                                             @break
                                                             @case(3)
-                                                                <span class="badge badge-secondary">Shipping</span>
+                                                                <span class="badge badge-success">Paid</span>
                                                             @break
                                                             @case(4)
-                                                                <span class="badge badge-info">Delivered</span>
+                                                                <span class="badge badge-info">Ordered</span>
+                                                            @break
+                                                            @case(5)
+                                                                <span class="badge badge-info">Left Origin</span>
+                                                            @break
+                                                            @case(6)
+                                                                <span class="badge badge-info">At Port</span>
+                                                            @break
+                                                            @case(7)
+                                                                <span class="badge badge-info">Port Cleared</span>
+                                                            @break
+                                                            @case(8)
+                                                                <span class="badge badge-info">At Border</span>
+                                                            @break
+                                                            @case(9)
+                                                                <span class="badge badge-info">Border Cleared</span>
+                                                            @break
+                                                            @case(10)
+                                                                <span class="badge badge-info">Delivery In Transit</span>
+                                                            @break
+                                                            @case(11)
+                                                                <span class="badge badge-secondary">Completed</span>
                                                             @break
                                                             @default
+                                                                <span class="badge badge-light">Invalid</span>
+                                                            @break
                                                         @endswitch
                                                     @else
                                                         <span class="badge badge-default">Cancelled</span>
-                                                    @endif
+                                                    @endif 
                                                 </td>
                                                 <td>{{ $q->created_at->toFormattedDateString() }}</td>
                                                 <td>ZMW {{ $q->price + $q->service_price + $q->other_price  }}</td>
@@ -110,10 +143,11 @@
                                             </tbody>
                                             <tfoot>
                                             <tr>
-                                                <th>{{__('Name')}}</th>
+                                                <th>{{__('Tracker ID')}}</th>
+                                                <th>{{__('Customer')}}</th>
                                                 <th>{{__('Consigment')}}</th>
                                                 <th>{{__('Phone#')}}</th>
-                                                <th>{{__('Total Vehicles')}}</th>
+                                                <th>{{__('Total Items')}}</th>
                                                 <th>{{__('Order Date')}}</th>
                                                 <th>{{__('Total Cost')}}</th>
                                                 <th></th>

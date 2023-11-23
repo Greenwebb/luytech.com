@@ -16,6 +16,7 @@ class Car extends Model
         'car_year',
         'source',
         'status',
+        'engine_cc',
         'consignment_id'
     ];
 

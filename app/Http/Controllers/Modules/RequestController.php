@@ -9,6 +9,7 @@ use App\Mail\QuoteReceivedAdmin;
 use App\Models\Car;
 use App\Models\Consignment;
 use App\Models\ContactInquiry;
+use App\Models\Good;
 use App\Models\User;
 use Hash;
 use Illuminate\Http\Request;
@@ -17,7 +18,6 @@ use Mail;
 class RequestController extends Controller
 {
     
-
     // ----- Views --------------------------------
     public function orders(){
         return view("modules.requests.orders");
@@ -29,7 +29,8 @@ class RequestController extends Controller
         ]);
     }
     public function quotes(){
-        $quotes = Consignment::with(['user','cars'])->get();
+        $quotes = Consignment::with(['user','cars','goods'])->get();
+        // dd($quotes);
         return view("modules.requests.quotes",[
             "quotes"=> $quotes
         ]);
@@ -62,7 +63,7 @@ class RequestController extends Controller
     }
 
     public function storeQuote(Request $request){
-        // dd($request->all());
+        // dd($request);
        try {
             // Create the User
             $user = User::where('email', $request->input('email'))->first();
@@ -79,28 +80,61 @@ class RequestController extends Controller
                 ]);
             }
 
+            
             // Create Consignment
             $consignment = Consignment::create([
-                'num_of_vehicles' => $request->input('numCars'),
                 'consignment_type' => $request->input('purpose'),
                 'message' => $request->input('message'),
                 'user_id' => $user->id,
                 'company_name' => $request->input('company_name') ?? null,
-                'terms' => $request->input('termsAgreementSummary') ?? null
+                'terms' => $request->input('termsAgreementSummary') ?? null,
+                'num_installments' => $request->input('installment_duration'),
+                'payment_method' => $request->input('payMethod'),
+                'product_type' => $request->input('product_type'),
+                'service_type' => $request->input('service_type'),
+                'installment_duration' => $request->input('installment_duration'),
+                'delivery_town' => $request->input('delivery_town') 
             ]);
 
-            // Create Car
-            foreach ($request->input('carMake') as $key => $data) {
-                Car::create([
-                    'car_make' => $request->input('carMake')[$key],
-                    'car_model' => $request->input('carModel')[$key],
-                    'fuel' => $request->input('fuel')[$key],
-                    'transmission' => $request->input('transmission')[$key],
-                    'car_year' => $request->input('carYear')[$key],
-                    'consignment_id' => $consignment->id
-                ]);
+            if(!empty($request->input('clearing_from'))){
+                $consignment->clearing_from = $request->input('clearing_from');
+                $consignment->save();
             }
-            $quote = Consignment::with(['user','cars'])->where('id', $consignment->id)->first();
+
+            if($request->input('product_type') == 'vehicle'){
+                $consignment->num_of_vehicles = $request->input('numCars');
+                $consignment->save();
+
+                // Create Car
+                foreach ($request->input('carMake') as $key => $data) {
+                    Car::create([
+                        'car_make' => $request->input('carMake')[$key],
+                        'car_model' => $request->input('carModel')[$key],
+                        'fuel' => $request->input('fuel')[$key],
+                        'transmission' => $request->input('transmission')[$key],
+                        'car_year' => $request->input('carYear')[$key],
+                        'consignment_id' => $consignment->id,
+                        'engine_cc' => $request->input('carEngineCC')[$key]
+                    ]);
+                } 
+            }else{
+                $consignment->num_goods = $request->input('numGoods');
+                $consignment->save();
+
+                // Create Goods
+                foreach ($request->input('goodsName') as $key => $data) {
+                    Good::create([
+                        'name' => $request->input('goodsName')[$key],
+                        'size' => $request->input('goodsSize')[$key],
+                        'qty' => $request->input('goodsQty')[$key],
+                        'packaging' => $request->input('packaging')[$key],
+                        'consignment_id' => $consignment->id
+                    ]);
+                }
+            }          
+            
+
+            $quote = Consignment::with(['user','cars','goods'])->where('id', $consignment->id)->first();
             // dd($quote);
             // Email User
             Mail::to($user->email)->send(new QuoteReceived($quote));
@@ -118,14 +152,15 @@ class RequestController extends Controller
 
     // ----- Details --------------------------------
     public function showQuote($id){
-        $q = Consignment::with(['user','cars'])->where('id', $id)->first();
+        $q = Consignment::with(['user','cars','goods'])->where('id', $id)->first();
+        // dd($q);
         return view("modules.requests.quote_details",[
             "q"=> $q
         ]);
     }
 
     public function replyQuote($id){
-        $q = Consignment::with(['user','cars'])->where('id', $id)->first();
+        $q = Consignment::with(['user','cars','goods'])->where('id', $id)->first();
         return view("modules.requests.quote_reply",[
             "q"=> $q
         ]);
@@ -141,25 +176,31 @@ class RequestController extends Controller
     
         try {
             $total = 0;
-            // Set the cost for each car
-            foreach ($request->toArray()['car_id'] as $key => $car) {
-                $total += (float)$request->toArray()['car_cost'][$key];
-                Car::where('id', $car)->update(['cost'=> $request->toArray()['car_cost'][$key]]);
+            $quote = Consignment::with(['user','cars','goods'])->where('id', $request->toArray()['consignment_id'])->first();
+            
+            if($quote->product_type == 'vehicle'){
+                // Set the cost for each car
+                foreach ($request->toArray()['car_id'] as $key => $car) {
+                    $total += (float)$request->toArray()['car_cost'][$key];
+                    Car::where('id', $car)->update(['cost'=> $request->toArray()['car_cost'][$key]]);
+                }
+            }else{
+                // Set the cost for each goods
+                foreach ($request->toArray()['goods_id'] as $key => $g) {
+                    $total += (float)$request->toArray()['goods_cost'][$key];
+                    Car::where('id', $g)->update(['cost'=> $request->toArray()['goods_cost'][$key]]);
+                }
             }
 
             // Set the total price for consignment
             Consignment::where('id', $request->toArray()['consignment_id'])->update([
                 'price' => $total,
-                'order_number' => $request->toArray()['consignment_id'].$this->generateUniqueNumber(), // for 5 to 7 digit numbers
-                'tracking_id' => $this->generateUniqueNumber(), 
                 'current_state' => 2,
                 'status' => 1
             ]);
             
-            
             // Send Email to Users
-            $quote = Consignment::with(['user','cars'])->where('id', $request->toArray()['consignment_id'])->first();
-            Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
+            // Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
             $adminEmail = 'georgemunganga@gmail.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteFinalized($quote));
             return response()->json(['message' => 'Quote submission is complete and successful']);
@@ -177,22 +218,81 @@ class RequestController extends Controller
 
 
     public function quoteShipped($id) {
-        Consignment::where('id', $id)->update([
-            'current_state' => 3
+        $cons = Consignment::where('id', $id)->update([
+            'current_state' => 3,
+            'order_number' => $id.$this->generateUniqueNumber(), // for 5 to 7 digit numbers
+            'tracking_id' => $this->generateUniqueNumber(), 
         ]);
-        return redirect()->back()->with('success','Updated Successfully');
+
+        // Send email to user of Tracking and Order number
+        return redirect()->back()->with('success','Consignment has been paid by customer');
     }
-    public function quoteDelivery($id) {
+    public function quoteOrdered($id) {
         Consignment::where('id', $id)->update([
-            'current_state' => 4
+            'current_state' => 4,
+            'status' => 500
         ]);
-        return redirect()->back()->with('success','Updated Successfully');
+        return redirect()->back()->with('success','Consignment has been ordered from seller');
     }
+    public function quoteLeftOrigin($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 5
+        ]);
+        return redirect()->back()->with('success','Consignment has left origin');
+    }
+    public function quoteArrivedAtPort($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 6
+        ]);
+        return redirect()->back()->with('success','Consignment has arrived at port');
+    }
+    public function quotePortCleared($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 7
+        ]);
+        return redirect()->back()->with('success','Consignment has been cleared at port');
+    }
+    public function quoteArrivedAtBorder($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 8
+        ]);
+        return redirect()->back()->with('success','Consignment has arrived at the border');
+    }
+    public function quoteBorderCleared($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 9
+        ]);
+        return redirect()->back()->with('success','Consignment has arrived at the border');
+    }
+    public function quoteInTransitDelivery($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 10
+        ]);
+        return redirect()->back()->with('success','Consignment in transit for delivery');
+    }
+
+    public function quoteDelivered($id) {
+        Consignment::where('id', $id)->update([
+            'current_state' => 11,
+            'status' => 3
+        ]);
+        return redirect()->back()->with('success','Consignment has been delivered and completed successfully');
+    }
+
+
+
+
     public function quoteCancel($id) {
         Consignment::where('id', $id)->update([
             'status' => 2
         ]);
         return redirect()->back()->with('success','Updated Successfully');
+    }
+    public function quoteDelete($id) {
+        Consignment::where('id', $id)->delete();
+        Car::where('consignment_id', $id)->delete();
+        Good::where('consignment_id', $id)->delete();
+        return redirect()->route('request.quote')->with('success','Deleted Successfully');
     }
     public function quoteActivate($id) {
         $q = Consignment::where('id', $id)->first();
