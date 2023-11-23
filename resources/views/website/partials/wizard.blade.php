@@ -180,14 +180,26 @@
                             <select name="numCars" id="numCarsSelect" class="form-control">
                                 <option required="required" selected disabled="disabled">Select Number of vehicles
                                 </option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
+                                <option value="1">2</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
                             </select>
                         </div>
                     </div><!-- /.col-lg-4 -->
@@ -220,7 +232,29 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h5 class="form__title" style="font-size:12px; color:white">Select Number of Goods</h5>
                         <div class="form-group">
-                            <input type="number" name="numGoods" id="numGoodsSelect" class="form-control" />
+                            <input type="text" name="numGoods" id="numGoodsSelect" class="form-control" />
+                            <select name="numGoods" id="numGoodsSelect" class="form-control">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                            </select>
                         </div>
                     </div><!-- /.col-lg-4 -->
 

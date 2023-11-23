@@ -14,8 +14,8 @@
                             <h2 class="slide__title">Import Your Dream Car today!</h2>
                             <p class="slide__desc">Import your desired vehicle today at unbeatable prices. Your
                                 dream ride is just a click away.</p>
-                            <a href="{{ route('services') }}" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                            <a href={{ route('about') }} class="btn btn__white">About Us</a>
+                            <a href="{{ route('request-quote') }} " class="btn btn__primary btn__hover2 mr-30">Get Started</a>
+                            <a href="{{ route('services') }}" class="btn btn__white">Our Services</a>
                         </div><!-- /.slide-content -->
                     </div><!-- /.col-lg-8 -->
                 </div><!-- /.row -->
@@ -31,7 +31,7 @@
                             <p class="slide__desc">Start your journey with just a 35% deposit of the total
                                 landing cost. Embrace the road ahead.</p>
                             <a href={{ route('about') }} class="btn btn__white mr-30">About Us</a>
-                            <a href="{{ route('services') }}" class="btn btn__primary btn__hover2">Our Services</a>
+                            <a href="{{ route('contact') }}" class="btn btn__primary btn__hover2">Contact Us</a>
                         </div><!-- /.slide-content -->
                     </div><!-- /.col-lg-8 -->
                 </div><!-- /.row -->
@@ -47,7 +47,7 @@
                             <p class="slide__desc">Diverse and flexible payment plans ranging from 6 to 24
                                 months, tailored to fit your budget.</p>
                             <a href="{{ route('services') }}" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                            <a href={{ route('about') }} class="btn btn__white">About Us</a>
+                            <a href={{ route('request-quote') }} class="btn btn__white">Get a Quote</a>
                         </div><!-- /.slide-content -->
                     </div><!-- /.col-lg-8 -->
                 </div><!-- /.row -->
@@ -62,7 +62,7 @@
                             <h2 class="slide__title">Seamless Cargo Solutions!</h2>
                             <p class="slide__desc">Expertise in efficient clearing, forwarding, and handling of
                                 vehicles and diverse cargo.</p>
-                            <a href="#requestQuoteTabs" class="btn btn__white mr-30">Get Started</a>
+                            <a href="{{ route('request-quote') }}" class="btn btn__white mr-30">Get Started</a>
                             <a href="{{ route('services') }}" class="btn btn__primary btn__hover2">Our Services</a>
                         </div><!-- /.slide-content -->
                     </div><!-- /.col-lg-8 -->
@@ -78,8 +78,8 @@
                             <h2 class="slide__title">Beyond Just Delivery! </h2>
                             <p class="slide__desc">We ensure the safe transportation of your vehicles,
                                 prioritizing punctuality and precision.</p>
-                            <a href="{{ route('services') }}" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                            <a href={{ route('about') }} class="btn btn__white">About Us</a>
+                            <a href="{{ route('request-quote') }}" class="btn btn__primary btn__hover2 mr-30">Get Started</a>
+                            <a href={{ route('services') }} class="btn btn__white">Our Services</a>
                         </div><!-- /.slide-content -->
                     </div><!-- /.col-lg-8 -->
                 </div><!-- /.row -->
