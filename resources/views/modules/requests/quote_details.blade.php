@@ -248,7 +248,9 @@
                                                 @if ($q->payment_method != 'full')
                                                     <p class="mt-0">{{__('Number of Installments:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->num_installments}}</b></span></p>
                                                 @endif
-                                                <p class="mt-0">{{__('Clearing:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->clearing_from}}</b></span></p>
+                                                @if ($q->service_type != 'importing')
+                                                    <p class="mt-0">{{__('Clearing:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->clearing_from}}</b></span></p>
+                                                @endif
                                                 <p class="mt-0">{{__('Delivering From:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->delivering_from}}</b></span></p>
                                                 <p class="mt-0">{{__('Delivery Town:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->delivery_town}}</b></span></p>
                                             </div>
@@ -328,10 +330,21 @@
                                     </div>
                                 </div>
                                 
+                                @if ($q->message != null)
                                 <div class="card-box order-details-box">
-                                    <p class="header-title mb-3">{{ $q->message ?? 'No Message' }}</p>
-                                    
+                                    <p class="header-title mb-3">{{ $q->message }}</p>
                                 </div>
+                                @endif
+                                @if ($q->file != null)
+                                <div class="card-box order-details-box">
+                                    <p class="header-title mb-3">Attachment 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+                                            <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z"/>
+                                          </svg>
+                                    </p>
+                                    <a href="{{ asset('public/storage/uploads/'.$q->file) }}" target="_blank">{{ $q->file }}</a>
+                                </div>
+                                @endif
                             </div>
                             {{-- <div class="col-md-4">
                                 <div class="card-box order-details-box">
