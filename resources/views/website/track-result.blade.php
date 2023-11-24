@@ -28,48 +28,50 @@
         <div class="col-sm-12 col-md-12 col-lg-12">
           <form>
             <div class="mb-4">
-                @if ($q->product_type == 'vehicle')
-                    {{ $q->num_of_vehicles.' Vehicles' }}                 
-                @else
-                    {{ $q->num_goods.' Products' }}
-                @endif
+                <h4>
+                    @if ($q->product_type == 'vehicle')
+                        {{ $q->num_of_vehicles.' Vehicles' }}                 
+                    @else
+                        {{ $q->num_goods.' Products' }}
+                    @endif
+                </h4>
                 @if ($q->status !== 2)
                     @switch($q->current_state)
                         @case(1)
-                            <span class="badge badge-warning">Pending</span>
+                            <h3 class="badge badge-warning text-lg">Pending</h3>
                         @break
                         @case(2)
-                            <span class="badge badge-info">Quoted</span>
+                            <h3 class="badge badge-info">Quoted</h3>
                         @break
                         @case(3)
-                            <span class="badge badge-success">Paid</span>
+                            <h3 class="badge badge-success">Paid</h3>
                         @break
                         @case(4)
-                            <span class="badge badge-info">Ordered</span>
+                            <h3 class="badge badge-info">Ordered</h3>
                         @break
                         @case(5)
-                            <span class="badge badge-info">Left Origin</span>
+                            <h3 class="badge badge-info">Left Origin</h3>
                         @break
                         @case(6)
-                            <span class="badge badge-info">At Port</span>
+                            <h3 class="badge badge-info">At Port</h3>
                         @break
                         @case(7)
-                            <span class="badge badge-info">Port Cleared</span>
+                            <h3 class="badge badge-info">Port Cleared</h3>
                         @break
                         @case(8)
-                            <span class="badge badge-info">At Border</span>
+                            <h3 class="badge badge-info">At Border</h3>
                         @break
                         @case(9)
-                            <span class="badge badge-info">Border Cleared</span>
+                            <h3 class="badge badge-info">Border Cleared</h3>
                         @break
                         @case(10)
-                            <span class="badge badge-info">Delivery In Transit</span>
+                            <h3 class="badge badge-info">Delivery In Transit</h3>
                         @break
                         @case(11)
-                            <span class="badge badge-secondary">Delivered Completed</span>
+                            <h3 class="badge badge-secondary text-lg">Delivered Completed</h3>
                         @break
                         @default
-                            <span class="badge badge-light">Invalid</span>
+                            <h3 class="badge badge-light">Invalid</h3>
                         @break
                     @endswitch
                 @else

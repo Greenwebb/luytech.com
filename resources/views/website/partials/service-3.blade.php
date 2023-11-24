@@ -61,16 +61,17 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="text__block">
-              <h5 class="text__block-title">Overview</h5>
-              <p class="text__block-desc">Our airfreight staff attaches great importance to customizing the
-                booking process for our customers.
-                That’s why we strive to find the air freight solution that best suits your needs. We’ll ask you
-                when the freight is available, what the required delivery date is, and if there’s potential to
-                save on
-                time or cost. Your answers to these and other questions help us decide if you should book the air
-                freight as direct. We'll also see if our sea-air service is a better solution for</p>
+              <h5 class="text__block-title">Vehicle
+                & Delivery of Vehicles Registration & Insurance</h5>
+              <p class="text__block-desc">In an effort to ensure a stress free process
+                from the moment you order your vehicle
+                to the moment you are able to drive it
+                on public roads, we also provide vehicle
+                registration and insurance services
+                with RATSA and Interpol. The following
+                proceed is undertaken;</p>
             </div><!-- /.text-block -->
-            <div class="video-banner bg-overlay mb-50">
+            {{-- <div class="video-banner bg-overlay mb-50">
               <div class="bg-img"><img src="{{ asset('public/assets/images/banners/2.jpg')}}" alt="background"></div>
               <div class="video__btn video__btn-white video__btn-left-bottom">
                 <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
@@ -82,120 +83,78 @@
                   </div>
                 </a>
               </div>
-            </div><!-- /.video -->
-            <div class="text__block">
-              <h5 class="text__block-title">Stats & Charts</h5>
-              <p class="text__block-desc">We pride ourselves on providing the best transport and shipping
-                services
-                currently available in Australia. Our skilled personnel, utilising the latest communications,
-                tracking
-                and processing software, combined with decades of experience, ensure all freight is are shipped,
-                trans-shipped and delivered as safely, securely, and promptly as possible.</p>
-            </div><!-- /.text-block -->
+            </div><!-- /.text-block --> --}}
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
-        <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="text__block-3">
-              <h6 class="text__block-title">Our Solutions</h6>
-              <p class="text__block-desc">Our primary Less-Than-Truckload service is completed using mezzanine
-                floor tautliners and drop-deck open trailers, allowing us to maximise driver and vehicle
-                utilisation.</p>
-            </div><!-- /.text-block -->
-          </div><!-- /.col-lg-6 -->
-          <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="text__block-3">
-              <h6 class="text__block-title">Production techniques</h6>
-              <p class="text__block-desc">Your answers to these and other questions help us decide if you should
-                book the air freight, we'll also see if service is a better solution for you.</p>
-            </div><!-- /.text-block -->
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <div class="row">
+       <!-- /.row -->
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
-            <img src="assets/images/charts/1.png" alt="chart" class="img-fluid mb-50">
+            <img src="public/web/assets/images/charts/1.png" alt="chart" class="img-fluid mb-50">
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="text__block">
-              <h5 class="text__block-title">Why Us!</h5>
-              <p class="text__block-desc">We continue to pursue that same vision in today's complex, uncertain
-                world, working every day to earn our customers’ trust! During that time, we’ve become expert in
-                freight transportation by air and all its related services. We work closely with all major
-                airlines around the world.</p>
-            </div><!-- /.text-block -->
-          </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+        </div><!-- /.row --> --}}
+        <!-- /.row -->
         <div class="row fancybox-layout2 mb-50">
           <!-- fancybox item #1 -->
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
-              <div class="fancybox__icon">
-                <i class="icon-wallet"></i>
-              </div><!-- /.fancybox-icon -->
               <div class="fancybox__content">
-                <h4 class="fancybox__title">Transparent Pricing</h4>
-              </div><!-- /.fancybox-content -->
-            </div><!-- /.fancybox-item -->
-          </div><!-- /.col-lg-4 -->
-          <!-- fancybox item #2 -->
+                <h4 class="fancybox__title">Customs Clearance Certificate: Issued
+                    by the Zambia Revenues Authority
+                    (ZRA).</h4>
+              </div>
+            </div>
+          </div>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
-              <div class="fancybox__icon">
-                <i class="icon-search"></i>
-              </div><!-- /.fancybox-icon -->
               <div class="fancybox__content">
-                <h4 class="fancybox__title">Real-Time Tracking</h4>
-              </div><!-- /.fancybox-content -->
-            </div><!-- /.fancybox-item -->
-          </div><!-- /.col-lg-4 -->
-          <!-- fancybox item #3 -->
+                <h4 class="fancybox__title">
+                    Vehicle Registration: Issued by The
+                    Road Transport and Safety Agency
+                    (RTSA)
+                </h4>
+              </div>
+            </div>
+          </div>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
-              <div class="fancybox__icon">
-                <i class="icon-trolley"></i>
-              </div><!-- /.fancybox-icon -->
               <div class="fancybox__content">
-                <h4 class="fancybox__title">Warehouse Storage</h4>
-              </div><!-- /.fancybox-content -->
-            </div><!-- /.fancybox-item -->
-          </div><!-- /.col-lg-4 -->
-          <!-- fancybox item #4 -->
+                <h4 class="fancybox__title">
+                    Interpol Motor Vehicle Clearance:
+                    issued by Zambia Police
+                </h4>
+              </div>
+            </div>
+          </div>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
-              <div class="fancybox__icon">
-                <i class="icon-package-6"></i>
-              </div><!-- /.fancybox-icon -->
               <div class="fancybox__content">
-                <h4 class="fancybox__title">Security For Cargo</h4>
-              </div><!-- /.fancybox-content -->
-            </div><!-- /.fancybox-item -->
-          </div><!-- /.col-lg-4 -->
-          <!-- fancybox item #5 -->
+                <h4 class="fancybox__title">
+                    Application for Motor Vehicle License
+                    (“Road Tax”): Payment of fees
+                    prescribed in order to obtain the
+                    permission to use the vehicle on
+                    Zambia national roads and obtain the
+                    Motor vehicle license.
+                </h4>
+              </div>
+            </div>
+          </div>
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
-              <div class="fancybox__icon">
-                <i class="icon-payment-method"></i>
-              </div><!-- /.fancybox-icon -->
               <div class="fancybox__content">
-                <h4 class="fancybox__title">Easy Payment Methods</h4>
-              </div><!-- /.fancybox-content -->
-            </div><!-- /.fancybox-item -->
-          </div><!-- /.col-lg-4 -->
-          <!-- fancybox item #6 -->
-          <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="fancybox-item">
-              <div class="fancybox__icon">
-                <i class="icon-call-center"></i>
-              </div><!-- /.fancybox-icon -->
-              <div class="fancybox__content">
-                <h4 class="fancybox__title">24/7 Hours Support</h4>
-              </div><!-- /.fancybox-content -->
-            </div><!-- /.fancybox-item -->
-          </div><!-- /.col-lg-4 -->
+                <h4 class="fancybox__title">
+                    Apply for Safety Inspection (“Road
+                    Fitness Test”): This inspection is
+                    necessary if the vehicle is to be
+                    allowed to drive on public roads. 
+                </h4>
+              </div>
+            </div>
+          </div>
+          
+          
         </div><!-- /.row -->
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <h5>Key Benifits</h5>
             <div id="accordion" class="mb-50">
@@ -249,7 +208,7 @@
               </div><!-- /.accordion-item -->
             </div>
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+        </div><!-- /.row --> --}}
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="cta cta-banner bg-overlay">

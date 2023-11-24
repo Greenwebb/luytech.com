@@ -61,17 +61,16 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="text__block">
-              <h5 class="text__block-title">Overview</h5>
-              <p class="text__block-desc">Our airfreight staff attaches great importance to customizing the
-                booking process for our customers.
-                That’s why we strive to find the air freight solution that best suits your needs. We’ll ask you
-                when the freight is available, what the required delivery date is, and if there’s potential to
-                save on
-                time or cost. Your answers to these and other questions help us decide if you should book the air
-                freight as direct. We'll also see if our sea-air service is a better solution for</p>
+              <h5 class="text__block-title">Clearing & Forwarding</h5>
+              <p class="text__block-desc">
+                At LuytechZM, we specialize in efficient clearing and forwarding services, 
+                ensuring seamless cross-border movement of goods. With a team of experienced 
+                professionals and advanced technology, we provide personalized solutions to streamline customs processes and optimize supply chain efficiency. Choose LuytechZM for 
+                reliable and timely logistics support, committed to making your global trade operations hassle-free.
+              </p>
             </div><!-- /.text-block -->
             <div class="video-banner bg-overlay mb-50">
-              <div class="bg-img"><img src="{{ asset('public/assets/images/banners/2.jpg')}}" alt="background"></div>
+              <div class="bg-img"><img src="{{ asset('public/web/assets/images/banners/2.jpg')}}" alt="background"></div>
               <div class="video__btn video__btn-white video__btn-left-bottom">
                 <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
                   <span class="video__player-animation"></span>
@@ -84,50 +83,85 @@
               </div>
             </div><!-- /.video -->
             <div class="text__block">
-              <h5 class="text__block-title">Stats & Charts</h5>
-              <p class="text__block-desc">We pride ourselves on providing the best transport and shipping
-                services
-                currently available in Australia. Our skilled personnel, utilising the latest communications,
-                tracking
-                and processing software, combined with decades of experience, ensure all freight is are shipped,
-                trans-shipped and delivered as safely, securely, and promptly as possible.</p>
+              <h5 class="text__block-title">Duties & Tax advice</h5>
+              <p class="text__block-desc">At Luytech we provide general duties
+                and tax advice to our clients concerning
+                the following:
+                • Import duties or tariffs
+                • Customs Valuation
+                • Exemptions and Preferences
+                • Value Added Tax (VAT)
+                • Customs Declarations and
+                 Compliance
+                • Tax Deductions and Benefits
+            </p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
         <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="text__block-3">
-              <h6 class="text__block-title">Our Solutions</h6>
-              <p class="text__block-desc">Our primary Less-Than-Truckload service is completed using mezzanine
-                floor tautliners and drop-deck open trailers, allowing us to maximise driver and vehicle
-                utilisation.</p>
+              <h6 class="text__block-title">Port Clearance</h6>
+              <p class="text__block-desc">Port clearance is an essential
+                component of the clearing
+                and forwarding industry.
+                It involves the necessary
+                procedures, documentation,
+                and coordination required
+                to facilitate the entry and
+                exit of goods and vessels at
+                a port. At Luytech we are
+                at hand to ensure that once
+                your goods arrive (at Dare
+                salaam, Durban, Walvis Bay
+                and other ports), proper
+                documentation is submitted
+                and your goods properly
+                processed ready for entry or
+                exit. We also work hand in
+                hand with port authorities to
+                ensure that your goods are
+                safely loaded or off loaded.</p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-6 col-lg-6">
-            <div class="text__block-3">
-              <h6 class="text__block-title">Production techniques</h6>
-              <p class="text__block-desc">Your answers to these and other questions help us decide if you should
-                book the air freight, we'll also see if service is a better solution for you.</p>
+            <div class="text__block-4">
+              <h6 class="text__block-title">Border Clearance</h6>
+              <p class="text__block-desc">Once your goods arrive at the border, our
+                agents are at hand to ensure that your
+                goods undergo the necessary customs
+                declaration procedures are followed,
+                applicable taxes or duties are paid and
+                Customs officers perform security
+                checks. Our agents are stationed at all
+                of Zambia’s borders such as Nakonde,
+                Chirundu, Kariba, Kasumbalesa, Katima
+                Mulilo, Kazungula, Victoria Falls, Kashiba,
+                Mokambo, Mwami and all other boarders
+                in Zambia.</p>
             </div><!-- /.text-block -->
-          </div><!-- /.col-lg-6 -->
+            
         </div><!-- /.row -->
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <img src="assets/images/charts/1.png" alt="chart" class="img-fluid mb-50">
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+        </div><!-- /.row --> --}}
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="text__block">
-              <h5 class="text__block-title">Why Us!</h5>
-              <p class="text__block-desc">We continue to pursue that same vision in today's complex, uncertain
-                world, working every day to earn our customers’ trust! During that time, we’ve become expert in
-                freight transportation by air and all its related services. We work closely with all major
-                airlines around the world.</p>
+              <h5 class="text__block-title">Removal In Transit</h5>
+              <p class="text__block-desc">RIT refers to the movement of goods through a country or customs territory
+                without being subject to import duties or other customs formalities. It
+                allows goods to be transported from one country to another through
+                a third country without undergoing full customs clearance procedures
+                or being subjected to customs duties or taxes in the transit country.
+                At Luytech we provide Removal in Transit services for all neighboring
+                countries such as Zimbabwe, DRC and Malawi.</p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
-        <div class="row fancybox-layout2 mb-50">
+        {{-- <div class="row fancybox-layout2 mb-50">
           <!-- fancybox item #1 -->
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
@@ -194,8 +228,8 @@
               </div><!-- /.fancybox-content -->
             </div><!-- /.fancybox-item -->
           </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-        <div class="row">
+        </div><!-- /.row --> --}}
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <h5>Key Benifits</h5>
             <div id="accordion" class="mb-50">
@@ -249,8 +283,8 @@
               </div><!-- /.accordion-item -->
             </div>
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
-        <div class="row">
+        </div><!-- /.row --> --}}
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="cta cta-banner bg-overlay">
               <div class="bg-img">
@@ -261,7 +295,7 @@
               <a href="{{ route('contact') }}" class="btn btn__white">contact us</a>
             </div><!-- /.cta -->
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+        </div><!-- /.row --> --}}
       </div><!-- /.col-lg-8 -->
     </div><!-- /.row -->
   </div><!-- /.container -->

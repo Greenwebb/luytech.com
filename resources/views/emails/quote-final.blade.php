@@ -86,6 +86,7 @@
         </tr>
       </table>
 
+      @if ($quote->product_type == 'vehicle')
       <table>
         <tr>
           <th>Car Make</th>
@@ -116,6 +117,36 @@
           <td>{{ $quote->cars->sum('cost') }}</td>
         </tr>
       </table>
+      @else
+      <table>
+        <tr>
+          <th>Item Name</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Packaging</th>
+          <th>Total</th>
+        </tr>
+        @forelse ($quote->goods as $g)
+        <tr>
+          <td scope="row"><b>{{$g->name}}</b></td>
+          <td>{{$g->size}}</td>
+          <td>{{$g->qty}}</td>
+          <td>{{$g->packaging}}</td>
+          <td>{{ $g->cost }}</td>
+        </tr>
+        @empty
+        @endforelse
+        
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          <td>{{ $quote->goods->sum('cost') }}</td>
+        </tr>
+      </table>
+      @endif
     </div>
 
     <div class="thank-you">

@@ -79,35 +79,60 @@
           <th>User Email</th>
           <td>{{ $quote->user->email }}</td>
         </tr>
+        @if ($quote->message != null)
         <tr>
           <th>Quote Details</th>
           <td>{{ $quote->message }}</td>
         </tr>
+        @endif
         <tr>
           <th>Consignment Type</th>
           <td>{{ $quote->consignment_type }}</td>
         </tr>
       </table>
 
+      @if ($quote->product_type == 'vehicle')
+        <table>
+          <tr>
+            <th>Car Make</th>
+            <th>Car Model</th>
+            <th>Fuel</th>
+            <th>Transmission</th>
+            <th>Car Year</th>
+          </tr>
+          @forelse ($quote->cars as $car)
+          <tr>
+            <td>{{ $car->car_make }}</td>
+            <td>{{ $car->car_model }}</td>
+            <td>{{ $car->fuel }}</td>
+            <td>{{ $car->transmission }}</td>
+            <td>{{ $car->car_year }}</td>
+          </tr>
+          @empty
+          @endforelse
+        </table>
+      @else
       <table>
         <tr>
-          <th>Car Make</th>
-          <th>Car Model</th>
-          <th>Fuel</th>
-          <th>Transmission</th>
-          <th>Car Year</th>
+
+          <th>Item Name</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Packaging</th>
+          <th>Total</th>
         </tr>
-        @forelse ($quote->cars as $car)
+        @forelse ($quote->goods as $g)
         <tr>
-          <td>{{ $car->car_make }}</td>
-          <td>{{ $car->car_model }}</td>
-          <td>{{ $car->fuel }}</td>
-          <td>{{ $car->transmission }}</td>
-          <td>{{ $car->car_year }}</td>
+            <td scope="row"><b>{{$g->name}}</b></td>
+            <td>{{$g->size}}</td>
+            <td>{{$g->qty}}</td>
+            <td>{{$g->packaging}}</td>
+            <td>{{$g->cost ?? 0}}</td>
         </tr>
         @empty
         @endforelse
       </table>
+      @endif
     </div>
 
     <div class="thank-you">

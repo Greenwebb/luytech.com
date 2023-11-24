@@ -63,17 +63,25 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="text__block">
-              <h5 class="text__block-title">Overview</h5>
-              <p class="text__block-desc">Our airfreight staff attaches great importance to customizing the
-                booking process for our customers.
-                That’s why we strive to find the air freight solution that best suits your needs. We’ll ask you
-                when the freight is available, what the required delivery date is, and if there’s potential to
-                save on
-                time or cost. Your answers to these and other questions help us decide if you should book the air
-                freight as direct. We'll also see if our sea-air service is a better solution for</p>
+              <h5 class="text__block-title">Import & Delivery Of Vehicles</h5>
+              <p class="text__block-desc">We offer a robust vehicle order and
+                delivery service list. Our specialist agents
+                are at hand to assist you in selecting and
+                ordering your vehicles online. Vehicles
+                can be ordered from countries such as
+                Japan, United Kingdom, China and UAE.
+                Once your vehicle arrives, our port agents
+                are on hand to process documentations,
+                off load and conduct the necessary
+                checks to ensure that the vehicle is ready
+                for entry. Luytech drivers with years
+                of driving experience are capable of
+                delivering your vehicle to not only Zambia
+                but also neighboring countries such as
+                Malawi, Zimbabwe, Angola, Congo etc. </p>
             </div><!-- /.text-block -->
             <div class="video-banner bg-overlay mb-50">
-              <div class="bg-img"><img src="{{ asset('public/assets/images/banners/2.jpg')}}" alt="background"></div>
+              <div class="bg-img"><img src="{{ asset('public/web/assets/images/banners/2.jpg')}}" alt="background"></div>
               <div class="video__btn video__btn-white video__btn-left-bottom">
                 <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
                   <span class="video__player-animation"></span>
@@ -85,7 +93,7 @@
                 </a>
               </div>
             </div><!-- /.video -->
-            <div class="text__block">
+            {{-- <div class="text__block">
               <h5 class="text__block-title">Stats & Charts</h5>
               <p class="text__block-desc">We pride ourselves on providing the best transport and shipping
                 services
@@ -93,10 +101,10 @@
                 tracking
                 and processing software, combined with decades of experience, ensure all freight is are shipped,
                 trans-shipped and delivered as safely, securely, and promptly as possible.</p>
-            </div><!-- /.text-block -->
+            </div> --}}
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-6 col-lg-6">
             <div class="text__block-3">
               <h6 class="text__block-title">Our Solutions</h6>
@@ -112,24 +120,28 @@
                 book the air freight, we'll also see if service is a better solution for you.</p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <div class="row">
+        </div><!-- /.row --> --}}
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
-            <img src="assets/images/charts/1.png" alt="chart" class="img-fluid mb-50">
+            <img src="public/web/assets/images/charts/1.png" alt="chart" class="img-fluid mb-50">
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+        </div><!-- /.row --> --}}
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="text__block">
-              <h5 class="text__block-title">Why Us!</h5>
-              <p class="text__block-desc">We continue to pursue that same vision in today's complex, uncertain
-                world, working every day to earn our customers’ trust! During that time, we’ve become expert in
-                freight transportation by air and all its related services. We work closely with all major
-                airlines around the world.</p>
+              <h5 class="text__block-title">Other Solutions</h5>
+                <p class="text__block-desc">
+                    Apart from motor vehicles, we also
+                    specialize in handling other types of
+                    shipments such as;
+                    <li>Loose cargo</li>
+                    <li>Containerized goods</li>
+                    <li>Machinery etc</li>
+                </p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
-        <div class="row fancybox-layout2 mb-50">
+        {{-- <div class="row fancybox-layout2 mb-50">
           <!-- fancybox item #1 -->
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="fancybox-item">
@@ -196,8 +208,8 @@
               </div><!-- /.fancybox-content -->
             </div><!-- /.fancybox-item -->
           </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-        <div class="row">
+        </div><!-- /.row --> --}}
+        {{-- <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <h5>Key Benifits</h5>
             <div id="accordion" class="mb-50">
@@ -251,12 +263,12 @@
               </div><!-- /.accordion-item -->
             </div>
           </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+        </div><!-- /.row --> --}}
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="cta cta-banner bg-overlay">
               <div class="bg-img">
-                <img src="assets/images/banners/4.jpg" alt="background">
+                <img src="public/web/assets/images/banners/4.jpg" alt="background">
               </div>
               <h2 class="cta__title">Reliable & Express Logistic Solutions!!</h2>
               <p class="cta__desc">Competitive advantages to some of the largest companies allover the world.</p>
