@@ -143,10 +143,34 @@ $("#wizard").steps({
     },
     onFinished: function () {
         // alert("Form successfully submitted!");
-        $('#request-quote').submit();
-        
+        // $('#request-quote').submit();
+        // var form = $('#request-quote');
+        var form = document.getElementById('request-quote');
+        var formData = new FormData(form);
         var submitButton = $(form).find('button[type="submit"]');
-        submitButton.prop('disabled', true).html('Please Wait...');
+        $.ajax({
+            url: form.getAttribute('action'),
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (data) {
+                console.log(data);
+                // Handle the response, update UI, show success/error messages, etc.
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            },
+            beforeSend: function () {
+                submitButton.prop('disabled', true).html('Please Wait...');
+            },
+            complete: function () {
+                submitButton.prop('disabled', false).html('Upload'); // Re-enable the submit button
+            }
+        });
     },
     labels: {
         previous: "Back",

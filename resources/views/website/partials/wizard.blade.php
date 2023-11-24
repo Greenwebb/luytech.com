@@ -178,7 +178,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h5 class="form__title" style="font-size:12px; color:white">Upload invoice file or picture</h5>
                         <div class="form-group">
-                            <input type="file" name="file" id="file">
+                            <input type="file" name="invoice" id="imageInput">
                         </div>
                     </div>
                 </div>

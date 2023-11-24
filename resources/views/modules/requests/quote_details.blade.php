@@ -226,11 +226,41 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="card-box order-detail-table">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <p class="mt-0">{{__('Consignment Type:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->consignment_type}}</b></span></p>
+                                                @if($q->consignment_type != 'personal')
+                                                <p class="mt-0">{{__('Company Name:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->company_name}}</b></span></p>
+                                                @endif
+                                                <p class="mt-0">{{__('Service Type:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->service_type}}</b></span></p>
+                                                <p class="mt-0">{{__('Product Type:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->product_type}}</b></span></p>
+                                                @if ($q->product_type == 'vehicle')
+                                                    <p class="mt-0">{{__('Number of Vehicles:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->num_of_vehicles}}</b></span></p>
+                                                @else
+                                                    <p class="mt-0">{{__('Number of Goods:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->num_goods}}</b></span></p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="mb-4">
+                                                <p class="mt-0">{{__('Payment Method:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->payment_method}}</b></span></p>
+                                                @if ($q->payment_method != 'full')
+                                                    <p class="mt-0">{{__('Number of Installments:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->num_installments}}</b></span></p>
+                                                @endif
+                                                <p class="mt-0">{{__('Clearing:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->clearing_from}}</b></span></p>
+                                                <p class="mt-0">{{__('Delivering From:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->delivering_from}}</b></span></p>
+                                                <p class="mt-0">{{__('Delivery Town:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->delivery_town}}</b></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
                                     <h5 class="header-title mb-3">{{__('Items from Order #'.$q->order_number)}}</h5>
                                     <div class="table-responsive">
                                         @if ($q->product_type == 'vehicle')
                                         <table class="table table-bordered table-centered mb-0">
-                                            <thead class="thead-light">
+                                            <thead class=" bg-info">
                                             <tr>
                                                 <th>{{__('Make')}}</th>
                                                 <th>{{__('Model')}}</th>
@@ -297,17 +327,13 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
-                            {{-- <div class="col-md-4">
+                                
                                 <div class="card-box order-details-box">
-                                    <h5 class="header-title mb-3">{{__('Shipping Information')}}</h5>
-                                    <h6 class="font-family-primary font-weight-semibold">{{__('Nick Johnson')}}</h6>
-                                    <p class="mb-2 font-13"><span class="font-weight-semibold mr-2">{{__('Address:')}}</span> {{__('123 Amarilon Lane, CA 97458')}}</p>
-                                    <p class="mb-2 font-13"><span class="font-weight-semibold mr-2">{{__('Phone:')}}</span> {{__('(123) 123-4567')}}</p>
-                                    <p class="mb-0 font-13"><span class="font-weight-semibold mr-2">{{__('Mobile:')}}</span> {{__('(+01) 98765 43210')}}</p>
+                                    <p class="header-title mb-3">{{ $q->message ?? 'No Message' }}</p>
+                                    
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="card-box order-details-box">
                                     <h5 class="header-title mb-3">{{__('Billing Information')}}</h5>
                                     <ul class="list-unstyled mb-0">

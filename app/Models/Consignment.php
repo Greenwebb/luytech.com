@@ -30,13 +30,14 @@ class Consignment extends Model
         'installment_duration',
         'clearing_from',
         'delivery_town',
-        'num_goods'
+        'num_goods',
+        'delivering_from',
+        'file'
     ];
 
     protected static function boot()
     {
         parent::boot();
-
         static::retrieved(function ($model) {
             if (method_exists($model, 'user')) {
                 $model->load('User');

@@ -63,8 +63,9 @@ class RequestController extends Controller
     }
 
     public function storeQuote(Request $request){
-        // dd($request->hasFile('file'));
+        // dd($request);
         try {
+            $file = $this->uploadFile($request);
             // Create the User
             $user = User::where('email', $request->input('email'))->first();
             // dd($user);
@@ -93,7 +94,9 @@ class RequestController extends Controller
                 'product_type' => $request->input('product_type'),
                 'service_type' => $request->input('service_type'),
                 'installment_duration' => $request->input('installment_duration'),
-                'delivery_town' => $request->input('delivery_town') 
+                'delivery_town' => $request->input('delivery_town'),
+                'delivering_from' => $request->input('delivering_from'),
+                'file' => $file 
             ]);
 
             if(!empty($request->input('clearing_from'))){
@@ -148,6 +151,21 @@ class RequestController extends Controller
         }
     }
 
+    public function uploadFile($request){
+        if ($request->hasFile('invoice')) {
+            $file = $request->file('invoice');
+            
+            // Validate the file if needed
+            // $request->validate([
+            //     'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // adjust based on your requirements
+            // ]);
+
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('uploads', $fileName, 'public'); // Store the file in the public/uploads directory
+
+            return $fileName;
+        }
+    }
 
 
     // ----- Details --------------------------------
