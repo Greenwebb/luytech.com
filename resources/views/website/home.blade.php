@@ -794,7 +794,7 @@ Servicesi">
                                     communications, tracking and
                                     processing software, combined with decades of experience.</p>
                             </div><!-- /.heading -->
-                            <a href="#" class="btn btn__primary">Schedule An Appointment</a>
+                            <a href="{{route('contact')}}" class="btn btn__primary">Schedule An Appointment</a>
                         </div>
                     </div><!-- /.col-lg-6 -->
                     <div class="col-sm-12 col-md-12 col-lg-6 bg-overlay  background-banner">

@@ -63,8 +63,8 @@ class RequestController extends Controller
     }
 
     public function storeQuote(Request $request){
-        // dd($request);
-       try {
+        // dd($request->hasFile('file'));
+        try {
             // Create the User
             $user = User::where('email', $request->input('email'))->first();
             // dd($user);

@@ -1,6 +1,6 @@
 <div class="containery container">
-    <form id="request-quote" action="{{ route('quote.store') }}" class="request-quote-form">
-        
+    <form id="request-quote" action="{{ route('quote.store') }}" enctype="multipart/form-data" class="request-quote-form">
+        @csrf
         {{-- <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="alert alert-primary text-center mb-45">
                 
@@ -17,8 +17,7 @@
                     our easy Quote Request Form below to get a fast quote on your job.</p> --}}
                 <div class="purpose-radios-wrapper">
                     <div class="purpose-radio">
-                        <input type="radio" name="purpose" id="branding" class="purpose-radio-input"
-                            value="personal">
+                        <input type="radio" name="purpose" id="branding" class="purpose-radio-input" value="personal">
                         <label for="branding" class="purpose-radio-label">
                             <span class="label-icon">
                                 <img src="public/web/assets/images/icons/p.svg" alt="branding" class="label-icon-default">
@@ -41,9 +40,10 @@
 
                 </div>
             </section>
+            
             <h3>Personal</h3>
             <section style="padding: 0px;">
-                <h4 class="step-heading"> Your Credentials </h4>
+                {{-- <h4 class="step-heading"> Your Credentials </h4> --}}
 
                 <div class="row mb-30">
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -59,12 +59,12 @@
                         <div class="form-group">
                             <input name="lname" required type="text" class="form-control" placeholder="Last Name">
                         </div>
-                    </div><!-- /.col-lg-4 -->
+                    </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
                             <input name="email" required type="email" class="form-control" placeholder="Email">
                         </div>
-                    </div><!-- /.col-lg-4 -->
+                    </div>
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">
                             <input name="tel" required type="tel" class="form-control" placeholder="Phone">
@@ -78,14 +78,12 @@
                     </div>
                     <div id="hideifpersonal" class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
-                            <input name="companyname" id="companyname" required type="text" class="form-control"
-                                placeholder="Company Name">
+                            <input name="companyname" id="companyname" required type="text" class="form-control" placeholder="Company Name">
                         </div>
-                    </div><!-- /.col-lg-12 -->
-                    <!-- /.col-lg-4 -->
-                </div><!-- /.row -->
-
+                    </div>
+                </div>
             </section>
+
             <h3>Consignment</h3>
             <section style="padding: 0px;">
                 <div id="single_CN2" class="mb-3 col-xxl-12 col-xl-12">
@@ -126,9 +124,9 @@
                                 <option required="required" selected disabled="disabled">
                                     --select--
                                 </option>
-                                <option value="6 months">6 months</option>
-                                <option value="12 months">12 months</option>
-                                <option value="18 months">18 months</option>
+                                <option value="6">6 months</option>
+                                <option value="12">12 months</option>
+                                <option value="18">18 months</option>
                             </select>
                         </div>
                     </div>
@@ -151,16 +149,36 @@
                                 <option required="required" selected disabled="disabled">
                                     --select--
                                 </option>
-                                <option value="vehicle">Port to Border</option>
-                                <option value="goods">Border to Final Delivery</option>
+                                <option value="At the Border">At the Border</option>
+                                <option value="At the Port">At the Port</option>
+                                <option value="Both">Both</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <h5 class="form__title" style="font-size:12px; color:white">Where are you delivering from?</h5>
+                        <div class="form-group">
+                            <select name="delivery_from" id="delivery_from" class="form-control">
+                                <option required="required" selected disabled="disabled">
+                                    --select--
+                                </option>
+                                <option value="Port to Border">Port to Border</option>
+                                <option value="Border to Final Delivery">Border to Final Delivery</option>
+                                <option value="Port to Final Delivery">Port to Final Delivery</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h5 class="form__title" style="font-size:12px; color:white">Delivery Town</h5>
                         <div class="form-group">
-                            <input name="delivery_town" id="delivery_town" type="text" class="form-control"
-                                placeholder="Delivery Town">
+                            <input name="delivery_town" id="delivery_town" type="text" class="form-control" placeholder="Delivery Town">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <h5 class="form__title" style="font-size:12px; color:white">Upload invoice file or picture</h5>
+                        <div class="form-group">
+                            <input type="file" name="file" id="file">
                         </div>
                     </div>
                 </div>
@@ -180,7 +198,7 @@
                             <select name="numCars" id="numCarsSelect" class="form-control">
                                 <option required="required" selected disabled="disabled">Select Number of vehicles
                                 </option>
-                                <option value="1">2</option>
+                                <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -232,7 +250,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h5 class="form__title" style="font-size:12px; color:white">Select Number of Goods</h5>
                         <div class="form-group">
-                            <input type="text" name="numGoods" id="numGoodsSelect" class="form-control" />
+                            {{-- <input type="text" name="numGoods" id="numGoodsSelect" class="form-control" /> --}}
                             <select name="numGoods" id="numGoodsSelect" class="form-control">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -333,7 +351,6 @@
                         goodsView.style.display = 'block';
                     }
                 });
-            
             </script>
             <script>
                 // Load number of cars from sessionStorage or set default to 1

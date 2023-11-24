@@ -249,12 +249,12 @@ Request Quote Tabs
                             <img src="public/web/assets/images/testimonials/thumbs/1.jpg" alt="author thumb">
                         </div><!-- /.testimonial-thumb -->
                         <div class="testimonial__content">
-                            <p class="testimonial__desc">They are the best of the best, and expertly trained
-                                team members who take
+                            <p class="testimonial__desc">
+                                They are the best of the best, and expertly trained team members who take
                                 the extra step and go the extra mile, all to fulfill our dedicated promise to
-                                deliver innovative and
-                                dynamic solutions to our customers to fit the needs of a rapidly changing global
-                                environment.</p>
+                                deliver innovative and dynamic solutions to our customers to fit the needs of a rapidly changing global
+                                environment.
+                            </p>
                         </div><!-- /.testimonial-content -->
                         <div class="testimonial__meta">
                             <p class="testimonial__meta-desc">The Move Inc</p>
@@ -266,13 +266,11 @@ Request Quote Tabs
                             <img src="public/web/assets/images/testimonials/thumbs/1.jpg" alt="author thumb">
                         </div><!-- /.testimonial-thumb -->
                         <div class="testimonial__content">
-                            <p class="testimonial__desc">The Luytech team is the best of the best, and expertly
-                                trained team members
+                            <p class="testimonial__desc">
+                                The Luytech team is the best of the best, and expertly trained team members
                                 who take the extra step and go the extra mile, all to fulfill our dedicated
-                                promise to deliver
-                                innovative and dynamic solutions to customers to fit the needs of a rapidly
-                                changing global
-                                environment.</p>
+                                promise to deliver innovative and dynamic solutions to customers to fit the needs of a rapidly
+                                changing global environment.</p>
                         </div><!-- /.testimonial-content -->
                         <div class="testimonial__meta">
                             
@@ -398,7 +396,7 @@ Clients 1
                             communications, tracking and
                             processing software, combined with decades of experience.</p>
                     </div><!-- /.heading -->
-                    <a href="#" class="btn btn__primary">Schedule An Appointment</a>
+                    <a href="{{route('contact')}}" class="btn btn__primary">Schedule An Appointment</a>
                 </div>
             </div><!-- /.col-lg-6 -->
             <div class="col-sm-12 col-md-12 col-lg-6 bg-overlay  background-banner">
