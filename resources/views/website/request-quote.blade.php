@@ -1,6 +1,43 @@
 @extends('website.layouts.app')
 
 @section('content')
+<style>
+       /* Overlay styles */
+       #overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
+            z-index: 9999;
+        }
+
+        /* Preloader (spinner) styles */
+        #preloader {
+            border: 8px solid #f3f3f3; /* Light grey */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            left: 50;
+            top: 50;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+</style>
+<div id="overlay">
+    <div id="preloader"></div>
+</div>
     <!-- ========================
            page title
         =========================== -->
@@ -70,4 +107,9 @@
                 contact 1
     =========================  -->
     @include('website.partials.map')
+    <script>
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'none';
+        
+    </script>
 @endsection

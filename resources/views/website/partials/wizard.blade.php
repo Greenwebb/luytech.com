@@ -1,11 +1,11 @@
 <div class="containery container">
     <form id="request-quote" action="{{ route('quote.store') }}" enctype="multipart/form-data" class="request-quote-form">
         @csrf
-        {{-- <div class="col-sm-12 col-md-12 col-lg-12">
+        <div id="successMsg" class="col-sm-12 col-md-12 col-lg-12">
             <div class="alert alert-primary text-center mb-45">
-                
+                Quote request successfully sent for processing.
             </div>
-        </div> --}}
+        </div>
 
 
         <div id="wizard">

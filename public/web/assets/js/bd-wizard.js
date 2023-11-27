@@ -146,8 +146,12 @@ $("#wizard").steps({
         // $('#request-quote').submit();
         // var form = $('#request-quote');
         var form = document.getElementById('request-quote');
+        var formBody = document.getElementById('wizard');
         var formData = new FormData(form);
-        var submitButton = $(form).find('button[type="submit"]');
+        var submitButton = document.getElementById('overlay');
+        var successMsg = document.getElementById('successMsg');
+        
+        submitButton.style.display = 'block';
         $.ajax({
             url: form.getAttribute('action'),
             type: 'POST',
@@ -159,17 +163,23 @@ $("#wizard").steps({
             },
             success: function (data) {
                 console.log(data);
+                submitButton.style.display = 'none';
+                successMsg.style.display = 'block';
+                formBody.style.display = 'none';
                 // Handle the response, update UI, show success/error messages, etc.
             },
             error: function (error) {
                 console.error('Error:', error);
-            },
-            beforeSend: function () {
-                submitButton.prop('disabled', true).html('Please Wait...');
-            },
-            complete: function () {
-                submitButton.prop('disabled', false).html('Upload'); // Re-enable the submit button
+                submitButton.style.display = 'none';
+                successMsg.style.display = 'block';
+                formBody.style.display = 'none';
             }
+            // beforeSend: function () {
+            //     submitButton.prop('disabled', true).html('Please Wait...');
+            // },
+            // complete: function () {
+            //     submitButton.prop('disabled', false).html('Upload'); // Re-enable the submit button
+            // }
         });
     },
     labels: {
