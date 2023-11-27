@@ -226,6 +226,48 @@
                             </div>
                             <div class="col-md-7">
                                 <div class="card-box order-detail-table">
+                                    @if ($q->status !== 2)
+                                        @switch($q->current_state)
+                                            @case(1)
+                                                <h3 class="badge badge-secondary text-lg">Pending</h3>
+                                            @break
+                                            @case(2)
+                                                <h3 class="badge badge-info">Quoted</h3>
+                                            @break
+                                            @case(3)
+                                                <h3 class="badge badge-success">Paid</h3>
+                                            @break
+                                            @case(4)
+                                                <h3 class="badge badge-info">Ordered</h3>
+                                            @break
+                                            @case(5)
+                                                <h3 class="badge badge-info">Left Origin</h3>
+                                            @break
+                                            @case(6)
+                                                <h3 class="badge badge-info">At Port</h3>
+                                            @break
+                                            @case(7)
+                                                <h3 class="badge badge-info">Port Cleared</h3>
+                                            @break
+                                            @case(8)
+                                                <h3 class="badge badge-info">At Border</h3>
+                                            @break
+                                            @case(9)
+                                                <h3 class="badge badge-info">Border Cleared</h3>
+                                            @break
+                                            @case(10)
+                                                <h3 class="badge badge-info">Delivery In Transit</h3>
+                                            @break
+                                            @case(11)
+                                                <h3 class="badge badge-warning text-lg">Delivered Completed</h3>
+                                            @break
+                                            @default
+                                                <h3 class="badge badge-light">Invalid</h3>
+                                            @break
+                                        @endswitch
+                                    @else
+                                        <span class="badge badge-default">Cancelled</span>
+                                    @endif 
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="mb-4">

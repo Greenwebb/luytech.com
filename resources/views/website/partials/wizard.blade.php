@@ -45,10 +45,10 @@
             <section style="padding: 0px;">
                 {{-- <h4 class="step-heading"> Your Credentials </h4> --}}
 
-                <div class="row mb-30">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row mb-0">
+                    {{-- <div class="col-sm-12 col-md-12 col-lg-12">
                         <hr class="mt-0 mb-30">
-                    </div><!-- /.col-lg-12 -->
+                    </div><!-- /.col-lg-12 --> --}}
                     <!-- /.col-lg-12 -->
                     <div class="col-sm-12 col-md-6 col-lg-6">
                         <div class="form-group">

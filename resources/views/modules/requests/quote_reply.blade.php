@@ -15,13 +15,17 @@
                     <div class="page-header">
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">{{__('Other Pages')}}</a></li>
+                                <li class="breadcrumb-item active font-bold"><a href="{{ route('quote.show', $q->id) }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                                    </svg>
+                                </a></li>
                                 <li class="breadcrumb-item active" aria-current="page"><span>{{__('Quote Reply')}}</span></li>
                             </ol>
                         </nav>
                     </div>
                 </li>
-                <li style="display: none;"><span id="currentDate"></span></li>
+                {{-- <li style="display: block;"><span id="currentDate"></span></li> --}}
             </ul>
         </header>
     </div>
@@ -44,8 +48,8 @@
                                                             <div id="preloader" style="display: none; content-justify:center; margin:auto; margin-left:45%">
                                                                 <img src="{{ asset('public/image/isloader.gif') }}">
                                                             </div>
-                                                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; background-color:rgb(140, 255, 117); display:none; color:rgb(103, 170, 2)4, 31); font-weight:bold">
-                                                                <p>Quote updated successfully</p>
+                                                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgba(154, 248, 135, 0.532); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
+                                                                <p>Quote updated successfully!</p>
                                                             </div>
                                                             <br>
                                                             <form method="POST" action="{{route('reply.send')}}" class="form"  id="replyForm">
