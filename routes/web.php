@@ -19,7 +19,8 @@ use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TrackerController;
 
 Auth::routes();
-Route::post('/tracker', [TrackerController::class, 'index'])->name('tracker.index');
+Route::get('/order-tracking', [TrackerController::class, 'index'])->name('tracker.index');
+Route::post('/tracker', [TrackerController::class, 'search'])->name('tracker.search');
 
 
 Route::get('/', function () {

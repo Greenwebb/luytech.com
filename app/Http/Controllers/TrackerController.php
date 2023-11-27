@@ -12,11 +12,13 @@ class TrackerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // dd((int)$request->toArray()['tracker_id']);
+        return view('website.tracker');
+    }
+    public function search(Request $request)
+    {
         $q = Consignment::with(['user','cars','goods'])->where('tracking_id', $request->toArray()['tracker_id'])->first();
-        // return view('website.rates');
         return view('website.track-result',[
             'q' => $q
         ]);

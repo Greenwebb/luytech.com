@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Modules;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderPaid;
 use App\Mail\QuoteFinalized;
 use App\Mail\QuoteReceived;
 use App\Mail\QuoteReceivedAdmin;
@@ -236,14 +237,20 @@ class RequestController extends Controller
 
 
     public function quoteShipped($id) {
-        $cons = Consignment::where('id', $id)->update([
-            'current_state' => 3,
-            'order_number' => $id.$this->generateUniqueNumber(), // for 5 to 7 digit numbers
-            'tracking_id' => $this->generateUniqueNumber(), 
-        ]);
-
-        // Send email to user of Tracking and Order number
-        return redirect()->back()->with('success','Consignment has been paid by customer');
+        try {
+            $cons = Consignment::where('id', $id)->update([
+                'current_state' => 3,
+                'order_number' => $id.$this->generateUniqueNumber(), // for 5 to 7 digit numbers
+                'tracking_id' => $this->generateUniqueNumber(), 
+            ]);
+            // Send email to user of Tracking and Order number
+            $quote = Consignment::with(['user','cars','goods'])->where('id', $id)->first();
+            Mail::to($quote->user->email)->send(new OrderPaid($quote));
+            return redirect()->back()->with('success','Consignment has been paid by customer');
+        } catch (\Throwable $th) {
+            dd($th);
+            return redirect()->back()->with('error','Operation Failed');
+        }
     }
     public function quoteOrdered($id) {
         Consignment::where('id', $id)->update([

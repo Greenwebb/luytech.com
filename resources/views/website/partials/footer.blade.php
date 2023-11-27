@@ -61,7 +61,7 @@
               <nav>
                 <ul class="list-unstyled">
                   <li><a href="#">Request A Quote</a></li>
-                  <li><a href="#">Track & Trace</a></li>
+                  <li><a href="{{ route('tracker.index') }}">Track & Trace</a></li>
                   <li><a href="#">Find A Location</a></li>
                   <li><a href="#">Global Agents</a></li>
                   <li><a href="#">Help & FAQ</a></li>
