@@ -1,5 +1,5 @@
 <section id="page-title" class="page-title bg-overlay bg-parallax">
-    <div class="bg-img"><img src="public/web/assets/images/page-titles/14.jpg" alt="background"></div>
+    <div class="bg-img"><img src="https://yemayabvet.com/wp-content/uploads/2022/02/kV09o4fnIBkkJldSSQztPT0F3xRezl3LzNR2i4er.jpeg" alt="background"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
