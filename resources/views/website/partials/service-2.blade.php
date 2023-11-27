@@ -1,5 +1,5 @@
 <section id="page-title" class="page-title bg-overlay bg-parallax">
-    <div class="bg-img"><img src="public/web/assets/images/page-titles/14.jpg" alt="background"></div>
+    <div class="bg-img"><img src="https://wpstaq-ap-southeast-2-media.s3.amazonaws.com/peoplegroup/wp-content/uploads/media/2023/03/image_adobe_express4-Large.jpeg" alt="background"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">

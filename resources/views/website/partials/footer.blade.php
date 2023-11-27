@@ -19,9 +19,9 @@
           </div><!-- /.col-xl-7 -->
           <div class="col-sm-12 col-md-12 col-lg-3 col-xl-2">
             <div class="social__icons justify-content-end">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="https://web.facebook.com/LuytechMotors"><i class="fa fa-facebook"></i></a>
+              {{-- <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a> --}}
             </div><!-- /.social-icons -->
           </div><!-- /.col-xl-2 -->
         </div><!-- /.row -->

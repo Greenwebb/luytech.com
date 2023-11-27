@@ -1,5 +1,5 @@
 <section id="page-title" class="page-title bg-overlay bg-parallax">
-    <div class="bg-img"><img src="public/web/assets/images/page-titles/14.jpg" alt="background"></div>
+    <div class="bg-img"><img src="https://images.pexels.com/photos/7363128/pexels-photo-7363128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="background"></div>
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
