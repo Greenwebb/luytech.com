@@ -68,7 +68,11 @@ ol.progtrckr li.progtrckr-todo:before {
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
-          <h1 class="pagetitle__heading">#{{$q->tracking_id}} | {{ $q->consignment_type == 'personal' ? $q->user->fname.' '.$q->user->lname : $q->user->fname.' '.$q->company_name }}</h1>
+          @if($q != null)
+          <h1 class="pagetitle__heading">#{{ $q->tracking_id }} | {{ $q->consignment_type == 'personal' ? $q->user->fname.' '.$q->user->lname : $q->user->fname.' '.$q->company_name }}</h1>
+          @else
+          <h1 class="pagetitle__heading"> Not Found </h1>
+          @endif
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
@@ -87,6 +91,7 @@ ol.progtrckr li.progtrckr-todo:before {
     <div class="container">
       <div class="row">
         
+        @if ($q != null)
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div>
             <div class="mb-4">
@@ -264,11 +269,14 @@ ol.progtrckr li.progtrckr-todo:before {
             @endif
           </div>
         </div>
+        @else
+            <h2>Not Found</h2>
+        @endif
         
         <!-- /.col-lg-8 -->
       </div><!-- /.row -->
     </div><!-- /.container -->
-  </section><!-- /.Track Shipmeent -->
+  </section>
 
 
 @endsection

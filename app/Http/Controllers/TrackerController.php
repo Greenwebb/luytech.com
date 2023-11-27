@@ -18,10 +18,10 @@ class TrackerController extends Controller
     }
     public function search(Request $request)
     {
-        $q = Consignment::with(['user','cars','goods'])->where('tracking_id', $request->toArray()['tracker_id'])->first();
-        return view('website.track-result',[
-            'q' => $q
-        ]);
+            $q = Consignment::with(['user','cars','goods'])->where('tracking_id', $request->toArray()['tracker_id'])->first();
+            return view('website.track-result',[
+                'q' => $q
+            ]);
     }
 
     /**
