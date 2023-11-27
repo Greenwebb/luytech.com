@@ -280,13 +280,13 @@
                         <!-- This div will be dynamically populated based on the number of cars selected -->
                     </div>
 
-                    <div class="col-sm-12 col-md-12 col-lg-12">
+                    {{-- <div class="col-sm-12 col-md-12 col-lg-12">
                         <button type="button" style="float:right" class="btn btn-success" onclick="addGoods()" title="Add Product">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>
                         </button>
-                    </div>
+                    </div> --}}
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <br>
