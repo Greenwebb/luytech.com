@@ -82,14 +82,14 @@
                         <div class="widget widget-download bg-theme">
                             <h5 class="widget__title color-white">Download Brochures</h5>
                             <div class="widget__content">
-                                <a href="#" class="btn btn__secondary btn__block mb-20">
-                                    <img src="public/web/assets/images/icons/pdf.png" alt="pdf">
-                                    <span>2020 Brochure</span>
+                                <a target="_blank" href="{{ asset('/public/docs/Luytech 2023 Profile.pdf')}}" class="btn btn__secondary btn__block mb-20">
+                                    <img src="{{ asset('public/web/assets/images/icons/pdf.png') }}" alt="pdf">
+                                    <small>Luytech 2023 Profile</small>
                                 </a>
-                                <a href="#" class="btn btn__secondary btn__block">
+                                {{-- <a href="#" class="btn btn__secondary btn__block">
                                     <img src="public/web/assets/images/icons/pdf.png" alt="pdf">
                                     <span>Presentation Brochure</span>
-                                </a>
+                                </a> --}}
                             </div><!-- /.widget-content -->
                         </div><!-- /.widget-download -->
 
@@ -111,5 +111,25 @@
         document.getElementById('overlay').style.display = 'none';
         document.getElementById('successMsg').style.display = 'none';
         
+
+        function populatePaymentMethod() {
+            var serviceTypeSelect = document.getElementById("service_type");
+            var paymentMethodSelect = document.getElementById("payMethod");
+            var productTypeSelect = document.getElementById("product_type");
+
+            // Clear existing options
+            paymentMethodSelect.innerHTML = '<option required="required" selected disabled="disabled">--select--</option>';
+            productTypeSelect.innerHTML = '<option required="required" selected disabled="disabled">--select--</option>';
+
+            // Check if "Clearing & Fowarding" is selected
+            if (serviceTypeSelect.value === "clearing & forwarding") {
+                // Add the option for "Full Payment"
+                paymentMethodSelect.innerHTML += '<option selected value="full">Full Payment</option>';
+                productTypeSelect.innerHTML += '<option value="vehicle">Vehicle(s)</option><option value="goods">Goods (Products)</option>';
+            }else{
+                productTypeSelect.innerHTML += '<option selected value="vehicle">Vehicle(s)</option>';
+                paymentMethodSelect.innerHTML += '<option value="full">Full Payment</option><option value="installment">Installments</option>';
+            }
+        }
     </script>
 @endsection

@@ -118,7 +118,8 @@ class RequestController extends Controller
                         'transmission' => $request->input('transmission')[$key],
                         'car_year' => $request->input('carYear')[$key],
                         'consignment_id' => $consignment->id,
-                        'engine_cc' => $request->input('carEngineCC')[$key]
+                        'engine_cc' => $request->input('carEngineCC')[$key],
+                        'car_color' => $request->input('carColor')[$key]
                     ]);
                 } 
             }else{

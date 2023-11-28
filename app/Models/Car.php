@@ -17,7 +17,8 @@ class Car extends Model
         'source',
         'status',
         'engine_cc',
-        'consignment_id'
+        'consignment_id',
+        'car_color'
     ];
 
     public function Consignment(){

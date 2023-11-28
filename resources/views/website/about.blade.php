@@ -24,13 +24,13 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="heading heading-3 mb-20 pt-60">
-                        <span class="heading__subtitle">Supply Chain Technology & Customized Solutions.</span>
-                        <h2 class="heading__title">Who We Are</h2>
-                        <p>Luytech is a robust clearing and forwarding company focused on providing efficient and reliable
+                        <span class="heading__subtitle">International freight forwarding specialists</span>
+                        <h2 class="heading__title">Millions of people use Luytech</h2>
+                        {{-- <p>Luytech is a robust clearing and forwarding company focused on providing efficient and reliable
                             solutions to meet all your logistics needs. In the present globalized world, exploring the
                             intricacies of global exchange can be an overwhelming undertaking. That’s where we come in. We
                             understand that timely and seamless movement of goods is crucial for businesses to thrive, and
-                            we are committed to making that happen for you.</p>
+                            we are committed to making that happen for you.</p> --}}
                     </div><!-- /.heading -->
                     <ul class="list-items list-items-layout2 list-unstyled mb-30">
                         <li>Transparent Pricing, Environmental Sensitivity</li>
@@ -58,12 +58,53 @@
                     </div><!-- /.about-img -->
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->
-        </div><!-- /.container -->
+        </div>
+        
     </section><!-- /.About 2 -->
-    <!-- ======================
-                      Blog Grid
-                    ========================= -->
-    <hr style="margin: 0; border: 1.8px solid #0f62a6;">
+
+    <section style="background-color: #201e1c;box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-9 col-lg-6">
+                    <div class="">
+                        <img src="{{ asset('/public/image/ceo.PNG')}}" alt="about img" class="img-fluid">
+                        
+                    </div><!-- /.about-img -->
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <div class="heading heading-3 mb-20 pt-60">
+                        <span class="heading__subtitle">Supply Chain Technology & Customized Solutions.</span>
+                        <h2 class="heading__title" style="color:#fff; display:flex;gap:4px">Who We Are 
+                        <div style="
+                            border-bottom:5px solid #FF8700;
+                            width:10%;
+                        "></div> </h2>
+                        <p>Luytech is a robust clearing and forwarding company focused on providing efficient and reliable
+                            solutions to meet all your logistics needs. In the present globalized world, exploring the
+                            intricacies of global exchange can be an overwhelming undertaking. That’s where we come in. We
+                            understand that timely and seamless movement of goods is crucial for businesses to thrive, and
+                            we are committed to making that happen for you.</p>
+                            <h6 class="" style="color:#fff; display:flex;gap:4px">Vision<div style="
+                                border-bottom:5px solid #FF8700;
+                                width:5%;
+                            "></div> </h6>
+                            <p>To be the most customer-centric
+                                and trusted company, where
+                                customers can be served and have
+                                their expectations exceeded..</p>
+                            <h6 class="" style="color:#fff; display:flex;gap:4px">Mission<div style="
+                                border-bottom:5px solid #FF8700;
+                                width:5%;
+                            "></div></h6>
+                            <p>To be the most customer-centric
+                                and trusted company, where
+                                customers can be served and have
+                                their expectations exceeded..</p>
+                    </div>
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
     
     <section style="padding:8%;" id="blogGrid" class="blog blog-grid pb-60">
         <div class="container">
@@ -105,11 +146,11 @@
                     <div class="core-value-item">
                         <span class="core-value__icon"><img src="public/web/assets/images/icons/2.svg" alt="Collaboration Icon"
                                 class="core-value__icon"></span>
-                        <h4 class="core-value__title">Collaboration</h4>
-                        <p class="core-value__desc">WBy upholding integrity as Luytech we endeavor to act honestly,
-                            ethically, and transparently in all business dealings. We maintain
-                            high moral standards, being accountable for actions as we serve our
-                            clients..</p>
+                        <h4 class="core-value__title">Excellence</h4>
+                        <p class="core-value__desc">We endeavour to pursue the highest standards of quality and
+                            performance in every aspect of the business. Continuously
+                            improving, paying attention to details, and committed to delivering
+                            exceptional services in the clearing and forwarding industry. </p>
                     </div>
 
 
@@ -120,10 +161,12 @@
                         <span class="core-value__icon"><img src="public/web/assets/images/icons/3.svg" alt="Collaboration Icon"
                                 class="core-value__icon"></span>
                         <h4 class="core-value__title">Collaboration</h4>
-                        <p class="core-value__desc">WBy upholding integrity as Luytech we endeavor to act honestly,
-                            ethically, and transparently in all business dealings. We maintain
-                            high moral standards, being accountable for actions as we serve our
-                            clients..</p>
+                        <p class="core-value__desc">The clearing and forwarding industry is a demanding industry.
+                            Without coordinated team work, it can be very challenging to
+                            ensure that the client’s products are cleared and delivered on time.
+                            Therefore, we ensure that there is proper communication and
+                            coordination at all times during the clearing and delivery of your
+                            products. </p>
                     </div>
 
 
@@ -141,7 +184,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 background-banner bg-overlay">
                     <div class="bg-img"><img src="public/web/assets/images/banners/7.jpg" alt="background"></div>
-                    <div class="video__btn video__btn-white video__btn-right-center">
+                    {{-- <div class="video__btn video__btn-white video__btn-right-center">
                         <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
                             <span class="video__player-animation"></span>
                             <span class="video__player-animation video__player-animation-2"></span>
@@ -149,7 +192,7 @@
                                 <i class="fa fa-play"></i>
                             </div>
                         </a>
-                    </div><!-- /.video -->
+                    </div><!-- /.video --> --}}
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-12 col-md-12 col-lg-6">
                     <div class="inner-padding">
@@ -194,7 +237,7 @@
     <!-- =====================
                        Clients 1
                     ======================== -->
-    <section id="clients" class="clients clients-1 border-top">
+    {{-- <section id="clients" class="clients clients-1 border-top">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -223,12 +266,12 @@
                 </div><!-- /.col-lg-12 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
-    </section><!-- /.clients 1 -->
+    </section><!-- /.clients 1 --> --}}
 
     <!-- =========================
                           Testimonial #2
                     =========================  -->
-    <section id="testimonial2" class="testimonial testimonial-2 text-center bg-overlay bg-overlay-grdient-theme pb-90">
+    {{-- <section id="testimonial2" class="testimonial testimonial-2 text-center bg-overlay bg-overlay-grdient-theme pb-90">
         <div class="bg-img"><img src="public/web/assets/images/backgrounds/7.jpg" alt="background"></div>
         <div class="container">
             <div class="row">
@@ -267,7 +310,7 @@
                 </div><!-- /.col-lg-12 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
-    </section><!-- /.testimonial2 -->
+    </section><!-- /.testimonial2 --> --}}
 
 
 

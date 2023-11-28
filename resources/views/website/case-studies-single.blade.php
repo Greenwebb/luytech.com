@@ -74,7 +74,7 @@ Services</title>
                   <h5>How Can <br> We Help You!</h5>
                   <p>We understand the importance approaching each work integrally and believe in the power of simple
                     and easy communication.</p>
-                  <a href="#" class="btn btn__primary btn__hover2 btn__block">Schedule An Appointment</a>
+                  <a href="{{route('contact')}}" class="btn btn__primary btn__hover2 btn__block">Schedule An Appointment</a>
                 </div><!-- /.widget-content -->
               </div><!-- /.widget-help -->
 

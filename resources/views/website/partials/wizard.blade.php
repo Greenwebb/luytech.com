@@ -95,12 +95,12 @@
                         <div class="col-xxl-6 col-xl-6 col-lg-6">
                             <h5 class="form__title" style="font-size:12px; color:white">Service Type</h5>
                             <div class="form-group">
-                                <select name="service_type" id="service_type" class="form-control">
+                                <select name="service_type" id="service_type" class="form-control" onchange="populatePaymentMethod()">
                                     <option required="required" selected disabled="disabled">
                                         --select--
                                     </option>
-                                    <option value="importing">Importing</option>
-                                    <option value="clearing">Clearing & Fowarding</option>
+                                    <option value="importing vehicle">Importing Vehicle</option>
+                                    <option value="clearing & forwarding">Clearing & Forwarding</option>
                                 </select>
                             </div>
                         </div>
@@ -111,8 +111,7 @@
                                     <option required="required" selected disabled="disabled">
                                         --select--
                                     </option>
-                                    <option value="full">Full Payment</option>
-                                    <option value="installments">Installments</option>
+                                    {{-- Populate here --}}
                                 </select>
                             </div>
                         </div>
@@ -127,6 +126,7 @@
                                 <option value="6">6 months</option>
                                 <option value="12">12 months</option>
                                 <option value="18">18 months</option>
+                                <option value="24">24 months</option>
                             </select>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                                     --select--
                                 </option>
                                 <option value="vehicle">Vehicle</option>
-                                <option value="goods">Other Goods</option>
+                                <option value="goods">Products/Goods</option>
                             </select>
                         </div>
                     </div>
@@ -149,23 +149,23 @@
                                 <option required="required" selected disabled="disabled">
                                     --select--
                                 </option>
-                                <option value="At the Border">At the Border</option>
-                                <option value="At the Port">At the Port</option>
-                                <option value="Both">Both</option>
+                                <option value="At the Border">At the border</option>
+                                <option value="At the Port">At the port</option>
+                                <option value="Both">Both at port and border (full)</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h5 class="form__title" style="font-size:12px; color:white">Where are you delivering from?</h5>
+                        <h5 class="form__title" style="font-size:12px; color:white">Where are you delivering to? (Address)</h5>
                         <div class="form-group">
-                            <select name="delivery_from" id="delivery_from" class="form-control">
-                                <option required="required" selected disabled="disabled">
+                            <input type="text" name="delivery_from" id="delivery_from" class="form-control">
+                                {{-- <option required="required" selected disabled="disabled">
                                     --select--
                                 </option>
                                 <option value="Port to Border">Port to Border</option>
                                 <option value="Border to Final Delivery">Border to Final Delivery</option>
                                 <option value="Port to Final Delivery">Port to Final Delivery</option>
-                            </select>
+                            </input> --}}
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -175,7 +175,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div id="invoiceUploading" class="col-sm-12 col-md-12 col-lg-12">
                         <h5 class="form__title" style="font-size:12px; color:white">Upload invoice file or picture</h5>
                         <div class="form-group">
                             <input type="file" name="invoice" id="imageInput">
@@ -193,32 +193,39 @@
                     </div> --}}
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h5 class="form__title" style="font-size:12px; color:white">Select Number of vehicles</h5>
-                        <div class="form-group">
-                            <select name="numCars" id="numCarsSelect" class="form-control">
-                                <option required="required" selected disabled="disabled">Select Number of vehicles
-                                </option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                            </select>
+                        <div class="form-row justify-content-center; pt-3" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;background-color:rgb(165, 64, 18), 165, 15); gap: 4%; justify-content:center; align-items:center;">
+                            <div class="form-group pt-3">
+                                <h5 class="form__title" style="font-size:12px; color:white">
+                                    Select Number of vehicles<br> 
+                                    <span id="serviceText1"></span>
+                                </h5>
+                            </div>
+                            <div class="form-group">
+                                <select name="numCars" id="numCarsSelect" class="form-control">
+                                    <option required="required" selected disabled="disabled">Select Number of vehicles
+                                    </option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
                         </div>
                     </div><!-- /.col-lg-4 -->
 
@@ -227,15 +234,15 @@
                     </div>
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <button type="button" style="float:right" class="btn btn-success" onclick="addCar()">
+                        <button style="z-index: 999; position: absolute; float:right; margin-bottom:2%" type="button" class="btn btn-success" onclick="addCar()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>
                         </button>
                     </div>
-
+                    <br><br>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <br>
+                        
                         <div class="form-group">
                             <textarea name="message" type="text-field" class="form-control" placeholder="Any message"></textarea>
                         </div>
@@ -248,31 +255,38 @@
                     </div> --}}
 
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <h5 class="form__title" style="font-size:12px; color:white">Select Number of Goods</h5>
-                        <div class="form-group">
-                            {{-- <input type="text" name="numGoods" id="numGoodsSelect" class="form-control" /> --}}
-                            <select name="numGoods" id="numGoodsSelect" class="form-control">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                            </select>
+                        <div class="form-row justify-content-center; pt-3 mb-2" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;background-color:rgb(165, 64, 18), 165, 15); gap: 4%; justify-content:center; align-items:center;">
+                            <div class="form-group pt-2">
+                                <h5 class="form__title" style="font-size:12px; color:white">
+                                    Select Number of Goods <br> 
+                                    <span id="serviceText2"></span>
+                                </h5>
+                            </div>
+                            <div class="form-group">
+                                {{-- <input type="text" name="numGoods" id="numGoodsSelect" class="form-control" /> --}}
+                                <select name="numGoods" id="numGoodsSelect" class="form-control">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
                         </div>
                     </div><!-- /.col-lg-4 -->
 
@@ -280,16 +294,17 @@
                         <!-- This div will be dynamically populated based on the number of cars selected -->
                     </div>
 
-                    {{-- <div class="col-sm-12 col-md-12 col-lg-12">
-                        <button type="button" style="float:right" class="btn btn-success" onclick="addGoods()" title="Add Product">
+
+                    <div class="col-sm-12 col-md-12 col-lg-12 mb-4">
+                        <button style="z-index: 999; position: absolute; float:right; margin-bottom:2%" type="button" class="btn btn-success" onclick="addGood()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
                             </svg>
                         </button>
-                    </div> --}}
-
+                    </div>
+                    <br>
+                    <br>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <br>
                         <div class="form-group">
                             <textarea name="message" type="text-field" class="form-control" placeholder="Any message"></textarea>
                         </div>
@@ -306,12 +321,17 @@
                 var goodsView = document.getElementById("goods_view");
                 var installDurView = document.getElementById("installmentDurationView");
                 var clearingFrom = document.getElementById("clearingFrom");
+                var invoiceUploading = document.getElementById("invoiceUploading");
+                
+                // var serviceText = document.getElementById("serviceText");
                 
 
                 installDurView.style.display = 'none';
                 clearingFrom.style.display = 'none';
+                invoiceUploading.style.display = 'none';
                 goodsView.style.display = 'none';
                 serviceTextElement.textContent = "Importing";
+                // serviceText.textContent = "Importing";
 
                 // Add an event listener to the select element
                 serviceTypeSelect.addEventListener("change", function () {
@@ -319,12 +339,16 @@
                     var selectedValue = serviceTypeSelect.value;
             
                     // You can now use the selectedValue as needed
-                    if(selectedValue == 'importing'){
+                    if(selectedValue == 'importing vehicle'){
                         serviceTextElement.textContent = "Importing";
+                        // serviceText.textContent = "Importing";
                         clearingFrom.style.display = 'none';
+                        invoiceUploading.style.display = 'none';
                     }else{
                         serviceTextElement.textContent = "Clearing & Forwarding";
+                        // serviceText.textContent = "Clearing & Forwarding";
                         clearingFrom.style.display = 'block';
+                        invoiceUploading.style.display = 'block';
                     }
                 });
                 payMethodSelect.addEventListener("change", function () {
@@ -404,6 +428,11 @@
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
+                                <input type="text" class="form-control" name="carColor[]" placeholder="Color" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-3 col-lg-3">
+                            <div class="form-group">
                                 <select name="fuel[]" class="form-control">
                                     <option selected disabled>Fuel</option>
                                     <option value="Petrol">Petrol</option>
@@ -460,28 +489,31 @@
 
                 function cancelCar(carDetailId) {
                     var numRemainingCars = document.querySelectorAll('#carDetails > .row').length;
+                    var carDetailDiv = document.getElementById(carDetailId);
 
-                    if (numRemainingCars > 1) {
-                        var carDetailDiv = document.getElementById(carDetailId);
+                    if (carDetailDiv) {
+                        carDetailDiv.classList.remove('open');
 
-                        if (carDetailDiv) {
-                            carDetailDiv.classList.remove('open');
-                            carDetailDiv.addEventListener('transitionend', function() {
-                                carDetailDiv.parentNode.removeChild(carDetailDiv);
+                        // Use a timeout to ensure the class removal takes effect before checking the length
+                        setTimeout(function () {
+                            carDetailDiv.parentNode.removeChild(carDetailDiv);
 
-                                // Update numCars based on the remaining car details after deletion
-                                numCars = document.querySelectorAll('#carDetails > .row').length;
-                                sessionStorage.setItem('numCars', numCars);
-                                document.getElementById('numCarsSelect').value = numCars;
-                            });
-                        }
-                    } else {
+                            // Update numCars based on the remaining car details after deletion
+                            numCars = document.querySelectorAll('#carDetails > .row').length;
+                            sessionStorage.setItem('numCars', numCars);
+                            document.getElementById('numCarsSelect').value = numCars;
+                        }, 300); // Adjust the timeout value based on your transition duration
+                    }
+
+                    if (numRemainingCars <= 1) {
                         alert("You cannot delete the last car.");
                     }
                 }
-            </script>
 
-            <script>
+                // ---------------------------------------------------
+                // GOODS --- OPERATIONS
+                // ---------------------------------------------------
+
                 // Load number of cars from sessionStorage or set default to 1
                 var numGoods = parseInt(sessionStorage.getItem('numGoods')) || 1;
 
@@ -523,22 +555,17 @@
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="goodsSize[]" placeholder="Size" required>
+                                <input type="text" class="form-control" name="goodsSize[]" placeholder="Weight (kg/g/ltr/tons)" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="goodsQty[]" placeholder="Quantity" required>
+                                <input type="text" class="form-control" name="goodsQty[]" placeholder="Qty" required>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
-                                <select name="packaging[]" class="form-control">
-                                    <option selected disabled>Packing Type</option>
-                                    <option value="Cardboard Boxes">Cardboard Boxes</option>
-                                    <option value="Corrugated Boxes">Corrugated Boxes</option>
-                                    <option value="Glass Containers">Glass Containers</option>
-                                </select>
+                                <input type="text" name="packaging[]" class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-1 col-lg-1">
@@ -554,7 +581,7 @@
                 }
 
 
-                function addGoods() {
+                function addGood() {
                     numGoods++;
                     sessionStorage.setItem('numGoods', numGoods);
                     document.getElementById('numGoodsSelect').value = numGoods;

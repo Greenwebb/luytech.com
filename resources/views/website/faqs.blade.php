@@ -37,19 +37,16 @@
                   <h5>How Can <br> We Help You!</h5>
                   <p>We understand the importance approaching each work integrally and believe in the power of simple
                     and easy communication.</p>
-                  <a href="#" class="btn btn__primary btn__hover2 btn__block">Schedule An Appointment</a>
+                  <a href="{{route('contact')}}" class="btn btn__primary btn__hover2 btn__block">Schedule An Appointment</a>
                 </div><!-- /.widget-content -->
               </div><!-- /.widget-help -->
               <div class="widget widget-download bg-theme">
                 <h5 class="widget__title color-white">Download Brochures</h5>
                 <div class="widget__content">
-                  <a href="#" class="btn btn__secondary btn__block mb-20">
-                    <img src="public/web/assets/images/icons/pdf.png" alt="pdf">
-                    <span>2023 Brochure</span>
-                  </a>
-                  <a href="#" class="btn btn__secondary btn__block">
-                    <img src="public/web/assets/images/icons/pdf.png" alt="pdf">
-                    <span>Company Profile</span>
+                  
+                  <a target="_blank" href="{{ asset('/public/docs/Luytech 2023 Profile.pdf')}}" class="btn btn__secondary btn__block mb-20">
+                      <img src="{{ asset('public/web/assets/images/icons/pdf.png') }}" alt="pdf">
+                      <small>Luytech 2023 Profile</small>
                   </a>
                 </div><!-- /.widget-content -->
               </div><!-- /.widget-download -->

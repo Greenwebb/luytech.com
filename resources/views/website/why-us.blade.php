@@ -69,7 +69,7 @@ Services</title>
                 available allover the world. Our skilled personnel, utilising the latest communications, tracking and
                 processing software, combined with decades of experience.</p>
               <img src="assets/images/about/singnture.png" alt="singnture" class="mr-30">
-              <a href="#" class="btn btn__primary btn__lg">Schedule An Appointment</a>
+              <a href="{{route('contact')}}" class="btn btn__primary btn__lg">Schedule An Appointment</a>
             </div><!-- /.heading -->
           </div><!-- /.col-lg-5 -->
         </div><!-- /.row -->
