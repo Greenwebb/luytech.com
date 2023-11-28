@@ -64,12 +64,16 @@
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="text__block">
               <h5 class="text__block-title">Import & Delivery Of Vehicles</h5>
+              <p class="text__block-desc">
+                Import top-quality vehicles on flexible payment terms. Deposit as low as <strong>35%</strong> 
+                and pay over <strong>6-24 months</strong>
+              </p>
               <p class="text__block-desc">We offer a robust vehicle order and
                 delivery service list. Our specialist agents
                 are at hand to assist you in selecting and
                 ordering your vehicles online. Vehicles
                 can be ordered from countries such as
-                Japan, United Kingdom, China and UAE.
+                <strong>Japan, United Kingdom, China and UAE</strong>.
                 Once your vehicle arrives, our port agents
                 are on hand to process documentations,
                 off load and conduct the necessary
@@ -78,11 +82,11 @@
                 of driving experience are capable of
                 delivering your vehicle to not only Zambia
                 but also neighboring countries such as
-                Malawi, Zimbabwe, Angola, Congo etc. </p>
+                <strong>Malawi, Zimbabwe, Angola, Congo etc</strong>. </p>
             </div><!-- /.text-block -->
             <div class="video-banner bg-overlay mb-50">
               <div class="bg-img"><img src="{{ asset('public/web/assets/images/banners/2.jpg')}}" alt="background"></div>
-              <div class="video__btn video__btn-white video__btn-left-bottom">
+              {{-- <div class="video__btn video__btn-white video__btn-left-bottom">
                 <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
                   <span class="video__player-animation"></span>
                   <span class="video__player-animation video__player-animation-2"></span>
@@ -91,7 +95,7 @@
                     <i class="fa fa-play"></i>
                   </div>
                 </a>
-              </div>
+              </div> --}}
             </div><!-- /.video -->
             {{-- <div class="text__block">
               <h5 class="text__block-title">Stats & Charts</h5>

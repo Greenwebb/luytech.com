@@ -96,10 +96,10 @@
                                 border-bottom:5px solid #FF8700;
                                 width:5%;
                             "></div></h6>
-                            <p>To be the most customer-centric
-                                and trusted company, where
-                                customers can be served and have
-                                their expectations exceeded..</p>
+                            <p>To provide the most efficient, reliable
+                                and affordable services that satisfy
+                                customers’ needs and give them a
+                                compelling experience.</p>
                     </div>
                 </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->

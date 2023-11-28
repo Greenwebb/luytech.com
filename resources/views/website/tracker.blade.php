@@ -5,7 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 :root {
 	--font: "Inter", sans-serif;
-	--red: #da2535;
+	--red: rgb(20, 19, 19);
 	--black: #292929;
 	--white: #fbfbfb;
 }
@@ -141,24 +141,24 @@ button a {
 
 </style>
 
-<section id="page-title" class="page-title bg-overlay bg-parallax">
-    <div class="bg-img">
-      <img src="public/web/assets/images/6.jpg" alt="background">
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12">
-          <h1 class="pagetitle__heading">Track & Trace</h1>
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Track & Trace</li>
-            </ol>
-          </nav>
-        </div><!-- /.col-lg-12 -->
-      </div><!-- /.row -->
-    </div><!-- /.container -->
-  </section><!-- /.page-title -->
+	<section id="page-title" class="page-title bg-overlay bg-parallax">
+		<div class="bg-img">
+			<img src="public/web/assets/images/6.jpg" alt="background">
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12">
+				<h1 class="pagetitle__heading">Track & Trace</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Track & Trace</li>
+					</ol>
+				</nav>
+				</div><!-- /.col-lg-12 -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+  	</section><!-- /.page-title -->
 
   <!-- ======================
      Track Shipmeent
@@ -172,7 +172,7 @@ button a {
                 </div>
             
                 <input type="text" name="tracker_id" placeholder="Enter Tracking ID">
-                <button type="submit" class="text-white">
+                <button type="submit" class="text-white" >
                     Track Now
                 </button>
             </div>

@@ -97,6 +97,8 @@ Services
 =========================== -->
 @include('website.partials.services')
 
+
+@include('website.partials.tracker')
 <!-- /.Services -->
 <!-- =========================== 
 fancybox Carousel
@@ -257,7 +259,7 @@ Request Quote Tabs
                             </p>
                         </div><!-- /.testimonial-content -->
                         <div class="testimonial__meta">
-                            <p class="testimonial__meta-desc">The Move Inc</p>
+                            {{-- <p class="testimonial__meta-desc">The Move Inc</p> --}}
                         </div><!-- /.testimonial-meta -->
                     </div><!-- /. testimonial-item -->
                     <!-- Testimonial #2 -->
@@ -274,7 +276,7 @@ Request Quote Tabs
                         </div><!-- /.testimonial-content -->
                         <div class="testimonial__meta">
                             
-                            <p class="testimonial__meta-desc">The Move Inc</p>
+                            {{-- <p class="testimonial__meta-desc">The Move Inc</p> --}}
                         </div><!-- /.testimonial-meta -->
                     </div><!-- /. testimonial-item -->
                 </div>
@@ -286,7 +288,7 @@ Request Quote Tabs
 <!-- =====================
 Clients 1
 ======================== -->
-<section id="clients1" class="clients clients-1 border-top">
+{{-- <section id="clients1" class="clients clients-1 border-top">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -315,7 +317,7 @@ Clients 1
             </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->
     </div><!-- /.container -->
-</section><!-- /.clients 1 -->
+</section><!-- /.clients 1 --> --}}
 
 <!-- ======================
    banner 3
@@ -325,7 +327,7 @@ Clients 1
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 background-banner bg-overlay">
                 <div class="bg-img"><img src="public/web/assets/images/banners/7.jpg" alt="background"></div>
-                <div class="video__btn video__btn-white video__btn-right-center">
+                {{-- <div class="video__btn video__btn-white video__btn-right-center">
                     <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
                         <span class="video__player-animation"></span>
                         <span class="video__player-animation video__player-animation-2"></span>
@@ -333,7 +335,7 @@ Clients 1
                             <i class="fa fa-play"></i>
                         </div>
                     </a>
-                </div><!-- /.video -->
+                </div><!-- /.video --> --}}
             </div><!-- /.col-lg-6 -->
             <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="inner-padding">
@@ -349,15 +351,15 @@ Clients 1
                     </div><!-- /.heading -->
                     <div class="counters-white d-flex flex-wrap justify-content-between">
                         <div class="counter-item">
-                            <h4><span class="counter">3,214</span><span>m</span></h4>
+                            <h4><span class="counter">103</span><span>m</span></h4>
                             <p class="counter__desc">Clients Countrywide</p>
                         </div>
                         <div class="counter-item">
-                            <h4><span class="counter">5,154</span><span>m</span></h4>
+                            <h4><span class="counter">775</span><span>m</span></h4>
                             <p class="counter__desc">Delivered Goods</p>
                         </div>
                         <div class="counter-item">
-                            <h4><span class="counter">8,845</span><span>m</span></h4>
+                            <h4><span class="counter">6,845</span><span>m</span></h4>
                             <p class="counter__desc">Miles Driven</p>
                         </div>
                     </div><!-- /.counters -->

@@ -63,15 +63,17 @@
             <div class="text__block">
               <h5 class="text__block-title">Clearing & Forwarding</h5>
               <p class="text__block-desc">
-                At LuytechZM, we specialize in efficient clearing and forwarding services, 
+                Seamless port clearance services, ensuring efficient handling and safe offloading of your goods.
+                <br>
+                Here at LuytechZM, we specialize in efficient <strong>clearing and forwarding services</strong>, 
                 ensuring seamless cross-border movement of goods. With a team of experienced 
                 professionals and advanced technology, we provide personalized solutions to streamline customs processes and optimize supply chain efficiency. Choose LuytechZM for 
-                reliable and timely logistics support, committed to making your global trade operations hassle-free.
+                <strong>reliable and timely logistics support</strong>, committed to making your global trade operations hassle-free.
               </p>
             </div><!-- /.text-block -->
             <div class="video-banner bg-overlay mb-50">
               <div class="bg-img"><img src="{{ asset('public/web/assets/images/banners/2.jpg')}}" alt="background"></div>
-              <div class="video__btn video__btn-white video__btn-left-bottom">
+              {{-- <div class="video__btn video__btn-white video__btn-left-bottom">
                 <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
                   <span class="video__player-animation"></span>
                   <span class="video__player-animation video__player-animation-2"></span>
@@ -80,20 +82,22 @@
                     <i class="fa fa-play"></i>
                   </div>
                 </a>
-              </div>
+              </div> --}}
             </div><!-- /.video -->
             <div class="text__block">
               <h5 class="text__block-title">Duties & Tax advice</h5>
               <p class="text__block-desc">At Luytech we provide general duties
                 and tax advice to our clients concerning
                 the following:
-                • Import duties or tariffs
-                • Customs Valuation
-                • Exemptions and Preferences
-                • Value Added Tax (VAT)
-                • Customs Declarations and
-                 Compliance
-                • Tax Deductions and Benefits
+                <strong>
+                  • Import duties or tariffs
+                  • Customs Valuation
+                  • Exemptions and Preferences
+                  • Value Added Tax (VAT)
+                  • Customs Declarations and
+                   Compliance
+                  • Tax Deductions and Benefits
+                </strong>
             </p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-12 -->
@@ -112,9 +116,10 @@
                 exit of goods and vessels at
                 a port. At Luytech we are
                 at hand to ensure that once
-                your goods arrive (at Dare
-                salaam, Durban, Walvis Bay
-                and other ports), proper
+                your goods arrive <strong>
+                  (at Dar es Salaam, Durban, Walvis Bay
+                  and other ports)  
+                </strong>, proper
                 documentation is submitted
                 and your goods properly
                 processed ready for entry or
@@ -134,10 +139,14 @@
                 applicable taxes or duties are paid and
                 Customs officers perform security
                 checks. Our agents are stationed at all
-                of Zambia’s borders such as Nakonde,
+                of Zambia’s borders such as 
+                <strong>
+                  Nakonde,
                 Chirundu, Kariba, Kasumbalesa, Katima
                 Mulilo, Kazungula, Victoria Falls, Kashiba,
-                Mokambo, Mwami and all other boarders
+                Mokambo, Mwami
+                </strong>
+                and all other boarders
                 in Zambia.</p>
             </div><!-- /.text-block -->
             
@@ -155,9 +164,9 @@
                 without being subject to import duties or other customs formalities. It
                 allows goods to be transported from one country to another through
                 a third country without undergoing full customs clearance procedures
-                or being subjected to customs duties or taxes in the transit country.
+                or being subjected to <strong>customs duties</strong> or <strong>taxes</strong> in the transit country.
                 At Luytech we provide Removal in Transit services for all neighboring
-                countries such as Zimbabwe, DRC and Malawi.</p>
+                countries such as <strong>Zimbabwe, DRC and Malawi</strong>.</p>
             </div><!-- /.text-block -->
           </div><!-- /.col-lg-12 -->
         </div><!-- /.row -->

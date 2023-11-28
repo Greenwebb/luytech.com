@@ -35,8 +35,10 @@
               <img width="120px" src="public/web/assets/images/logo/logo-light.png" alt="logo" class="footer-logo">
               <p>Luytech is a robust clearing and forwarding company focused on providing efficient and reliable solutions to meet all your logistics needs.</p>
               <ul class="contact__list list-unstyled">
-                <li><span>Email:</span><span><a href="mailto:info@greenwebbtech.com" class="__cf_email__" data-cfemail="ade2ddd9c4c0c8ed9ac2dfc2c2cb83cec2c0">info@greenwebbtech.com</a></span></li>
+                <li><span>Email:</span><span><a href="mailto:info@luytechzm.com" class="__cf_email__" data-cfemail="ade2ddd9c4c0c8ed9ac2dfc2c2cb83cec2c0">info@luytechzm.com</a></span></li>
                 <li><span>Phone:</span><span><a href="tel: +260760904072">+260760904072</a></span></li>
+                <li><span>Sales:</span><span><a href="tel: +260760904072">+260976138062</a></span></li>
+                <li><span>Support:</span><span><a href="tel: +260760904072">+260955344022</a></span></li>
               </ul>
             </div>
           </div><!-- /.col-lg-4 -->
@@ -46,10 +48,10 @@
               <nav>
                 <ul class="list-unstyled">
                   <li><a href="{{ route('about') }}">About Us</a></li>
-                  <li><a href="#">Meet Our Team</a></li>
-                  <li><a href="#">Success Stories</a></li>
+                  {{-- <li><a href="#">Meet Our Team</a></li> --}}
+                  {{-- <li><a href="#">Success Stories</a></li> --}}
                   <li><a href="{{ route('contact') }}">Contacts</a></li>
-                  <li><a href="#">Careers</a></li>
+                  {{-- <li><a href="#">Careers</a></li> --}}
                 </ul>
               </nav>
             </div><!-- /.footer-widget-content -->
@@ -60,11 +62,11 @@
             <div class="footer__widget-content">
               <nav>
                 <ul class="list-unstyled">
-                  <li><a href="#">Request A Quote</a></li>
+                  <li><a href="{{ route('request-quote') }}">Request A Quote</a></li>
                   <li><a href="{{ route('tracker.index') }}">Track & Trace</a></li>
-                  <li><a href="#">Find A Location</a></li>
-                  <li><a href="#">Global Agents</a></li>
-                  <li><a href="#">Help & FAQ</a></li>
+                  <li><a href="{{ route('contact') }}">Find A Location</a></li>
+                  {{-- <li><a href="#">Global Agents</a></li> --}}
+                  <li><a href="{{ route('faqs') }}">Help & FAQ</a></li>
                 </ul>
               </nav>
             </div><!-- /.footer-widget-content -->

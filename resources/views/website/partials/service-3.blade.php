@@ -69,7 +69,7 @@
                 on public roads, we also provide vehicle
                 registration and insurance services
                 with RATSA and Interpol. The following
-                proceed is undertaken;</p>
+                proceedure are undertaken;</p>
             </div><!-- /.text-block -->
             {{-- <div class="video-banner bg-overlay mb-50">
               <div class="bg-img"><img src="{{ asset('public/assets/images/banners/2.jpg')}}" alt="background"></div>

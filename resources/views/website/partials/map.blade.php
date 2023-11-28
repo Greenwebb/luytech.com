@@ -16,7 +16,8 @@
                   <li>Phone: +260760904072
                     </li>
                   <li>Email: <a href="mailto:info@luytechzm.com" class="__cf_email__" data-cfemail="6925060e001a1d00295e061b06060f470a0604">info@luytechzm.com</a></li>
-                  <li>Address: Lusaka House, Lusaka</li>
+                  <li>Address: Lusaka House Ben Bella Road
+                    Lusaka, Zambia</li>
                   <li>Hours: Mon-Fri: 8am – 7pm</li>
                 </ul>
               </div><!-- /.accordion-item-body -->
