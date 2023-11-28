@@ -15,7 +15,7 @@
         </button>
         
         <div class="collapse navbar-collapse" id="mainNavigation">
-          <ul class="navbar-nav ml-auto ">
+          <ul class="navbar-nav ml-auto">
             <li class="nav__item">
               <a href="{{ route('index') }}" class="{{ (request()->routeIs('tracker.index') || request()->routeIs('tracker.search') || request()->routeIs('request-quote')) ? 'text-dark' : '' }} dropdown-toggle nav__item-link {{ request()->routeIs('index') ? 'active' : '' }}">Home</a>
               

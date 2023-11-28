@@ -437,7 +437,7 @@ font-size:15px !important;
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                             <td style="font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px; mso-line-height-rule: exactly;line-height:1.2;  color: #353535;padding:10px 35px;" class="plr-20">
-                              <p style="margin:0;">You can use the order tracking id <strong>{{ $quote->tracking_id }}</strong> to track shipment progress at <a href="https://luytech.greenwebbtech.com/order-tracking">Luytech Tracker</a>.</p>
+                              <p style="margin:0;">You can use the order tracking number <strong>{{ $quote->tracking_id }}</strong> to track shipment progress at <a href="https://luytech.greenwebbtech.com/order-tracking">Luytech Tracker</a>.</p>
                             </td>
                           </tr>
                         </table>
