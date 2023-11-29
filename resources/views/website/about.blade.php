@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-9 col-lg-6">
                     <div class="">
-                        <img src="{{ asset('/public/image/ceo.PNG')}}" alt="about img" class="img-fluid">
+                        <img src="{{ asset('/public/image/ceo.png')}}" alt="about img" class="img-fluid">
                         
                     </div><!-- /.about-img -->
                 </div>
