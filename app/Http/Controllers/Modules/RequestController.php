@@ -108,11 +108,13 @@ class RequestController extends Controller
 
             if(!empty($request->input('clearing_from'))){
                 $consignment->clearing_from = $request->input('clearing_from');
+                $consignment->message = $request->input('message');
                 $consignment->save();
             }
 
             if($request->input('product_type') == 'vehicle'){
                 $consignment->num_of_vehicles = $request->input('numCars');
+                $consignment->message = $request->input('message');
                 $consignment->save();
 
                 // Create Car

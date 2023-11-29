@@ -148,7 +148,7 @@
                                                                 <div class="row ">
                                                                     <div class="col-sm-8">
                                                                         <div class="form-group">
-                                                                            <label for="fullName">{{__('Upload document')}}</label>
+                                                                            <label for="fullName">{{__('Upload Quotation')}}</label>
                                                                             <input type="file" name="invoice_file" class="form-control mb-4">
                                                                         </div>
                                                                     </div>
