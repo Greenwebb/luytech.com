@@ -45,11 +45,11 @@
                             
                             <div class="email-right">
                                 <div class="email-right-top flex-column align-items-start">
-                                    <div class="email-search-container pl-0">
+                                    {{-- <div class="email-search-container pl-0">
                                         <div class="mail-options d-flex">
                                             <a title="{{__('Delete')}}" data-placement="bottom"  class="font-19 mr-2 ml-0 pointer pt-1 bs-tooltip"><i class="lar la-trash-alt"></i></a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="email-right-bottom">
                                     <div class="mt-4 d-block">
@@ -69,8 +69,8 @@
                                     
                                         <!-- end row-->
                                         <div class="mt-3 text-right">
-                                            <a href="" class="btn btn-sm btn-primary mr-2"><i class="mdi mdi-reply mr-1"></i> {{__('Reply')}}</a>
-                                            <a href="" class="btn btn-sm btn-dark"> {{__('Forward')}} <i class="mdi mdi-forward ml-1"></i></a>
+                                            <a href="mailto:{{$c->email}}" class="btn btn-sm btn-primary mr-2"><i class="mdi mdi-reply mr-1"></i> {{__('Reply')}}</a>
+                                            {{-- <a href="" class="btn btn-sm btn-dark"> {{__('Forward')}} <i class="mdi mdi-forward ml-1"></i></a> --}}
                                         </div>
                                     </div>
                                 </div>

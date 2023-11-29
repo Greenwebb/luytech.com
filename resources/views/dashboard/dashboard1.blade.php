@@ -72,7 +72,7 @@
                                 <h5 class="font-size-14 mb-0"> {{ __('Deliveries') }}</h5>
                             </div>
                             <div class="text-muted mt-3">
-                                <h5 class="mb-2"> {{ 0 }} <p>                                  
+                                <h5 class="mb-2"> {{ $delivered }} <p>                                  
                                 </h5>
                                 {{-- <div class="d-flex">
                                     <span class="badge badge-danger font-size-12"> {{ __('- 5.4%') }} </span>
@@ -92,7 +92,7 @@
                                 <h5 class="font-size-14 mb-0"> {{ __('Customers') }}</h5>
                             </div>
                             <div class="text-muted mt-3">
-                                <h5 class="mb-2"> {{ $users }}
+                                <h5 class="mb-2"> {{ $users - 1 }}
                                     {{-- <i class="las la-angle-up text-success-teal"></i> --}}
                                 </h5>
                                 {{-- <div class="d-flex">
@@ -117,9 +117,15 @@
                                         <div class="text-muted">
                                             <p class="mb-2 text-primary"> {{ __('Welcome to your dashboard') }}</p>
                                             <h5 class="mb-1"> {{ __('Hello, Admin') }}</h5>
-                                            <p class="mb-0"> {{ __('System Admin') }}, <p class="current-date">
-                                                <span id="currentDate"></span>
-                                            </p></p>
+                                            <p class="mb-0"> {{ __('System Admin') }}, 
+                                                <p class="current-date">
+                                                    <span id="currentDate"></span>
+                                                </p>
+                                                <a class="btn" href="{{ route('index') }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-left" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M7.364 3.5a.5.5 0 0 1 .5-.5H14.5A1.5 1.5 0 0 1 16 4.5v10a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 3 14.5V7.864a.5.5 0 1 1 1 0V14.5a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-10a.5.5 0 0 0-.5-.5H7.864a.5.5 0 0 1-.5-.5"/>
+                                                    <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h5a.5.5 0 0 1 0 1H1.707l8.147 8.146a.5.5 0 0 1-.708.708L1 1.707V5.5a.5.5 0 0 1-1 0z"/>
+                                                  </svg>&nbsp;Website</a>
+                                            </p>
                                             
                                         </div>
                                     </div>
@@ -155,13 +161,14 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- Useful --}}
                             <div class="d-none d-lg-flex col-lg-3 align-items-end justify-content-center flex-column">
-                                <button class="btn btn-primary">
+                                {{-- <button class="btn btn-primary">
                                     {{ __('Settings') }}
                                 </button>
                                 <button class="btn btn-info mt-2">
                                     {{ __('My Chat') }}
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
                     </div>

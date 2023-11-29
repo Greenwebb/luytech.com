@@ -20,6 +20,7 @@ class DashboardController extends Controller
         $awaiting = Consignment::where('status', 0)->count();
         $replied = Consignment::where('status', 1)->count();
         $shipping = Consignment::where('current_state', 3)->count();
+        $delivered = Consignment::where('current_state', 11)->count();
 
 
         return view('dashboard.dashboard1',[
@@ -28,6 +29,7 @@ class DashboardController extends Controller
             'quotes' => $quotes,
             'p' => $p,
             'b' => $b,
+            'delivered' => $delivered,
             'shipping' => $shipping,
             'replied' => $replied,
             'awaiting' => $awaiting

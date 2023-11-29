@@ -295,7 +295,7 @@ font-size:15px !important;
 
     <!-- Texte de pré-en-tête masqué visuellement : BEGIN -->
     <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: Arial,sans-serif;" aria-hidden="true">
-     Inflation : il est encore temps de réaliser votre projet immobilier avec de bonnes conditions.
+      You can use the order tracking number <strong>{{ $quote->tracking_id }}</strong> to track shipment progress at <a href="https://luytechzm.com/order-tracking">Luytech Tracker</a>
     </div>
 
     <!-- Texte de pré-en-tête masqué visuellement : END -->
@@ -409,7 +409,7 @@ font-size:15px !important;
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                             <td style="font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px; mso-line-height-rule: exactly;line-height:1.2;  color: #353535;padding:10px 35px ;" class="plr-20">
-                               <p style="margin:0;font-weight:bold">Thanks for ordering with Luytech. </p>
+                               <h4 style="margin:0;font-weight:bold">Thanks for ordering with Luytech. </h4>
                             </td>
                           </tr>
                         </table>
@@ -422,9 +422,8 @@ font-size:15px !important;
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                             <td style="font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px; mso-line-height-rule: exactly;line-height:1.2;  color: #353535;padding:10px 35px;" class="plr-20">
-                                 <p style="margin:0;">Your order has been received and is now being processed. Your order and tracking details are shown below for your reference: </p>
-                                 
-                             
+                                <p style="margin:0;">Your order has been received and is now being processed. Your order and tracking details are shown below for your reference: </p>
+                          
                             </td>
                           </tr>
                         </table>
@@ -449,6 +448,7 @@ font-size:15px !important;
                       <td style="background-color:#ffffff; padding:4%">
                         <!--[if (gte mso 9)|(IE)]><table  border="0" cellspacing="0" cellpadding="0" width="605"><tr><td valign="top"><![endif]-->
                           <br><br>
+                          <h5>Your Order Summary</h5>
                           @if ($quote->product_type == 'vehicle')
                           <table id="table" style="padding: 12px;
                             text-align: left;
@@ -513,6 +513,7 @@ font-size:15px !important;
                               <td>{{$g->qty}}</td>
                               <td>{{$g->packaging}}</td>
                               <td>K{{$g->cost ?? 0}}</td>
+                              <td>K{{ (float)$g->cost * (float)$g->qty }}</td>
                           </tr>
                             @php
                               $totalgoods = $g->cost * $g->qty;
@@ -557,7 +558,7 @@ font-size:15px !important;
                                       <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" >
                                         <tr>
                                               <td align="center" style="padding: 10px 0;text-align:left">
-                                                  <h2 style="font-family: Arial,sans-serif;font-size:26px; mso-line-height-rule: exactly;line-height: 36px;color: #ffffff;margin:0;background:none;border:0">What do you <br>mean by <br>Removal In Transit </h2>
+                                                  <h2 style="font-family: Arial,sans-serif;font-size:26px; mso-line-height-rule: exactly;line-height: 36px;color: #ffffff;margin:0;background:none;border:0">What is the definition of <br>"Removal In Transit"?</h2>
                                               </td>
                                           </tr>
                                           <tr>

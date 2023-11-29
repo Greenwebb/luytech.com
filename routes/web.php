@@ -64,6 +64,7 @@ Route::get('/package-track', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
+    Route::post('/search-result', [TrackerController::class, 'searcher'])->name('tracker.search.staff');
     Route::get('/quote-details/{id}', [RequestController::class, 'showQuote'])->name('quote.show');
     Route::get('/quote-reply/{id}', [RequestController::class, 'replyQuote'])->name('quote.reply');
     Route::get('/quote-activate/{id}', [RequestController::class, 'quoteActivate'])->name('quote.activate');

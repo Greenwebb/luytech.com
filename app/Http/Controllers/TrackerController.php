@@ -23,6 +23,13 @@ class TrackerController extends Controller
                 'q' => $q
             ]);
     }
+    public function searcher(Request $request)
+    {
+            $q = Consignment::with(['user','cars','goods'])->where('tracking_id', $request->toArray()['tracker_id'])->first();
+            return view("modules.tracker.index",[
+                "q"=> $q
+            ]);
+    }
 
     /**
      * Show the form for creating a new resource.

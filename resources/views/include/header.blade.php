@@ -9,9 +9,10 @@
     <ul class="navbar-item flex-row ml-md-0 ml-auto">
         <li class="nav-item align-self-center search-animated">
             <i class="las la-search toggle-search"></i>
-            <form class="form-inline search-full form-inline search" action="{{ url('/pages/search-result') }}" role="search">
+            <form action="{{route('tracker.search.staff')}}" method="POST"  class="form-inline search-full form-inline search" action="{{ url('/pages/search-result') }}" role="search">
+                @csrf
                 <div class="search-bar">
-                    <input type="text" class="form-control search-form-control  ml-lg-auto" placeholder=" {{__('Search here')}}">
+                    <input type="text" name="tracker_id" class="form-control search-form-control  ml-lg-auto" placeholder=" {{__('Tracking Number')}}">
                 </div>
             </form>
         </li>

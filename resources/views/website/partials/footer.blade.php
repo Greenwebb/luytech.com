@@ -37,8 +37,8 @@
               <ul class="contact__list list-unstyled">
                 <li><span>Email:</span><span><a href="mailto:info@luytechzm.com" class="__cf_email__" data-cfemail="ade2ddd9c4c0c8ed9ac2dfc2c2cb83cec2c0">info@luytechzm.com</a></span></li>
                 <li><span>Phone:</span><span><a href="tel: +260760904072">+260760904072</a></span></li>
-                <li><span>Sales:</span><span><a href="tel: +260760904072">+260976138062</a></span></li>
-                <li><span>Support:</span><span><a href="tel: +260760904072">+260955344022</a></span></li>
+                {{-- <li><span>Sales:</span><span><a href="tel: +260760904072">+260976138062</a></span></li>
+                <li><span>Support:</span><span><a href="tel: +260760904072">+260955344022</a></span></li> --}}
               </ul>
             </div>
           </div><!-- /.col-lg-4 -->

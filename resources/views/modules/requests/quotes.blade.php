@@ -61,6 +61,7 @@
                                                 <th>{{__('Consigment')}}</th>
                                                 <th>{{__('Phone#')}}</th>
                                                 <th>{{__('Total Items')}}</th>
+                                                <th>{{__('Status')}}</th>
                                                 <th>{{__('Order date')}}</th>
                                                 <th>{{__('Total Cost')}}</th>
                                                 <th class="no-content"></th>
@@ -76,10 +77,13 @@
                                                 <td>{{ $q->user->phone }}</td>
                                                 <td>
                                                     @if ($q->product_type == 'vehicle')
-                                                        {{ $q->num_of_vehicles.' Vehicles' }}                 
+                                                        {{ $q->num_of_vehicles.' Vehicle(s)' }}                 
                                                     @else
-                                                        {{ $q->num_goods.' Products' }}
+                                                        {{ $q->num_goods.' Product(s)' }}
                                                     @endif
+                                                    
+                                                </td>
+                                                <td>
                                                     @if ($q->status !== 2)
                                                         @switch($q->current_state)
                                                             @case(1)

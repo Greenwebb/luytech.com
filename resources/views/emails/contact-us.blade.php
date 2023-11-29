@@ -24,7 +24,7 @@
   <body style="margin:4; padding:0; background:#F78403;">
     
     <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-      greenwebbtech
+      {{ $data['contact_message'] }}
     </div>
    
     <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
