@@ -22,7 +22,7 @@ class QuoteFinalized extends Mailable
     {
         
         $this->quote = $quote;
-        $filePath = asset($this->quote->inv_file);
+        $filePath = asset('uploads/'.$this->quote->inv_file);
         $this->files = [
             'file_path' => $filePath,
             'file_name' => $this->quote->user->fname.''.$this->quote->user->lname.'-'.$this->quote->service_type.' Invoice',

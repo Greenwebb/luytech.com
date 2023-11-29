@@ -241,6 +241,7 @@ class RequestController extends Controller
             // Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
             $adminEmail = 'admin@luytechzm.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteFinalized($quote));
+            // dd('okay');
             return response()->json(['message' => 'Quote submission is complete and successful']);
         } catch (\Throwable $th) {
             dd($th);
