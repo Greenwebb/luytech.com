@@ -37,10 +37,10 @@ class QuoteFinalized extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.quote-final');
-        // ->attach($this->files['file_path'], [
-        //             'as' => $this->files['file_name'],
-        //             'mime' => $this->files['file_mime'],
-        //     ]);
+        return $this->view('emails.quote-final')
+        ->attach($this->files['file_path'], [
+                    'as' => $this->files['file_name'],
+                    'mime' => $this->files['file_mime'],
+            ]);
     }
 }

@@ -91,6 +91,8 @@
         <tr>
           <th>Car Make</th>
           <th>Car Model</th>
+          <th>Color</th>
+          <th>Engine CC</th>
           <th>Fuel</th>
           <th>Transmission</th>
           <th>Car Year</th>
@@ -100,6 +102,8 @@
         <tr>
           <td>{{ $car->car_make }}</td>
           <td>{{ $car->car_model }}</td>
+          <td>{{$car->car_color}}</td>
+          <td>{{$car->engine_cc}}</td>
           <td>{{ $car->fuel }}</td>
           <td>{{ $car->transmission }}</td>
           <td>{{ $car->car_year }}</td>
@@ -109,6 +113,8 @@
         @endforelse
         
         <tr>
+          <td></td>
+          <td></td>
           <td></td>
           <td></td>
           <td></td>
