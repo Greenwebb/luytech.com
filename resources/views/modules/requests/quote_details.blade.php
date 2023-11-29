@@ -43,7 +43,7 @@
                 <div class="">
                     <div class="widget-content searchable-container grid">
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="card-box">
                                     <h5 class="header-title mb-3">{{__('Track Your Order')}}</h5>
                                     <div class="row">
@@ -224,7 +224,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7">
+                            <div class="col-md-8">
                                 <div class="card-box order-detail-table">
                                     @if ($q->status !== 2)
                                         @switch($q->current_state)
@@ -288,9 +288,9 @@
                                             <div class="mb-4">
                                                 <p class="mt-0">{{__('Payment Method:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->payment_method}}</b></span></p>
                                                 @if ($q->payment_method != 'full')
-                                                    <p class="mt-0">{{__('Number of Installments:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->num_installments}}</b></span></p>
+                                                    <p class="mt-0">{{__('Number of Installments:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->num_installments}} Months</b></span></p>
                                                 @endif
-                                                @if ($q->service_type != 'importing')
+                                                @if ($q->service_type != 'importing vehicle')
                                                     <p class="mt-0">{{__('Clearing:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->clearing_from}}</b></span></p>
                                                 @endif
                                                 <p class="mt-0">{{__('Delivering From:')}} <span style="text-transform: capitalize; color:slateblue;"><b>{{$q->delivering_from}}</b></span></p>
@@ -308,6 +308,8 @@
                                             <tr>
                                                 <th>{{__('Make')}}</th>
                                                 <th>{{__('Model')}}</th>
+                                                <th>{{__('Color')}}</th>
+                                                <th>{{__('Engine CC')}}</th>
                                                 <th>{{__('Fuel')}}</th>
                                                 <th>{{__('Transmission')}}</th>
                                                 <th>{{__('Car Year')}}</th>
@@ -319,6 +321,8 @@
                                             <tr>
                                                 <td scope="row"><b>{{$car->car_make}}</b></td>
                                                 <td>{{$car->car_model}}</td>
+                                                <td>{{$car->car_color}}</td>
+                                                <td>{{$car->engine_cc}}</td>
                                                 <td>{{$car->fuel}}</td>
                                                 <td>{{$car->transmission}}</td>
                                                 <td>{{$car->car_year}}</td>
@@ -327,6 +331,8 @@
                                             @empty
                                             @endforelse
                                             <tr>
+                                                <th></th>
+                                                <th></th>
                                                 <th></th>
                                                 <th></th>
                                                 <th scope="row" colspan="3" class="text-right">{{__('Grand Total :')}}</th>

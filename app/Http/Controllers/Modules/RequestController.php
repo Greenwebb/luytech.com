@@ -25,18 +25,21 @@ class RequestController extends Controller
         return view("modules.requests.orders");
     }
     public function inquiries(){
-        $inquiries = ContactInquiry::get();
+        $inquiries = ContactInquiry::orderBy('created_at', 'desc')->get();
         return view("modules.requests.inquiries",[
             "inquiries"=> $inquiries
         ]);
     }
     public function quotes(){
-        $quotes = Consignment::with(['user','cars','goods'])->get();
-        // dd($quotes);
-        return view("modules.requests.quotes",[
-            "quotes"=> $quotes
+        $quotes = Consignment::with(['user','cars','goods'])
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+    
+        return view("modules.requests.quotes", [
+            "quotes" => $quotes
         ]);
     }
+    
 
 
 
