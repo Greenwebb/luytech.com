@@ -54,8 +54,8 @@ class RequestController extends Controller
         
                 // Create a new inquiry record in the database
                 $inquiry = ContactInquiry::create($data);
-        
-                Mail::to($data['email'])->send(new ContactUsInquiry($inquiry));
+                // dd($data['email']);
+                Mail::to('info@luytechzm.com')->send(new ContactUsInquiry($inquiry));
                 // After saving to the database, you can implement additional logic 
                 // like sending an email notification if needed.
         
