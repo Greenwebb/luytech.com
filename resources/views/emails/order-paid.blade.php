@@ -339,7 +339,7 @@ font-size:15px !important;
                                       <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                         <tr>
                                           <td>
-                                            <img src="https://luytech.greenwebbtech.com/public/web/assets/images/logo/logo-dark.png" width="" height="" alt="Privilège courtage, le finançement sur mesure" border="0" style="width: 100%; max-width: 280px; height: auto; font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px;color: #353535;display:block;margin:0;border:0px">
+                                            <img src="https://luytechzm.com/public/web/assets/images/logo/logo-dark.png" width="" height="" alt="Privilège courtage, le finançement sur mesure" border="0" style="width: 100%; max-width: 280px; height: auto; font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px;color: #353535;display:block;margin:0;border:0px">
                                           </td>
                                         </tr>
                                         <tr>
@@ -437,7 +437,7 @@ font-size:15px !important;
                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                           <tr>
                             <td style="font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px; mso-line-height-rule: exactly;line-height:1.2;  color: #353535;padding:10px 35px;" class="plr-20">
-                              <p style="margin:0;">You can use the order tracking number <strong>{{ $quote->tracking_id }}</strong> to track shipment progress at <a href="https://luytech.greenwebbtech.com/order-tracking">Luytech Tracker</a>.</p>
+                              <p style="margin:0;">You can use the order tracking number <strong>{{ $quote->tracking_id }}</strong> to track shipment progress at <a href="https://luytechzm.com/order-tracking">Luytech Tracker</a>.</p>
                             </td>
                           </tr>
                         </table>
@@ -503,6 +503,9 @@ font-size:15px !important;
                             <th>Packaging</th>
                             <th>Total</th>
                           </tr>
+                          @php
+                            $totalgoods = 0;
+                          @endphp
                           @forelse ($quote->goods as $g)
                           <tr>
                               <td scope="row"><b>{{$g->name}}</b></td>
@@ -511,7 +514,9 @@ font-size:15px !important;
                               <td>{{$g->packaging}}</td>
                               <td>K{{$g->cost ?? 0}}</td>
                           </tr>
-
+                            @php
+                              $totalgoods = $g->cost * $g->qty;
+                            @endphp
                           @empty
                           @endforelse
                           <tr>
@@ -520,7 +525,7 @@ font-size:15px !important;
                             <td></td>
                             <td></td>
                             <td><b>Total</b></td>
-                            <td><b>K{{ $quote->goods->sum('cost') }}</b></td>
+                            <td><b>K{{ (float)$totalgoods }}</b></td>
                           </tr>
                         </table>
                         @endif
@@ -562,7 +567,7 @@ font-size:15px !important;
                                               <table align="left" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
                                                 <tr>
                                                   <td class="button-td button-td-white" style="border-radius: 18px; background: #ffffff;text-align:center">
-                                                    <a class="button-a button-a-white" href="https://luytech.greenwebbtech.com/service-details/2" style="border: 1px solid #ffffff; font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px; mso-line-height-rule: exactly;line-height: 19px; text-decoration: none; padding: 17px 54px; color: #000000; background: #ffffff; font-weight:bold;display:block; border-radius:18px;">
+                                                    <a class="button-a button-a-white" href="https://www.luytechzm.com/service-details/2" style="border: 1px solid #ffffff; font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif; font-size:15px; mso-line-height-rule: exactly;line-height: 19px; text-decoration: none; padding: 17px 54px; color: #000000; background: #ffffff; font-weight:bold;display:block; border-radius:18px;">
                                                       Learn More
                                                     </a>
                                                   </td>
@@ -635,8 +640,6 @@ font-size:15px !important;
                                
                                 <p style="margin:0 0 20px;font-weight:bold">
                                   +260760904072
-                                  <br>+260976138062
-                                  <br>+260955344022
                                   <br>info@luytechzm.com
                                   <br>www.luytechzm.com
                                   <br>Facebook: Luytech Motors
@@ -697,12 +700,7 @@ font-size:15px !important;
                                   solutions to suit their specific needs.
                                   Our goal is to provide personalized, costeffective, and hassle-free services that
                                   contribute to your business success.
-                                  
-                                  (<a href="https://www.orias.fr" style="text-decoration:none;color:#ffffff">www.orias.fr</a>) dans les catégories « Courtier en opérations de banque et services de paiement (COBSP) » et « Courtier en Assurances (COA) ».  Titulaire d'une assurance responsabilité civile professionnelle et garantie financière souscrite auprès de MMA IARD (contrat n°146 689 479). Supervisé par l'ACPR (<a href="https://www.acpr.banque-france.fr" style="text-decoration:none;color:#ffffff">www.acpr.banque-france.fr</a>) : 4 place de Budapest 75436 Paris Cedex 09. Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. Aucun versement, de quelque nature que ce soit, ne peut être exigé d'un particulier, avant l'obtention d'un ou plusieurs prêts d'argent. Pour un crédit immobilier l'emprunteur dispose d'un délai de 10 jours pendant lequel il peut accepter l'offre de prêt. La vente est subordonnée à l'obtention du prêt, si celui-ci n'est pas obtenu, le vendeur doit rembourser les sommes versées par le candidat à l'emprunt. Pour un crédit à la consommation, vous disposez d'un délai de rétractation de 14 jours à compter de la signature du contrat de crédit. Lorsqu'une opération de crédit entraîne une diminution du montant des mensualités, celle-ci peut entraîner un allongement de la durée de remboursement du crédit, et majorer son coût total. Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition sur les données personnelles vous concernant. Les modalités d'exercice de ce droit sont sans frais. Il vous suffit, pour l'exercer, de nous écrire à l'adresse suivante : PRIVILÈGE COURTAGE - Données personnelles – 33 rue Joubert 75 009 PARIS.Vous pouvez adresser toute réclamation par courrier à l'adresse suivante : PRIVILÈGE COURTAGE - Services des Réclamations – 33 rue Joubert 75 009 PARIS. En cas de rejet ou de réponse insatisfaisante à une réclamation, tout consommateur peut saisir le Médiateur de la consommation désigné : IEAM - Médiation AFIB - 31 Bis et 33, Rue Daru 75 008 PARIS ; <a href="https://www.ieam.eu/" style="text-decoration:none;color:#ffffff">https://www.ieam.eu/</a></p>
-                                
                             </td>
-                           
-                           
                           </tr>
                         </table>
                         <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->

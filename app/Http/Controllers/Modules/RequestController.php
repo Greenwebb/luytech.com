@@ -241,7 +241,7 @@ class RequestController extends Controller
             ]);
             
             // Send Email to Users
-            // Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
+            Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
             $adminEmail = 'admin@luytechzm.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteFinalized($quote));
             // dd('okay');
