@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Modules;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactUsInquiry;
 use App\Mail\OrderPaid;
 use App\Mail\QuoteFinalized;
 use App\Mail\QuoteReceived;
@@ -41,25 +42,30 @@ class RequestController extends Controller
 
     // ----- Storage --------------------------------
     public function storeContact(Request $request){
-            // Validate the incoming request data
-            $data = $request->validate([
-                'full_name' => 'required|string|max:255',
-                'email'     => 'required|email|max:255',
-                'phone'     => 'required|string|max:50',
-                'province'  => 'required|string|max:255',
-                'contact_message'   => 'required|string',
-            ]);
-    
-            // Create a new inquiry record in the database
-            $inquiry = ContactInquiry::create($data);
-    
-            // After saving to the database, you can implement additional logic 
-            // like sending an email notification if needed.
-    
-            // Return a response. This can be a redirect or a JSON response 
-            // depending on how you want to handle it on the frontend.
-            // Here, I'll return a JSON response for simplicity.
-            return response()->json(['message' => 'Inquiry submitted successfully, We will get back to you shortly!']);
+            try {
+                // Validate the incoming request data
+                $data = $request->validate([
+                    'full_name' => 'required|string|max:255',
+                    'email'     => 'required|email|max:255',
+                    'phone'     => 'required|string|max:50',
+                    'province'  => 'required|string|max:255',
+                    'contact_message'   => 'required|string',
+                ]);
+        
+                // Create a new inquiry record in the database
+                $inquiry = ContactInquiry::create($data);
+        
+                Mail::to($data->email)->send(new ContactUsInquiry($inquiry));
+                // After saving to the database, you can implement additional logic 
+                // like sending an email notification if needed.
+        
+                // Return a response. This can be a redirect or a JSON response 
+                // depending on how you want to handle it on the frontend.
+                // Here, I'll return a JSON response for simplicity.
+                return response()->json(['message' => 'Inquiry submitted successfully, We will get back to you shortly!']);
+            } catch (\Throwable $th) {
+                return response()->json(['message' => 'Failed!']);
+            }
         
     }
 
@@ -144,7 +150,7 @@ class RequestController extends Controller
             // Email User
             Mail::to($user->email)->send(new QuoteReceived($quote));
             // Email Administrator
-            $adminEmail = 'georgemunganga@gmail.com'; // Replace with the admin's email
+            $adminEmail = 'admin@luytechzm.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteReceivedAdmin($quote));
 
             return response()->json(['ok' => 'Quote submission is complete and successful, We will get back to you shortly!']);
@@ -231,7 +237,7 @@ class RequestController extends Controller
             
             // Send Email to Users
             // Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
-            $adminEmail = 'georgemunganga@gmail.com'; // Replace with the admin's email
+            $adminEmail = 'admin@luytechzm.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteFinalized($quote));
             return response()->json(['message' => 'Quote submission is complete and successful']);
         } catch (\Throwable $th) {
