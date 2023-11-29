@@ -16,19 +16,34 @@ class QuoteFinalized extends Mailable
      *
      * @return void
      */
-    public $quote, $files;
+    public $quote, $file;
 
     public function __construct($quote)
     {
         
         $this->quote = $quote;
-        $filePath = asset('uploads/'.$this->quote->inv_file);
-        $this->files = [
-            'file_path' => $filePath,
-            'file_name' => $this->quote->user->fname.''.$this->quote->user->lname.'-'.$this->quote->service_type.' Invoice',
-            'file_mime' => 'application/pdf',
-        ];
+        $this->file = asset('public/storage/uploads/'.$this->quote->inv_file);
+        // $this->files = [
+        //     'file_path' => $filePath,
+        //     'file_name' => $this->quote->user->fname . ' ' . $this->quote->user->lname . '-' . $this->quote->service_type . ' Invoice',
+        //     'file_mime' => $this->getMimeType($filePath),
+        // ];
     }
+
+    
+
+    // public function getMimeType($filePath)
+    // {
+    //     $mimeTypes = [
+    //         'pdf'  => 'application/pdf',
+    //         'doc'  => 'application/msword',
+    //         'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    //         'xls'  => 'application/vnd.ms-excel',
+    //     ];
+
+    //     $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+    //     return isset($mimeTypes[$extension]) ? $mimeTypes[$extension] : 'application/octet-stream';
+    // }
 
     /**
      * Build the message.
@@ -37,10 +52,15 @@ class QuoteFinalized extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.quote-final')
-        ->attach($this->files['file_path'], [
-                    'as' => $this->files['file_name'],
-                    'mime' => $this->files['file_mime'],
-            ]);
+        try {
+            // dd(file_exists($this->files['file_path']));
+            return $this->view('emails.quote-final');
+            // ->attach($this->files['file_path'], [
+            //             'as' => $this->files['file_name'],
+            //             'mime' => $this->files['file_mime'],
+            //     ]);
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
 }

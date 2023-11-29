@@ -228,7 +228,7 @@ class RequestController extends Controller
                 // Set the cost for each goods
                 foreach ($request->toArray()['goods_id'] as $key => $g) {
                     $total += (float)$request->toArray()['goods_cost'][$key];
-                    Car::where('id', $g)->update(['cost'=> $request->toArray()['goods_cost'][$key]]);
+                    Good::where('id', $g)->update(['cost'=> $request->toArray()['goods_cost'][$key]]);
                 }
             }
 

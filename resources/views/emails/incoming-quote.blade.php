@@ -99,8 +99,8 @@
           <tr>
             <td>{{ $car->car_make }}</td>
             <td>{{ $car->car_model }}</td>
-            <td>{{$car->car_color}}</td>
-            <td>{{$car->engine_cc}}</td>
+            <td>{{ $car->car_color }}</td>
+            <td>{{ $car->engine_cc }}</td>
             <td>{{ $car->fuel }}</td>
             <td>{{ $car->transmission }}</td>
             <td>{{ $car->car_year }}</td>

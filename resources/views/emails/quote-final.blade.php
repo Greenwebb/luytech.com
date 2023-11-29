@@ -102,8 +102,8 @@
         <tr>
           <td>{{ $car->car_make }}</td>
           <td>{{ $car->car_model }}</td>
-          <td>{{$car->car_color}}</td>
-          <td>{{$car->engine_cc}}</td>
+          <td>{{ $car->car_color }}</td>
+          <td>{{ $car->engine_cc }}</td>
           <td>{{ $car->fuel }}</td>
           <td>{{ $car->transmission }}</td>
           <td>{{ $car->car_year }}</td>
@@ -119,7 +119,7 @@
           <td></td>
           <td></td>
           <td></td>
-          <td>Total</td>
+          <td><b>Total</b></td>
           <td>{{ $quote->cars->sum('cost') }}</td>
         </tr>
       </table>
@@ -130,8 +130,13 @@
           <th>Size</th>
           <th>Quantity</th>
           <th>Packaging</th>
-          <th>Total</th>
+          <th>Price</th>
+          <th>Subtotal</th>
         </tr>
+        
+        @php
+          $totalgoods = 0;
+        @endphp
         @forelse ($quote->goods as $g)
         <tr>
           <td scope="row"><b>{{$g->name}}</b></td>
@@ -139,7 +144,11 @@
           <td>{{$g->qty}}</td>
           <td>{{$g->packaging}}</td>
           <td>{{ $g->cost }}</td>
+          <td>{{ (float)$g->cost * (float)$g->qty }}</td>
         </tr>
+          @php
+            $totalgoods = $g->cost * $g->qty;
+          @endphp
         @empty
         @endforelse
         
@@ -149,12 +158,14 @@
           <td></td>
           <td></td>
           <td>Total</td>
-          <td>{{ $quote->goods->sum('cost') }}</td>
+          <td>{{ (float)$totalgoods }}</td>
         </tr>
       </table>
       @endif
     </div>
-
+    <div>
+      <a target="_blank" href="{{ $file }}">Download Quotation</a>
+    </div>
     <div class="thank-you">
       <p>Thank you!</p>
     </div>
