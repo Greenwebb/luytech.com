@@ -32,7 +32,8 @@ class Consignment extends Model
         'delivery_town',
         'num_goods',
         'delivering_from',
-        'file'
+        'file',
+        'inv_file'
     ];
 
     protected static function boot()

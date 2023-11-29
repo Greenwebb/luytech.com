@@ -97,7 +97,7 @@ class RequestController extends Controller
                 'installment_duration' => $request->input('installment_duration'),
                 'delivery_town' => $request->input('delivery_town'),
                 'delivering_from' => $request->input('delivering_from'),
-                'file' => $file 
+                'file' => $file
             ]);
 
             if(!empty($request->input('clearing_from'))){
@@ -147,20 +147,15 @@ class RequestController extends Controller
             $adminEmail = 'georgemunganga@gmail.com'; // Replace with the admin's email
             Mail::to($adminEmail)->send(new QuoteReceivedAdmin($quote));
 
-            return response()->json(['message' => 'Quote submission is complete and successful, We will get back to you shortly!']);
+            return response()->json(['ok' => 'Quote submission is complete and successful, We will get back to you shortly!']);
         } catch (\Throwable $th) {
-            dd($th);
+            return response()->json(500);
         }
     }
 
     public function uploadFile($request){
         if ($request->hasFile('invoice')) {
             $file = $request->file('invoice');
-            
-            // Validate the file if needed
-            // $request->validate([
-            //     'file' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // adjust based on your requirements
-            // ]);
 
             $fileName = time() . '_' . $file->getClientOriginalName();
             $file->storeAs('uploads', $fileName, 'public'); // Store the file in the public/uploads directory
@@ -168,6 +163,18 @@ class RequestController extends Controller
             return $fileName;
         }
     }
+    public function uploadFile2($request){
+        if ($request->hasFile('invoice_file')) {
+            $file = $request->file('invoice_file');
+
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->storeAs('uploads', $fileName, 'public'); // Store the file in the public/uploads directory
+
+            return $fileName;
+        }
+    }
+
+
 
 
     // ----- Details --------------------------------
@@ -195,6 +202,8 @@ class RequestController extends Controller
     public function replySend(Request $request){
     
         try {
+            // dd($request);
+            $file = $this->uploadFile2($request);
             $total = 0;
             $quote = Consignment::with(['user','cars','goods'])->where('id', $request->toArray()['consignment_id'])->first();
             
@@ -216,7 +225,8 @@ class RequestController extends Controller
             Consignment::where('id', $request->toArray()['consignment_id'])->update([
                 'price' => $total,
                 'current_state' => 2,
-                'status' => 1
+                'status' => 1,
+                'inv_file' => $file 
             ]);
             
             // Send Email to Users

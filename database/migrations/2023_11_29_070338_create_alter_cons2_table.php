@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlterConsTable extends Migration
+class CreateAlterCons2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateAlterConsTable extends Migration
     public function up()
     {
         Schema::table('consignments', function (Blueprint $table) {
-            // $table->text('delivering_from')->nullable();
+            $table->string('inv_file')->nullable();
         });
     }
 
@@ -25,6 +25,6 @@ class CreateAlterConsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alter_cons');
+        Schema::dropIfExists('alter_cons2');
     }
 }

@@ -444,22 +444,24 @@ font-size:15px !important;
                         <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
                       </td>
                     </tr>
+                    
                      <tr>
-                      <td style="background-color:#ffffff;">
+                      <td style="background-color:#ffffff; padding:4%">
                         <!--[if (gte mso 9)|(IE)]><table  border="0" cellspacing="0" cellpadding="0" width="605"><tr><td valign="top"><![endif]-->
-                        
+                          <br><br>
                           @if ($quote->product_type == 'vehicle')
-                          <table id="table" style="  padding: 12px;
-                          text-align: left;
-                          border-bottom: 1px solid #ddd;">
-                            <tr style="  padding: 12px;
+                          <table id="table" style="padding: 12px;
                             text-align: left;
                             border-bottom: 1px solid #ddd;">
+                            <tr style="padding: 12px;
+                              text-align: left;
+                              border-bottom: 1px solid #ddd;">
                               <th>Car Make</th>
                               <th>Car Model</th>
                               <th>Fuel</th>
                               <th>Transmission</th>
                               <th>Car Year</th>
+                              <th>Sub total</th>
                             </tr>
                             @forelse ($quote->cars as $car)
                             <tr>
@@ -468,6 +470,7 @@ font-size:15px !important;
                               <td>{{ $car->fuel }}</td>
                               <td>{{ $car->transmission }}</td>
                               <td>{{ $car->car_year }}</td>
+                              <td>K{{ $car->cost }}</td>
                             </tr>
                             @empty
                             @endforelse
@@ -476,8 +479,8 @@ font-size:15px !important;
                               <td></td>
                               <td></td>
                               <td></td>
-                              <td>Total</td>
-                              <td>{{ $quote->cars->sum('cost') }}</td>
+                              <td><b>Total</b></td>
+                              <td><b>K{{ $quote->cars->sum('cost') }}</b></td>
                             </tr>
                           </table>
                         @else
@@ -500,7 +503,7 @@ font-size:15px !important;
                               <td>{{$g->size}}</td>
                               <td>{{$g->qty}}</td>
                               <td>{{$g->packaging}}</td>
-                              <td>{{$g->cost ?? 0}}</td>
+                              <td>K{{$g->cost ?? 0}}</td>
                           </tr>
 
                           @empty
@@ -510,8 +513,8 @@ font-size:15px !important;
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Total</td>
-                            <td>{{ $quote->goods->sum('cost') }}</td>
+                            <td><b>Total</b></td>
+                            <td><b>K{{ $quote->goods->sum('cost') }}</b></td>
                           </tr>
                         </table>
                         @endif

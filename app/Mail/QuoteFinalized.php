@@ -16,11 +16,18 @@ class QuoteFinalized extends Mailable
      *
      * @return void
      */
-    public $quote;
+    public $quote, $files;
 
     public function __construct($quote)
     {
+        
         $this->quote = $quote;
+        $filePath = asset($this->quote->inv_file);
+        $this->files = [
+            'file_path' => $filePath,
+            'file_name' => $this->quote->user->fname.''.$this->quote->user->lname.'-'.$this->quote->service_type.' Invoice',
+            'file_mime' => 'application/pdf',
+        ];
     }
 
     /**
@@ -30,6 +37,10 @@ class QuoteFinalized extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.quote-final');
+        return $this->view('emails.quote-final') 
+        ->attach($this->files['file_path'], [
+                    'as' => $this->files['file_name'],
+                    'mime' => $this->files['file_mime'],
+            ]);
     }
 }

@@ -166,6 +166,9 @@ $("#wizard").steps({
                 submitButton.style.display = 'none';
                 successMsg.style.display = 'block';
                 formBody.style.display = 'none';
+                setTimeout(function() {
+                    location.reload();
+                }, 2000);
                 // Handle the response, update UI, show success/error messages, etc.
             },
             error: function (error) {

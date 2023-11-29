@@ -51,8 +51,11 @@
                                                             <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgba(154, 248, 135, 0.532); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
                                                                 <p>Quote updated successfully!</p>
                                                             </div>
+                                                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(250, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgb(255, 0, 0); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
+                                                                <p>Oops.. Quote reply failed</p>
+                                                            </div>
                                                             <br>
-                                                            <form method="POST" action="{{route('reply.send')}}" class="form"  id="replyForm">
+                                                            <form method="POST" action="{{route('reply.send')}}" enctype="multipart/form-data" class="form"  id="replyForm">
                                                                 @csrf
                                                                 
                                                                 <h6>{{__('CUSTOMER INFORMATION')}}</h6>
@@ -139,7 +142,17 @@
                                                                     @empty
                                                                     @endforelse
                                                                 @endif
-                                                                
+                                                                <br>
+                                                                <h6>{{__('ATTACHMENT')}}</h6>
+                                                                <hr>
+                                                                <div class="row ">
+                                                                    <div class="col-sm-8">
+                                                                        <div class="form-group">
+                                                                            <label for="fullName">{{__('Upload document')}}</label>
+                                                                            <input type="file" name="invoice_file" class="form-control mb-4">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <button class="btn btn-primary">{{__('Send Quote')}}</button>
                                                             </form>
                                                             {{-- <div class="col-xl-3 col-lg-12 col-md-12">
@@ -602,10 +615,12 @@
                     document.getElementById('quote-update-message').style.display = 'block';
                 } else {
                     document.getElementById('preloader').style.display = 'none';
+                    document.getElementById('quote-update-message2').style.display = 'block';
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
+                document.getElementById('quote-update-message2').style.display = 'block';
                 document.getElementById('preloader').style.display = 'none';
             });
         });
