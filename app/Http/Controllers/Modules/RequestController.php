@@ -55,7 +55,7 @@ class RequestController extends Controller
                 // Create a new inquiry record in the database
                 $inquiry = ContactInquiry::create($data);
         
-                Mail::to($data->email)->send(new ContactUsInquiry($inquiry));
+                Mail::to($data['email'])->send(new ContactUsInquiry($inquiry));
                 // After saving to the database, you can implement additional logic 
                 // like sending an email notification if needed.
         
@@ -64,7 +64,7 @@ class RequestController extends Controller
                 // Here, I'll return a JSON response for simplicity.
                 return response()->json(['message' => 'Inquiry submitted successfully, We will get back to you shortly!']);
             } catch (\Throwable $th) {
-                return response()->json(['message' => 'Failed!']);
+                dd($th);
             }
         
     }
