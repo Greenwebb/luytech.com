@@ -240,7 +240,7 @@
                             </svg>
                         </button>
                     </div>
-                    <br><br>
+                    <br><br><br>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         
                         <div class="form-group">
@@ -290,7 +290,7 @@
                         </div>
                     </div><!-- /.col-lg-4 -->
 
-                    <div id="goodsDetails" class="px-3 mb-2">
+                    <div id="goodsDetails" class="px-3">
                         <!-- This div will be dynamically populated based on the number of cars selected -->
                     </div>
 
