@@ -16,6 +16,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Modules\RequestController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\TrackerController;
 
 Auth::routes();
@@ -86,6 +87,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('quote-inquiries', [RequestController::class,'quotes'])->name('request.quote');
     Route::get('order-inquiries', [RequestController::class,'orders'])->name('request.orders');
     Route::get('contact-inquiries', [RequestController::class,'inquiries'])->name('request.inquiries');
+    
+    
+    
+    Route::get('test-paid-email', [TestController::class,'paid_email'])->name('test.email_paid');
+
+
+    
 });
 
 

@@ -22,28 +22,27 @@ class QuoteFinalized extends Mailable
     {
         
         $this->quote = $quote;
-        $this->file = asset('public/storage/uploads/'.$this->quote->inv_file);
-        // $this->files = [
-        //     'file_path' => $filePath,
-        //     'file_name' => $this->quote->user->fname . ' ' . $this->quote->user->lname . '-' . $this->quote->service_type . ' Invoice',
-        //     'file_mime' => $this->getMimeType($filePath),
-        // ];
+        $filePath = url('public/storage/uploads/'.$this->quote->inv_file);
+        $this->file = [
+            'file_path' => $filePath,
+            'file_name' => $this->quote->user->fname . ' ' . $this->quote->user->lname . '-' . $this->quote->service_type . ' Invoice',
+            'file_mime' => $this->getMimeType($filePath),
+        ];
     }
 
     
 
-    // public function getMimeType($filePath)
-    // {
-    //     $mimeTypes = [
-    //         'pdf'  => 'application/pdf',
-    //         'doc'  => 'application/msword',
-    //         'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    //         'xls'  => 'application/vnd.ms-excel',
-    //     ];
-
-    //     $extension = pathinfo($filePath, PATHINFO_EXTENSION);
-    //     return isset($mimeTypes[$extension]) ? $mimeTypes[$extension] : 'application/octet-stream';
-    // }
+    public function getMimeType($filePath)
+    {
+        $mimeTypes = [
+            'pdf'  => 'application/pdf',
+            'doc'  => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'xls'  => 'application/vnd.ms-excel',
+        ];
+        $extension = pathinfo($filePath, PATHINFO_EXTENSION);
+        return isset($mimeTypes[$extension]) ? $mimeTypes[$extension] : 'application/octet-stream';
+    }
 
     /**
      * Build the message.
@@ -53,12 +52,13 @@ class QuoteFinalized extends Mailable
     public function build()
     {
         try {
-            // dd(file_exists($this->files['file_path']));
-            return $this->view('emails.quote-final');
-            // ->attach($this->files['file_path'], [
-            //             'as' => $this->files['file_name'],
-            //             'mime' => $this->files['file_mime'],
-            //     ]);
+            // dd($this->file['file_path']);
+            // dd(file_exists($this->file['file_path']));
+            return $this->view('emails.quote-final')
+            ->attach($this->file['file_path'], [
+                        'as' => $this->file['file_name'],
+                        'mime' => $this->file['file_mime'],
+                ]);
         } catch (\Throwable $th) {
             dd($th);
         }
