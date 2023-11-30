@@ -5222,7 +5222,7 @@
 				else {
 					nextSort = asSorting[0];
 				}
-				label = sTitle + ( nextSort === "desc" ?
+				label = sTitle + ( nextSort === "asc" ?
 					oAria.sSortAscending :
 					oAria.sSortDescending
 				);
@@ -8417,7 +8417,7 @@
 		 * should contain an array for each column to be sorted initially containing
 		 * the column's index and a direction string ('asc' or 'desc').
 		 *  @type array
-		 *  @default [[0,'desc']]
+		 *  @default [[0,'asc']]
 		 *
 		 *  @dtopt Option
 		 *  @name DataTable.defaults.order
@@ -8437,7 +8437,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aaSorting": [[0,'desc']],
+		"aaSorting": [[0,'asc']],
 		/**
 		 * This parameter is basically identical to the `sorting` parameter, but
 		 * cannot be overridden by user interaction with the table. What this means
@@ -12872,8 +12872,8 @@
 							classes.sSortAsc +' '+
 							classes.sSortDesc
 						)
-						.addClass( columns[ colIdx ] == 'desc' ?
-							classes.sSortAsc : columns[ colIdx ] == 'asc' ?
+						.addClass( columns[ colIdx ] == 'asc' ?
+							classes.sSortAsc : columns[ colIdx ] == 'desc' ?
 								classes.sSortDesc :
 								column.sSortingClass
 						);
@@ -12895,8 +12895,8 @@
 					var colIdx = column.idx;
 					cell
 						.removeClass( classes.sSortAsc +" "+classes.sSortDesc )
-						.addClass( columns[ colIdx ] == 'desc' ?
-							classes.sSortAsc : columns[ colIdx ] == 'asc' ?
+						.addClass( columns[ colIdx ] == 'asc' ?
+							classes.sSortAsc : columns[ colIdx ] == 'desc' ?
 								classes.sSortDesc :
 								column.sSortingClass
 						);
@@ -12909,8 +12909,8 @@
 							classes.sSortJUIAscAllowed +" "+
 							classes.sSortJUIDescAllowed
 						)
-						.addClass( columns[ colIdx ] == 'desc' ?
-							classes.sSortJUIAsc : columns[ colIdx ] == 'asc' ?
+						.addClass( columns[ colIdx ] == 'asc' ?
+							classes.sSortJUIAsc : columns[ colIdx ] == 'desc' ?
 								classes.sSortJUIDesc :
 								column.sSortingClassJUI
 						);
