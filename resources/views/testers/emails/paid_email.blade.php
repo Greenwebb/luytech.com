@@ -41,7 +41,7 @@
     th, td {
       padding: 12px;
       text-align: left;
-      /* text-transform: capitalize; */
+      text-transform: capitalize;
     }
     th {
       background-color: #F9810A;
@@ -82,11 +82,19 @@
         
         <tr>
           <th>Consignment Type</th>
-          <td>{{ $quote->consignment_type }} {{ $quote->inv_file ?? 'No Quote' }}</td>
+          <td>{{ $quote->consignment_type }}</td>
         </tr>
         <tr>
           <th>Quotation</th>
-          <td> {{ $quote->inv_file ?? 'No Quote' }}</td>
+          <td>
+            <span style="padding: 12px; background-color:#33333314; border-radius:10%">
+              <img width="15" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzouhSfFoMNT5kYK78WM7Xs62sDXyu-pW7xNx-H3Q8faDHn4i2dLe_yM3fDfgYvt3fmLQ&usqp=CAU" alt="">
+
+              <a style="font-style: none; text-underline:none" target="_blank" class="btn" href="https://www.luytechzm.com/public/storage/uploads/<?php echo $quote->inv_file ?>"> 
+              {{$quote->inv_file}}
+              </a>
+            </span>
+          </td>
         </tr>
       </table>
 
@@ -167,14 +175,13 @@
       </table>
       @endif
     </div>
-    {{-- @dd($quote) --}}
-    <div>
-      <a class="btn" href="https://www.luytechzm.com/public/storage/uploads/<?php echo $quote->inv_file ?>"> 
-        <span>Download Quotation</span>
-        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+    <div style="text-decoration: none; border:1px solid #D98700; padding:2%">
+      <a target="_blank" class="btn" style="text-decoration: none; font-size: 18px; font-weight: bold; color: #ce1212;" href="https://www.luytechzm.com/public/storage/uploads/<?php echo $quote->inv_file ?>">
+        <h3><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
           <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
           <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-        </svg></span>
+        </svg></span>&nbsp;Download Quotation</h3>
+        
       </a>
     </div>
     <div class="thank-you">

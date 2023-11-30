@@ -86,7 +86,16 @@
         </tr>
         <tr>
           <th>Quotation</th>
-          <td>{{ $quote->inv_file }}</td>
+          <td>
+              <span>
+                <img width="10" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flaticon.com%2Ffree-icon%2Fquotation_3527491&psig=AOvVaw3xP0VIpgdKdVbSslGu2qd6&ust=1701433641015000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMi9tbDc64IDFQAAAAAdAAAAABAJ" alt="">
+              </span>
+              <span>
+                <a target="_blank" class="btn" href="https://www.luytechzm.com/public/storage/uploads/<?php echo $quote->inv_file ?>"> 
+                {{$quote->inv_file}}
+                </a>
+              </span>
+          </td>
         </tr>
       </table>
 
