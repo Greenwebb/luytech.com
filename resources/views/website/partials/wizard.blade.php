@@ -570,7 +570,7 @@
                         </div>
                         <div class="col-sm-12 col-md-3 col-lg-3">
                             <div class="form-group">
-                                <input type="text" name="packaging[]" class="form-control" />
+                                <input type="text" name="packaging[]" placeholder="Other Information" class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-1 col-lg-1">
