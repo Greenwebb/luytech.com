@@ -599,8 +599,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('replyForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            // document.getElementById('preloader').style.display = 'block';
-            // document.getElementById('replyForm').style.display = 'none';
+            document.getElementById('preloader').style.display = 'block';
+            document.getElementById('replyForm').style.display = 'none';
             
             const formData = new FormData(this);
             
@@ -614,14 +614,14 @@
                     document.getElementById('replyForm').style.display = 'block';
                     document.getElementById('quote-update-message').style.display = 'block';
                 } else {
-                    // document.getElementById('preloader').style.display = 'none';
-                    // document.getElementById('quote-update-message2').style.display = 'block';
+                    document.getElementById('preloader').style.display = 'none';
+                    document.getElementById('quote-update-message2').style.display = 'block';
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
-                // document.getElementById('quote-update-message2').style.display = 'block';
-                // document.getElementById('preloader').style.display = 'none';
+                document.getElementById('quote-update-message2').style.display = 'block';
+                document.getElementById('preloader').style.display = 'none';
             });
         });
     });

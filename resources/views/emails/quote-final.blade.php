@@ -134,9 +134,9 @@
           <th>Subtotal</th>
         </tr>
         
-        @php
+        <?php
           $totalgoods = 0;
-        @endphp
+        ?>
         @forelse ($quote->goods as $g)
         <tr>
           <td scope="row"><b>{{$g->name}}</b></td>
@@ -144,11 +144,11 @@
           <td>{{$g->qty}}</td>
           <td>{{$g->packaging}}</td>
           <td>K{{ $g->cost }}</td>
-          <td>K{{ (float)$g->cost * (float)$g->qty }}</td>
+          <td>K{{ $g->cost * $g->qty }}</td>
         </tr>
-          @php
+          <?php
             $totalgoods = $g->cost * $g->qty;
-          @endphp
+          ?>
         @empty
         @endforelse
         
@@ -158,13 +158,13 @@
           <td></td>
           <td></td>
           <td><b>Total</b></td>
-          <td><b>K{{ (float)$totalgoods }}</b></td>
+          <td><b>K{{ $totalgoods }}</b></td>
         </tr>
       </table>
       @endif
     </div>
     <div>
-      <a target="_blank" class="btn" href="{{ $path }}"> 
+      <a target="_blank" class="btn" href="https://www.luytechzm.com/public/storage/uploads/<?php echo $quote->invoice_file ?>"> 
         <span>Download Quotation</span>
         <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
           <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>

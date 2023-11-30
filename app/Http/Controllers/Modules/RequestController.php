@@ -178,7 +178,7 @@ class RequestController extends Controller
         if ($request->hasFile('invoice_file')) {
             $file = $request->file('invoice_file');
 
-            $fileName = time() . '_' . $file->getClientOriginalName();
+            $fileName = substr(uniqid(), 0, 4) . '_' . $file->getClientOriginalName();
             $file->storeAs('uploads', $fileName, 'public'); // Store the file in the public/uploads directory
 
             return $fileName;
@@ -217,7 +217,7 @@ class RequestController extends Controller
             $file = $this->uploadFile2($request);
             $total = 0;
             $quote = Consignment::with(['user','cars','goods'])->where('id', $request->toArray()['consignment_id'])->first();
-            
+
             if($quote->product_type == 'vehicle'){
                 // Set the cost for each car
                 foreach ($request->toArray()['car_id'] as $key => $car) {
@@ -239,13 +239,14 @@ class RequestController extends Controller
                 'status' => 1,
                 'inv_file' => $file 
             ]);
+            $q = Consignment::with(['user','cars','goods'])->where('id', $request->toArray()['consignment_id'])->first();
             
             // Send Email to Users
-            Mail::to($quote->user->email)->send(new QuoteFinalized($quote));
+            Mail::to($quote->user->email)->send(new QuoteFinalized($q));
 
 
             $adminEmail = 'admin@luytechzm.com'; // Replace with the admin's email
-            Mail::to($adminEmail)->send(new QuoteFinalized($quote));
+            Mail::to($adminEmail)->send(new QuoteFinalized($q));
             // dd('okay');
             return response()->json(['message' => 'Quote submission is complete and successful']);
         } catch (\Throwable $th) {

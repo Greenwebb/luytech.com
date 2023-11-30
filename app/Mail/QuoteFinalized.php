@@ -55,13 +55,13 @@ class QuoteFinalized extends Mailable
     public function build()
     {
         try {
-            dd($this->path);
+            // dd($this->quote);
             // dd(file_exists($this->file['file_path']));
-            return $this->view('emails.quote-final')
-            ->attach($this->file['file_path'], [
-                        'as' => $this->file['file_name'],
-                        'mime' => $this->file['file_mime'],
-                ]);
+            return $this->view('emails.quote-final');
+            // ->attach($this->file['file_path'], [
+            //             'as' => $this->file['file_name'],
+            //             'mime' => $this->file['file_mime'],
+            //     ]);
         } catch (\Throwable $th) {
             dd($th);
         }
