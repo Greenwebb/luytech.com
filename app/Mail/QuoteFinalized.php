@@ -16,12 +16,13 @@ class QuoteFinalized extends Mailable
      *
      * @return void
      */
-    public $quote, $file;
+    public $quote, $file, $path;
 
     public function __construct($quote)
     {
         
         $this->quote = $quote;
+        $this->path = url('public/storage/uploads/'.$this->quote->inv_file);
         $filePath = url('public/storage/uploads/'.$this->quote->inv_file);
         $this->file = [
             'file_path' => $filePath,
