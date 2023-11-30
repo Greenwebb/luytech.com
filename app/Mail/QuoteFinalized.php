@@ -24,6 +24,8 @@ class QuoteFinalized extends Mailable
         $this->quote = $quote;
         $this->path = url('public/storage/uploads/'.$this->quote->inv_file);
         $filePath = url('public/storage/uploads/'.$this->quote->inv_file);
+
+        
         $this->file = [
             'file_path' => $filePath,
             'file_name' => $this->quote->user->fname . ' ' . $this->quote->user->lname . '-' . $this->quote->service_type . ' Invoice',
@@ -53,7 +55,7 @@ class QuoteFinalized extends Mailable
     public function build()
     {
         try {
-            // dd($this->file['file_path']);
+            dd($this->path);
             // dd(file_exists($this->file['file_path']));
             return $this->view('emails.quote-final')
             ->attach($this->file['file_path'], [
