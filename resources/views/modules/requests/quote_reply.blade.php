@@ -15,11 +15,14 @@
                     <div class="page-header">
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item active font-bold"><a href="{{ route('quote.show', $q->id) }}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                                    </svg>
+                                <li style="color: coral" class="breadcrumb-item active font-bold"><a href="{{ route('quote.show', $q->id) }}">
+                                    <b style="color: coral">
+                                        <svg style="color: coral" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                                        </svg>
+                                    </b>
                                 </a></li>
+                                &nbsp;&nbsp;
                                 <li class="breadcrumb-item active" aria-current="page"><span>{{__('Quote Reply')}}</span></li>
                             </ol>
                         </nav>
@@ -65,17 +68,33 @@
                                                                 @csrf
                                                                 
                                                                 <h6>{{__('CUSTOMER INFORMATION')}}</h6>
+                                                                <hr>
                                                                 <div class="row ">
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label for="fullName">{{__('Full Name')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$q->user->fname.' '.$q->user->lname}}" value="{{$q->user->fname.' '.$q->user->lname}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$q->user->fname.' '.$q->user->lname}}" value="{{$q->user->fname.' '.$q->user->lname}}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-sm-6">
                                                                         <div class="form-group">
                                                                             <label for="fullName">{{__('Phone')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$q->user->phone}}" value="{{$q->user->phone}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$q->user->phone}}" value="{{$q->user->phone}}">
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                                <div class="row ">
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group">
+                                                                            <label for="fullName">{{__('Email')}}</label>
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$q->user->email}}" value="{{$q->user->email}}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <div class="form-group">
+                                                                            <label for="fullName">{{__('Address')}}</label>
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$q->delivering_from}}" value="{{$q->delivering_from ?? 'None'}}">
                                                                         </div>
                                                                     </div>
                                                                     
@@ -93,19 +112,19 @@
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Car Make')}}</label>
 
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->car_make}}" value="{{$c->car_make}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->car_make}}" value="{{$c->car_make}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Car Model')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->car_model}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->car_model}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Fuel')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->fuel}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->car_model}}" value="{{$c->fuel}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Transmission')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->transmission}}" value="{{$c->transmission}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->transmission}}" value="{{$c->transmission}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Total')}}</label>
@@ -126,19 +145,19 @@
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Item')}}</label>
 
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->name}}" value="{{$c->name}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->name}}" value="{{$c->name}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Size')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->size}}" value="{{$c->size}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->size}}" value="{{$c->size}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Qty')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->qty}}" value="{{$c->qty}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->qty}}" value="{{$c->qty}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Other information')}}</label>
-                                                                            <input type="text" class="form-control mb-4" placeholder="{{$c->packaging}}" value="{{$c->packaging}}">
+                                                                            <input readonly type="text" class="form-control mb-4" placeholder="{{$c->packaging}}" value="{{$c->packaging}}">
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="profession">{{__('Total')}}</label>

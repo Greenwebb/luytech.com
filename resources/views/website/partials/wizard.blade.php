@@ -163,7 +163,7 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <h5 class="form__title" style="font-size:12px; color:white">Where are you delivering to? (Address)</h5>
                         <div class="form-group">
-                            <input type="text" name="delivery_from" id="delivery_from" class="form-control">
+                            <input type="text" name="delivering_from" id="delivery_from" class="form-control">
                                 {{-- <option required="required" selected disabled="disabled">
                                     --select--
                                 </option>
