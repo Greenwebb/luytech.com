@@ -13,8 +13,7 @@
                 <li>
                     <div class="page-header">
                         <nav class="breadcrumb-one" aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);"> {{__('Apps')}}</a></li>
+                            <ol class="breadcrumb">                       
                                 <li class="breadcrumb-item active" aria-current="page"><span> {{__('Quote Requests')}}</span></li>
                             </ol>
                         </nav>
@@ -71,7 +70,11 @@
                                             
                                             @foreach ($quotes as $q)
                                             <tr>
-                                                <td>{{ $q->tracking_id ?? 'Untracked'}}</td>
+                                                <td>
+                                                    <a href="{{ route('quote.show', $q->id) }}">
+                                                        {{ $q->tracking_id ?? 'Untracked'}}
+                                                    </a>
+                                                </td>
                                                 <td>{{ $q->user->fname.' '.$q->user->lname }}</td>
                                                 <td class="capitalize">{{ ucwords($q->consignment_type) }}</td>
                                                 <td>{{ $q->user->phone }}</td>
@@ -217,8 +220,8 @@
                         "last": "<i class='las la-angle-double-right'></i>"
                     }
                 },
-                "lengthMenu": [3,6,9,12],
-                "pageLength": 3
+                "lengthMenu": [10,30,90,100,200],
+                "pageLength": 10
             });
             $.fn.dataTable.ext.search.push(
                 function( settings, data, dataIndex ) {
