@@ -45,14 +45,20 @@
                                                 <div class="tab-pane fade show active" id="v-border-pills-general" role="tabpanel" aria-labelledby="v-border-pills-general-tab">
                                                     <div class="row">
                                                         <div class="col-xl-12 col-lg-12 col-md-12 mt-md-0 mt-4">
-                                                            <div id="preloader" style="display: none; content-justify:center; margin:auto; margin-left:45%">
-                                                                <img src="{{ asset('public/image/isloader.gif') }}">
+                                                            <div id="preloader" style="display: none; justify-content:center; margin:auto; margin-left:45%">
+                                                                <div style="display: block">
+                                                                    <img width="40" src="{{ asset('public/image/isloader.gif') }}">
+                                                                    <br>
+                                                                    <small>Sending quotation, please wait...</small>
+                                                                </div>
                                                             </div>
-                                                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgba(154, 248, 135, 0.532); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
+                                                            <div id="quote-update-message" style="color: #fff; padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgba(154, 248, 135, 0.532); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
                                                                 <p>Quote updated successfully!</p>
+                                                                <button class="btn btn-danger text-white" onclick="location.reload(true)">Reply Again</button>
                                                             </div>
-                                                            <div id="quote-update-message" style="padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(250, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgb(255, 0, 0); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
+                                                            <div id="quote-update-message2" style="color: #fff; padding:1%; padding-top:2%; margin:1%; border-radius:2%; box-shadow: rgba(250, 0, 0, 0.2) 0px 18px 50px -10px; background-color:rgb(255, 0, 0); display:none; color:rgb(103, 170, 2)4, 31); font-size:14px">
                                                                 <p>Oops.. Quote reply failed</p>
+                                                                <button class="btn btn-danger text-white" onclick="location.reload(true)">Reply Again</button>
                                                             </div>
                                                             <br>
                                                             <form method="POST" action="{{route('reply.send')}}" enctype="multipart/form-data" class="form"  id="replyForm">
@@ -131,7 +137,7 @@
                                                                             <input type="text" class="form-control mb-4" placeholder="{{$c->qty}}" value="{{$c->qty}}">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="profession">{{__('Packaging')}}</label>
+                                                                            <label for="profession">{{__('Other information')}}</label>
                                                                             <input type="text" class="form-control mb-4" placeholder="{{$c->packaging}}" value="{{$c->packaging}}">
                                                                         </div>
                                                                         <div class="form-group">
@@ -611,7 +617,7 @@
             .then(response => {
                 if (response.ok) {
                     document.getElementById('preloader').style.display = 'none';
-                    document.getElementById('replyForm').style.display = 'block';
+                    // document.getElementById('replyForm').style.display = 'block';
                     document.getElementById('quote-update-message').style.display = 'block';
                 } else {
                     document.getElementById('preloader').style.display = 'none';
