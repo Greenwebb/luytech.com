@@ -58,7 +58,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <img class="logo" src="https://luytech.com/public/web/assets/images/logo/logo-dark.png" alt="Company Logo">
+      <img class="logo" src="https://luytechzm.com/public/web/assets/images/logo/logo-dark.png" alt="Company Logo">
       <h1>Hello {{ $quote->user->fname.' '.$quote->user->lname  }},</h1>
       <p>We have received your quote. Thank you for your submission!</p>
 

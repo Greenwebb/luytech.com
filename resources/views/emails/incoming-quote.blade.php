@@ -57,7 +57,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <img class="logo" src="https://luytechzm.com/public/web/assets/images/logo/logo-dark.png" alt="Luytech">
+      <img class="logo" src="https://luytechzm.com/public/web/assets/images/logo/logo-dark.png" alt="Luytech"/>
       <h1>Hello Admin,</h1>
       <p>A new quote has been received.</p>
     </div>
