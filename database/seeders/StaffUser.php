@@ -6,7 +6,7 @@ use App\Models\User;
 use Hash;
 use Illuminate\Database\Seeder;
 
-class AdminUser extends Seeder
+class StaffUser extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,10 +16,10 @@ class AdminUser extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Administrator',
-            'fname' => 'Super',
-            'lname' => 'Administrator',
-            'email' => 'info@luytechzm.com',
+            'name' => 'Office',
+            'fname' => 'Office',
+            'lname' => 'Inquiries',
+            'email' => 'inquiries@luytechzm.com',
             'email_verified_at' => now(),
             'password' => Hash::make('luytech.@2023'), // hashing the password
         ]);
