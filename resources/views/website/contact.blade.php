@@ -29,35 +29,38 @@
               @csrf
               <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <div class="form-group"><input type="text" class="form-control" id="contact-name" name="full_name"
+                  <div class="form-group"><input disabled type="text" class="form-control" id="contact-name" name="full_name"
                       placeholder="Full Name" required></div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <div class="form-group"><input type="email" class="form-control" id="contact-email"
+                  <div class="form-group"><input disabled type="email" class="form-control" id="contact-email"
                       name="email" placeholder="Email" required></div>
                 </div><!-- /.col-lg-6 -->
               </div><!-- /.row -->
               <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <div class="form-group"><input type="text" class="form-control" placeholder="Phone" id="contact-Phone"
+                  <div class="form-group"><input disabled type="text" class="form-control" placeholder="Phone" id="contact-Phone"
                       name="phone" required></div>
                 </div><!-- /.col-lg-6 -->
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <div class="form-group"><input type="text" class="form-control" placeholder="Province"
+                  <div class="form-group"><input disabled type="text" class="form-control" placeholder="Province"
                       id="contact-province" name="province" required></div>
                 </div><!-- /.col-lg-6 -->
               </div><!-- /.row -->
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                   <div class="form-group">
-                    <textarea class="form-control" placeholder="Request Details" id="contact-message"
+                    <textarea class="form-control" disabled placeholder="Request Details" id="contact-message"
                       name="contact_message" required></textarea>
                   </div>
                 </div><!-- /.col-lg-12 -->
               </div><!-- /.row -->
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
-                  <button type="submit" class="btn btn__secondary btn__hover3 btn__block">Submit Request</button>
+                  {{-- <button type="submit" class="btn btn__secondary btn__hover3 btn__block">Submit Request</button> --}}
+                  <div class="px-2 text-center col-12">
+                      <p>This service is unavailable at the moment.</p>
+                  </div>
                 </div><!-- /.col-lg-12 -->
               </div><!-- /.row -->
             </form>
