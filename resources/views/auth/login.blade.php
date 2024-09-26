@@ -13,10 +13,10 @@
                 <div class="col-xl-8 col-lg-7 col-md-7 d-none d-md-block p-0">
                     <div class="login-bg">
                         <div class="left-content-area">
-                            <img src="https://luytech.greenwebbtech.com/public/web/assets/images/logo/logo-dark.png" class="logo"/>
-                            <div>
-                                <h2>{{__('Administration Use')}}</h2>
-                                <p>{{__('Vehicle shipping management system')}}</p>
+                            <img src="public/web/assets/images/logo/logo-dark.png" class="logo"/>
+                            <div class="text-dark">
+                                <h2 style="color: #000">{{__('Administration Use')}}</h2>
+                                <p style="color: #000">{{__('Vehicle shipping management system')}}</p>
                                 {{-- <a class="btn mt-4" href="{{ route('index') }}" type="button">{{__('Learn More')}}</a> --}}
                             </div>
                             <div class="d-flex align-items-center mt-4">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 col-md-5 p-0">
-                    <div class="login-two-start ml-2 mt-4 pt-4 justify-content-center items-center items-justify-center">
+                    {{-- <div class="login-two-start ml-2 mt-4 pt-4 justify-content-center items-center items-justify-center">
                         <div class="px-2">
                             <h2>Service Unavailable</h2>
                         </div>
@@ -37,8 +37,8 @@
                         <div class="px-2 mt-5">
                             <img width="300" style="border-radius: 10px" src="https://media.istockphoto.com/id/1254331563/vector/503-service-unavailable-error-page-a-hand-drawn-vector-layout-template-of-a-broken-robot.jpg?s=612x612&w=0&k=20&c=UWnaZbhx7it5WK1VbPmQPCIPMvNeOLYZneDcu6Mdifc=" alt="">
                         </div>
-                    </div>
-                    {{-- <form class="login-two-start" method="POST" action="{{ route('login') }}">
+                    </div> --}}
+                    <form class="login-two-start" method="POST" action="{{ route('login') }}">
                         @csrf
                         <h6 class="right-bar-heading px-3 mt-2 text-dark text-center font-30 text-uppercase">{{__('Login')}}</h6>
                         <p class="text-center text-muted mt-1 mb-3 font-14">{{__('Please Log into your account')}}</p>
@@ -75,14 +75,14 @@
                                 </div>
                                 {{__('Login')}}
                             </button>
-                            <a class="btn btn-sm btn-outline-primary btn-login w-100 ml-3 mr-3" href="{{url('/authentications/style2/signup')}}" type="button">
+                            {{-- <a class="btn btn-sm btn-outline-primary btn-login w-100 ml-3 mr-3" href="{{url('/authentications/style2/signup')}}" type="button">
                                 {{__('Signup')}}
-                            </a>
+                            </a> --}}
                         </div>
                         <div class="mt-4 text-center font-12 strong">
-                            <a href="{{url('/authentications/style2/forgot-password')}}" class="text-primary">{{__('Forgot your Password ?')}}</a>
+                            {{-- <a href="{{url('/authentications/style2/forgot-password')}}" class="text-primary">{{__('Forgot your Password ?')}}</a> --}}
                         </div>
-                        <div class="login-two-inputs mt-4">
+                        {{-- <div class="login-two-inputs mt-4">
                             <div class="find-us-container">
                                 <p class="find-us text-center">{{__('Continue With')}}</p>
                             </div>
@@ -93,8 +93,8 @@
                                 </a></div>
                             <div class="social-btn"><a href="javascript:void(0)" class="google-btn"><i class="lab la-google-plus"></i>
                                 </a></div>
-                        </div>
-                    </form> --}}
+                        </div> --}}
+                    </form>
                 </div>
             </div>
         </div>

@@ -16,12 +16,12 @@
         <div id="wizard">
             <h3>Business</h3>
             <section style="padding: 0px;">
-                {{-- <h4 class="step-heading">Select a Consignment type </h4>
+                <h4 class="step-heading">Select a Consignment type </h4>
                 <p class="fz-16 mb-45">Need dependable, cost effective transportation of your commodities?
                     Fill out
-                    our easy Quote Request Form below to get a fast quote on your job.</p> --}}
-                    {{-- Uncomment this --}}
-                {{-- <div class="purpose-radios-wrapper">
+                    our easy Quote Request Form below to get a fast quote on your job.</p> 
+                    
+                <div class="purpose-radios-wrapper">
                     <div class="purpose-radio">
                         <input type="radio" name="purpose" id="branding" class="purpose-radio-input" value="personal">
                         <label for="branding" class="purpose-radio-label">
@@ -44,16 +44,16 @@
                         </label>
                     </div>
 
-                </div> --}}
-                <div class="login-two-start ml-2 mt-4 pt-4 justify-content-center items-center items-justify-center">
+                </div>
+                {{-- <div class="login-two-start ml-2 mt-4 pt-4 justify-content-center items-center items-justify-center">
                     <div class="px-2">
                         <h2>Service Unavailable.</h2>
                     </div>
-                    {{-- <hr>
+                    <hr>
                     <div class="px-2 mt-5">
                         <img width="300" style="border-radius: 10px" src="https://media.istockphoto.com/id/1254331563/vector/503-service-unavailable-error-page-a-hand-drawn-vector-layout-template-of-a-broken-robot.jpg?s=612x612&w=0&k=20&c=UWnaZbhx7it5WK1VbPmQPCIPMvNeOLYZneDcu6Mdifc=" alt="">
-                    </div> --}}
-                </div>
+                    </div>
+                </div> --}}
             </section>
             
             <h3>Personal</h3>
