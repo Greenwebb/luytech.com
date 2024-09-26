@@ -47,62 +47,71 @@
                             <!-- Datatable go to last page -->
                             <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                                 <div class="widget-content widget-content-area br-6">
-                                    {{-- <h4 class="table-header">{{__('Go to last page of the datatable')}}</h4> --}}
                                     <div class="table-responsive mb-4">
                                         <table id="last-page-dt" class="table table-hover" style="width:100%">
                                             <thead>
-                                            <tr>
-                                                <th>{{__('Fullnames')}}</th>
-                                                <th>{{__('Email')}}</th>
-                                                <th>{{__('Phone')}}</th>
-                                                <th>{{__('Province')}}</th>
-                                                <th>{{__('Contact Message')}}</th>
-                                                <th>{{__('Sent On')}}</th>
-                                                <th class="no-content"></th>
-                                            </tr>
+                                                <tr>
+                                                    <th>{{__('Fullnames')}}</th>
+                                                    <th>{{__('Email')}}</th>
+                                                    <th>{{__('Phone')}}</th>
+                                                    <th>{{__('Province')}}</th>
+                                                    <th>{{__('Contact Message')}}</th>
+                                                    <th>{{__('Sent On')}}</th>
+                                                    <th class="no-content"></th>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                            
-                                            @forelse ($inquiries as $contact)
-                                            <tr>
-                                                <td>{{$contact->full_name}}</td>
-                                                <td>{{$contact->email}}</td>
-                                                <td>{{$contact->phone}}</td>
-                                                <td>{{$contact->province}}</td>
-                                                <td>{{$contact->contact_message}}</td>
-                                                <td>{{$contact->created_at->toFormattedDateString()}}</td>
-                                                <td class="text-center">
-                                                    <div class="dropdown custom-dropdown">
-                                                        <a class="dropdown-toggle font-20 text-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <i class="las la-cog"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style="will-change: transform;">
-                                                            <a class="dropdown-item" href="{{ route('contact.show', $contact->id) }}">{{__('View')}}</a>
-                                                            {{-- <a class="dropdown-item" href="javascript:void(0);">{{__('Delete')}}</a> --}}
+                                                @forelse ($inquiries as $contact)
+                                                <tr>
+                                                    <td>{{$contact->full_name}}</td>
+                                                    <td>{{$contact->email}}</td>
+                                                    <td>{{$contact->phone}}</td>
+                                                    <td>{{$contact->province}}</td>
+                                                    <td>{{ Str::limit($contact->contact_message, 24) }}...</td>
+                                                    <td>{{$contact->created_at->toFormattedDateString()}}</td>
+                                                    <td class="text-center">
+                                                        <div class="dropdown custom-dropdown">
+                                                            <a class="dropdown-toggle font-20 text-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <i class="las la-cog"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1" style="will-change: transform;">
+                                                                <a href="javascript:void(0);" 
+                                                                   class="dropdown-item view-contact-details" 
+                                                                   data-fullname="{{$contact->full_name}}" 
+                                                                   data-email="{{$contact->email}}" 
+                                                                   data-phone="{{$contact->phone}}" 
+                                                                   data-province="{{$contact->province}}" 
+                                                                   data-message="{{$contact->contact_message}}" 
+                                                                   data-senton="{{$contact->created_at->toFormattedDateString()}}">
+                                                                   {{__('View')}}
+                                                                </a>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            @empty
-                                                
-                                            @endforelse
-
+                                                    </td>
+                                                </tr>
+                                                @empty
+                                                    <tr><td colspan="7">{{__('No inquiries found.')}}</td></tr>
+                                                @endforelse
                                             </tbody>
                                             <tfoot>
-                                            <tr>
-                                                <th>{{__('Fullnames')}}</th>
-                                                <th>{{__('Email')}}</th>
-                                                <th>{{__('Phone')}}</th>
-                                                <th>{{__('Province')}}</th>
-                                                <th>{{__('Contact Message')}}</th>
-                                                <th>{{__('Sent On')}}</th>
-                                                <th></th>
-                                            </tr>
+                                                <tr>
+                                                    <th>{{__('Fullnames')}}</th>
+                                                    <th>{{__('Email')}}</th>
+                                                    <th>{{__('Phone')}}</th>
+                                                    <th>{{__('Province')}}</th>
+                                                    <th>{{__('Contact Message')}}</th>
+                                                    <th>{{__('Sent On')}}</th>
+                                                    <th></th>
+                                                </tr>
                                             </tfoot>
                                         </table>
                                     </div>
                                 </div>
                             </div>
+                            
+                            <!-- Include the modal HTML here -->
+                            @include('modals.contact-details')
+                            
                             
                         </div>
                     </div>
@@ -255,4 +264,30 @@
             } );
         } );
     </script>
+    <script>
+        $(document).ready(function() {
+            // Handle View button click
+            $('.view-contact-details').on('click', function() {
+                // Get the contact data from data attributes
+                var fullName = $(this).data('fullname');
+                var email = $(this).data('email');
+                var phone = $(this).data('phone');
+                var province = $(this).data('province');
+                var message = $(this).data('message');
+                var sentOn = $(this).data('senton');
+    
+                // Populate modal fields
+                $('#modalFullName').text(fullName);
+                $('#modalEmail').text(email);
+                $('#modalPhone').text(phone);
+                $('#modalProvince').text(province);
+                $('#modalMessage').text(message);
+                $('#modalSentOn').text(sentOn);
+    
+                // Show the modal
+                $('#contactDetailsModal').modal('show');
+            });
+        });
+    </script>
+    
 @endpush
