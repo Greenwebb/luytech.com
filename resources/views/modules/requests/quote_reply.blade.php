@@ -131,9 +131,10 @@
                                                                             <input readonly type="text" class="form-control mb-4" placeholder="{{$c->transmission}}" value="{{$c->transmission}}">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="profession">{{__('Total')}}</label>
-                                                                            <input type="text" class="form-control mb-4" name="car_cost[]" placeholder="" value="">
+                                                                            <label for="profession">{{__('Total (ZMW)')}}</label>
+                                                                            <input type="number" class="form-control mb-4 car-cost-input" name="car_cost[]" placeholder="" value="">
                                                                         </div>
+                                                                  
                                                                     </div>
                                                                     @empty
                                                                     @endforelse
@@ -166,8 +167,8 @@
                                                                             <input readonly type="text" class="form-control mb-4" placeholder="{{$c->packaging}}" value="{{$c->packaging}}">
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="profession">{{__('Total')}}</label>
-                                                                            <input type="text" class="form-control mb-4" name="goods_cost[]" placeholder="" value="">
+                                                                            <label for="profession">{{__('Total (ZMW)')}}</label>
+                                                                            <input type="number" class="form-control mb-4 car-cost-input" name="goods_cost[]" placeholder="" value="">
                                                                         </div>
                                                                     </div>
                                                                     @empty
@@ -655,6 +656,20 @@
                 console.error('Error:', error);
                 document.getElementById('quote-update-message2').style.display = 'block';
                 document.getElementById('preloader').style.display = 'none';
+            });
+        });
+    });
+
+    
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const carCostInputs = document.getElementsByClassName('car-cost-input');
+
+        Array.from(carCostInputs).forEach(function(input) {
+            input.addEventListener('input', function() {
+                // Remove any non-numeric characters
+                this.value = this.value.replace(/[^0-9.]/g, '');
             });
         });
     });
